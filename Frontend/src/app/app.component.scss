@@ -1,3 +1,20 @@
-mat-toolbar{
-  position: absolute; top : 0px; left:0px ; // pra ajeitar a toolbar
+/* Remover margens e espaços ao redor do body e html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+/* Fixar o mat-toolbar no topo */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+
+
+
