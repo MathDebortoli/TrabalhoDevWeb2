@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/trabalho/dev/web/DemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/trabalho/dev/web/DemoApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.config.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/ator/ator.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/ator/ator.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/ator/ator.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/ator/ator.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/inicio/inicio.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/inicio/inicio.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/inicio/inicio.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/inicio/inicio.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/main.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/src/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/tsconfig.spec.json" beforeDir="false" />
-    </list>
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,16 +33,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matheus/IntellijProjects/TrabalhoDevWeb2/backend",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/matheus/IntellijProjects/TrabalhoDevWeb2/backend&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
@@ -113,6 +70,7 @@
       <updated>1727715523590</updated>
       <workItem from="1727715524615" duration="20000" />
       <workItem from="1727715684963" duration="107000" />
+      <workItem from="1727716973474" duration="13000" />
     </task>
     <servers />
   </component>
