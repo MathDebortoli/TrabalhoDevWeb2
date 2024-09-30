@@ -1,20 +1,20 @@
 .form-container {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  padding-top: 50px; /* Espaço no topo para afastar o conteúdo do topo */
-  text-align: center; /* Centraliza o texto dentro do formulário */
+  justify-content: center; 
+  padding-top: 50px;
+  text-align: center;
 }
 
 .form-content {
   width: 100%;
-  max-width: 500px; /* Define uma largura máxima */
+  max-width: 500px;
   padding: 20px;
 }
 
 .example-full-width {
-  width: 100%; /* Garante que o input ocupe toda a largura */
+  width: 100%;
 }
 
 button {
-  width: 100%; /* Garante que o botão também ocupe toda a largura */
+  width: 100%;
 }
