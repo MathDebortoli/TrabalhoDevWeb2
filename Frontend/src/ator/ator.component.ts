@@ -9,7 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
   standalone: true,
   imports: [FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule],
   templateUrl: './ator.component.html',
-  styleUrl: './ator.component.scss'
+  styleUrl: './ator.component.scss'//fgfgf
 })
 export class AtorComponent {
 
