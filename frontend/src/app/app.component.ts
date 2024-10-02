@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common'; // Importe CommonModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Se você precisa de animações, mantenha
 
 @Component({
   selector: 'app-root',
@@ -15,32 +16,27 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     RouterLink,
     RouterLinkActive,
+    CommonModule, // Adicione aqui se necessário
   ],
-
-  template:`
-  <mat-toolbar color="primary">
-  <button mat-button [routerLink]="['/']">
-    <mat-icon>home</mat-icon> Início
-  </button>
-  <button mat-button [routerLink]="['/ator']">
-    Ator
-  </button>
-  <button mat-button [routerLink]="['/classe']">
-    Classe
-  </button>
-  <button mat-button [routerLink]="['/diretor']">
-    Diretor
-  </button>
-</mat-toolbar>
+  template: `
+    <mat-toolbar color="primary">
+      <button mat-button [routerLink]="['/']">
+        <mat-icon>home</mat-icon> Início
+      </button>
+      <button mat-button [routerLink]="['/ator']">
+        Ator
+      </button>
+      <button mat-button [routerLink]="['/classe']">
+        Classe
+      </button>
+      <button mat-button [routerLink]="['/diretor']">
+        Diretor
+      </button>
+    </mat-toolbar>
     <router-outlet></router-outlet>
-
-`,
+  `,
   styleUrls: ['./app.component.scss']
-
-}
-
-
-)
+})
 export class AppComponent {
   title = 'trabalho-angular';
 }

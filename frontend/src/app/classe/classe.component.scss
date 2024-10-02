@@ -1,21 +1,24 @@
 .form-container {
-    display: flex;
-    justify-content: center; 
-    padding-top: 50px;
-    text-align: center;
-  }
-  
-  .form-content {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
-  button {
-    width: 100%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.form-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.envio{
+  margin-top: 20px;
+}
+
+button {
+  width: 100%;
+}
