@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Ator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
+    private  Long id;
     @Column(nullable = false, length = 40)
     private String nome;
 
@@ -20,7 +20,11 @@ public class Ator {
 
     }
 
+    public Long getId() {
+        return id;
+    }
 
-
-
+    public String getNome() {
+        return nome;
+    }
 }
