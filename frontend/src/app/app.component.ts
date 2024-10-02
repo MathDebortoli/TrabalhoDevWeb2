@@ -14,7 +14,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     RouterLink,
     RouterLinkActive,
-
   ],
 
   template:`
@@ -25,15 +24,15 @@ import {MatIconModule} from '@angular/material/icon';
   <button mat-button [routerLink]="['/ator']">
     Ator
   </button>
-  <button mat-button>
+  <button mat-button [routerLink]="['/classe']">
     Classe
   </button>
-  <button mat-button>
+  <button mat-button [routerLink]="['/diretor']">
     Diretor
   </button>
 </mat-toolbar>
     <router-outlet></router-outlet>
-    
+
 `,
   styleUrls: ['./app.component.scss']
 
