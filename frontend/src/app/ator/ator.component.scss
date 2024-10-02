@@ -1,7 +1,7 @@
 .form-container {
   display: flex;
-  justify-content: center; 
-  padding-top: 50px;
+  justify-content: center;
+  padding-top: 40px;
   text-align: center;
 }
 
@@ -13,6 +13,14 @@
 
 .example-full-width {
   width: 100%;
+}
+
+.envio{
+  margin-top: 20px;
+}
+
+h1{
+  font-style: bold;
 }
 
 button {
