@@ -7,6 +7,12 @@
       <input matInput placeholder="Nome do ator" />
     </mat-form-field>
 
+    <div class="format">
+      <div>
+        <button mat-raised-button color="primary">Salvar Ator</button>
+      </div>
+    </div>
+
     <h1 class="envio">Lista de Atores</h1>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -49,9 +55,5 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-
-    <div class="envio">
-      <button mat-raised-button color="primary">Enviar</button>
-    </div>
   </div>
 </div>

@@ -15,12 +15,22 @@
   width: 100%;
 }
 
+.format{
+  display: flex;
+  justify-content: center;
+}
+
 th,td {
+  font-weight: bold;
   text-align: center;
 }
 
 button {
   width: 100%;
+}
+
+h1{
+  font-weight: bold;
 }
 
 .envio {

@@ -11,6 +11,11 @@
   padding: 20px;
 }
 
+.format{
+  display: flex;
+  justify-content: center;
+}
+
 .example-full-width {
   width: 100%;
 }
@@ -19,8 +24,13 @@
   margin-top: 20px;
 }
 
+th,td {
+  font-weight: bold;
+  text-align: center;
+}
+
 h1{
-  font-style: bold;
+  font-weight: bold;
 }
 
 button {

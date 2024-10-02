@@ -12,14 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 export interface PeriodicElement {
   name: string;
   position: number;
-  weight: number;
+  data: string;
+  valor: number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079 },
-  { position: 2, name: 'Helium', weight: 4.0026 },
-  { position: 3, name: 'Lithium', weight: 6.941 },
-  { position: 4, name: 'Beryllium', weight: 9.0122 },
+  { position: 1, data:"31/04/2012", valor:18, name: 'Hydrogen'},
+  { position: 2, data:"11/04/2002", valor:42, name: 'Helium'},
+  { position: 3, data:"10/12/2012", valor:12, name: 'Lithium'},
+  { position: 4, data:"04/02/2012", valor:20, name: 'Beryllium'},
 ];
 
 @Component({
@@ -40,6 +41,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class ClasseComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight'];
+  displayedColumns: string[] = ['position', 'data', 'valor', 'name' , 'action'];
   dataSource = ELEMENT_DATA;
 }

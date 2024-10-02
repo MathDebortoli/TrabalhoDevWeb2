@@ -19,6 +19,20 @@
   margin-top: 20px;
 }
 
+th,td {
+  font-weight: bold;
+  text-align: center;
+}
+
+.format{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  font-weight: bold;
+}
+
 button {
   width: 100%;
 }

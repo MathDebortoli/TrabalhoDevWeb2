@@ -1,65 +1,88 @@
 <div class="form-container">
-    <div class="form-content">
-      <h1>Cadastro de Classe</h1>
+  <div class="form-content">
+    <h1>Cadastro de Classe</h1>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Digite o Nome da Classe</mat-label>
-        <input matInput placeholder="Nome da classe">
-      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Digite o Nome da Classe</mat-label>
+      <input matInput placeholder="Nome da classe" />
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Digite o Valor</mat-label>
-        <input matInput placeholder="Valor">
-      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Digite o Valor</mat-label>
+      <input matInput placeholder="Valor" />
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Escolha a Data de Devolução</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Data de Devolução</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-      <h1 class="envio">Lista de Classes</h1>
+    <div class="format envio">
+      <div>
+        <button mat-raised-button color="primary">Salvar Ator</button>
+      </div>
+    </div>
 
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!--- Note that these columns can be defined in any order.
+    <h1 class="envio">Lista de Classes</h1>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>Id</th>
-          <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Nome</th>
-          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef>Ações</th>
-          <td mat-cell *matCellDef="let element">
-            <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">                <button mat-flat-button color="warn">
-                      <mat-icon>delete</mat-icon>
-                  </button>
-                  <button mat-flat-button color="accent">
-                      <mat-icon>edit</mat-icon>
-                  </button>
-              </div>
-          </td>
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
       </ng-container>
 
+      <!-- Name Column -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef>Data</th>
+        <td mat-cell *matCellDef="let element">{{ element.data }}</td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+      <!-- Name Column -->
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef>Valor</th>
+        <td mat-cell *matCellDef="let element">{{ element.valor }}</td>
+      </ng-container>
 
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
 
-      <div class="envio">
-        <button mat-raised-button color="primary">Enviar</button>
-      </div>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+            "
+          >
+            <button mat-flat-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-flat-button color="accent">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
 
-    </div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
   </div>
+</div>
