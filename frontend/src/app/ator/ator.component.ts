@@ -11,6 +11,7 @@ import {MatTableModule} from '@angular/material/table';
   imports: [FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule,MatTableModule],
   templateUrl: './ator.component.html',
   styleUrl: './ator.component.scss'
+  
 })
 export class AtorComponent {
 
