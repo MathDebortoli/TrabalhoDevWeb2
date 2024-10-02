@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Banco ok">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/DemoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/DemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/DemoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/ator/ator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/ator/ator.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,8 @@
       <workItem from="1727717003080" duration="435000" />
       <workItem from="1727720212079" duration="4000" />
       <workItem from="1727887120120" duration="238000" />
-      <workItem from="1727887421086" duration="3489000" />
+      <workItem from="1727887421086" duration="4822000" />
+      <workItem from="1727893028813" duration="570000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
@@ -114,14 +110,34 @@
       <option name="project" value="LOCAL" />
       <updated>1727717212887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hibernate conecta mas nao cria">
+      <option name="closed" value="true" />
+      <created>1727891152684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727891152684</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Banco ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Banco ok" />
+    <MESSAGE value="Hibernate conecta mas nao cria" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hibernate conecta mas nao cria" />
   </component>
 </project>
