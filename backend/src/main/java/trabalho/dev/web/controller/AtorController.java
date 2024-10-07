@@ -1,10 +1,14 @@
 package trabalho.dev.web.controller;
 
 
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@Service
-@RestController
+@Controller
 public class AtorController {
+
+    @GetMapping(value ="/CadastrarAtor")
+    public String getCadastroLivro() {
+        return "Cadastrar0aaaLivro";
+    }
 }

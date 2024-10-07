@@ -1,11 +1,11 @@
-package trabalho.dev.web.model;
+package trabalho.dev.web.model.domain;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class Classe {
+public class ClasseDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,11 @@ public class Classe {
     private Date data;
 
 
-    public Classe(String nome) {
+    public ClasseDomain(String nome) {
         this.nome = nome;
     }
 
-    public Classe(){
+    public ClasseDomain(){
     }
 
     public Long getId() {

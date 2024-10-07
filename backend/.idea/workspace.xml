@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="testes no hibernate">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/application/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/Ator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/AtorDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/Classe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/Diretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DiretorDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/DemoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/application/DemoApplication.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +37,12 @@
     &quot;assignee&quot;: &quot;MathDebortoli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MathDebortoli/TrabalhoDevWeb2.git",
-    "accountId": "2ed32b3b-2b93-4f51-8015-e0d9c93c2317"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
+    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -68,10 +75,15 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="trabalho.dev.web" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="trabalho.dev.web.application.DemoApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="trabalho.dev.web.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -80,8 +92,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -104,6 +116,8 @@
       <workItem from="1727896132922" duration="1503000" />
       <workItem from="1727899693341" duration="307000" />
       <workItem from="1727901077422" duration="1991000" />
+      <workItem from="1728330387677" duration="4494000" />
+      <workItem from="1728342784638" duration="2192000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
@@ -129,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727902996938</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testes no hibernate">
+      <option name="closed" value="true" />
+      <created>1728330442654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728330442654</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

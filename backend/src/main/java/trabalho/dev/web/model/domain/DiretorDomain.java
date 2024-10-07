@@ -1,9 +1,9 @@
-package trabalho.dev.web.model;
+package trabalho.dev.web.model.domain;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Diretor {
+public class DiretorDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,11 +12,11 @@ public class Diretor {
     @Column(nullable = false, length = 40)
     private String nome;
 
-    public Diretor(String nome) {
+    public DiretorDomain(String nome) {
         this.nome = nome;
     }
 
-    public Diretor(){
+    public DiretorDomain(){
     }
 
     public int getId() {
