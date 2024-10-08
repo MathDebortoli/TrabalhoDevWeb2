@@ -39,7 +39,7 @@ public class AtorController {
 
     @GetMapping("/Listar")
     public void getListarAtores() {
-        apl.getAtores();
+        System.out.println(apl.getAtores());
     }
 }
 

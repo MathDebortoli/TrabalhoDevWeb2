@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="testes no hibernate">
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Backend base pronta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/AtorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/AtorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/AtorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/AtorDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/AtorDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/AtorDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DiretorDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DiretorDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/AtorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/AtorController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -115,7 +110,10 @@
       <workItem from="1727899693341" duration="307000" />
       <workItem from="1727901077422" duration="1991000" />
       <workItem from="1728330387677" duration="4494000" />
-      <workItem from="1728342784638" duration="4347000" />
+      <workItem from="1728342784638" duration="4682000" />
+      <workItem from="1728388417274" duration="73000" />
+      <workItem from="1728388506503" duration="35000" />
+      <workItem from="1728388696743" duration="316000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
@@ -173,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728345673162</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Backend base pronta">
+      <option name="closed" value="true" />
+      <created>1728347425374</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728347425374</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +200,7 @@
     <MESSAGE value="Banco ok" />
     <MESSAGE value="Hibernate conecta mas nao cria" />
     <MESSAGE value="testes no hibernate" />
-    <option name="LAST_COMMIT_MESSAGE" value="testes no hibernate" />
+    <MESSAGE value="Backend base pronta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend base pronta" />
   </component>
 </project>
