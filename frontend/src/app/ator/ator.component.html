@@ -4,21 +4,20 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Digite o Nome do Ator</mat-label>
-      <input matInput placeholder="Nome do ator" />
+      <!-- Use ngModel para vincular o input ao componente -->
+      <input matInput id="nome" placeholder="Nome do ator" [(ngModel)]="nomeAtor" />
     </mat-form-field>
 
     <div class="format">
       <div>
-        <button mat-raised-button color="primary">Salvar Ator</button>
+        <!-- Passa o nome do ator para a função salvarAtor -->
+        <button mat-raised-button color="primary" (click)="salvarAtor(nomeAtor)">Salvar Ator</button>
       </div>
     </div>
 
     <h1 class="envio">Lista de Atores</h1>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
       <!-- Position Column -->
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -31,6 +30,7 @@
         <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
+      <!-- Ações Column -->
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let element">
