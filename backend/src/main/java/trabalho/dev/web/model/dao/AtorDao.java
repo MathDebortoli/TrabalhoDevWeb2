@@ -53,7 +53,7 @@ public class AtorDao {
     @Transactional
     public List<AtorDomain> getAtores() {
         try {
-            return entityManager.createQuery("from AtorDomain ", AtorDomain.class).getResultList();  // Substitui session.createQuery
+            return entityManager.createQuery("from Ator ", AtorDomain.class).getResultList();  // Substitui session.createQuery
         } catch (Exception e) {
             System.err.println("Erro ao buscar atores: " + e.getMessage());
             e.printStackTrace();

@@ -2,7 +2,7 @@ package trabalho.dev.web.model.domain;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "Diretor")
 public class DiretorDomain {
 
     @Id

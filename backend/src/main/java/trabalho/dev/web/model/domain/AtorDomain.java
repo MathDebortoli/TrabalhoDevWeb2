@@ -2,7 +2,7 @@ package trabalho.dev.web.model.domain;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "Ator")
 public class AtorDomain {
 
     @Id
@@ -14,6 +14,11 @@ public class AtorDomain {
 
     public AtorDomain(String nome) {
         this.nome = nome;
+    }
+
+    public AtorDomain(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
     }
 
     public AtorDomain(){

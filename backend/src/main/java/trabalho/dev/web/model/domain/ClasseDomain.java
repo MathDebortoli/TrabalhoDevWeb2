@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity
+@Entity(name = "Classe")
 public class ClasseDomain {
 
     @Id
