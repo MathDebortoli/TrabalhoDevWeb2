@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Ator Crud ok">
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/ClasseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/ClasseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/ClasseDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/ClasseDomain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
-    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
+    &quot;accountId&quot;: &quot;596e8201-d4bf-4c04-91b0-e1eaf439ffcb&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -62,15 +70,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="trabalho.dev.web" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
@@ -83,8 +86,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -106,12 +109,6 @@
       <workItem from="1727893028813" duration="570000" />
       <workItem from="1727896132922" duration="1503000" />
       <workItem from="1727899693341" duration="307000" />
-      <workItem from="1727901077422" duration="1991000" />
-      <workItem from="1728330387677" duration="4494000" />
-      <workItem from="1728342784638" duration="4682000" />
-      <workItem from="1728388417274" duration="73000" />
-      <workItem from="1728388506503" duration="35000" />
-      <workItem from="1728388696743" duration="2042000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
@@ -129,63 +126,7 @@
       <option name="project" value="LOCAL" />
       <updated>1727891152684</updated>
     </task>
-    <task id="LOCAL-00003" summary="testes no hibernate">
-      <option name="closed" value="true" />
-      <created>1727902996938</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1727902996938</updated>
-    </task>
-    <task id="LOCAL-00004" summary="testes no hibernate">
-      <option name="closed" value="true" />
-      <created>1728330442654</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1728330442654</updated>
-    </task>
-    <task id="LOCAL-00005" summary="testes no hibernate">
-      <option name="closed" value="true" />
-      <created>1728345201313</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1728345201313</updated>
-    </task>
-    <task id="LOCAL-00006" summary="testes no hibernate">
-      <option name="closed" value="true" />
-      <created>1728345638436</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1728345638436</updated>
-    </task>
-    <task id="LOCAL-00007" summary="testes no hibernate">
-      <option name="closed" value="true" />
-      <created>1728345673162</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1728345673162</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Backend base pronta">
-      <option name="closed" value="true" />
-      <created>1728347425374</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1728347425374</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Ator Crud ok">
-      <option name="closed" value="true" />
-      <created>1728389094440</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1728389094440</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,9 +146,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Banco ok" />
     <MESSAGE value="Hibernate conecta mas nao cria" />
-    <MESSAGE value="testes no hibernate" />
-    <MESSAGE value="Backend base pronta" />
-    <MESSAGE value="Ator Crud ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ator Crud ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hibernate conecta mas nao cria" />
   </component>
 </project>

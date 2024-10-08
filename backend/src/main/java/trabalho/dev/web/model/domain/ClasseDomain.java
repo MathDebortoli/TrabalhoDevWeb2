@@ -25,7 +25,10 @@ public class ClasseDomain {
         this.nome = nome;
     }
 
-    public ClasseDomain(){
+    public ClasseDomain( String nome, double valor, Date data) {
+        this.nome = nome;
+        this.valor = valor;
+        this.data = data;
     }
 
     public Long getId() {
