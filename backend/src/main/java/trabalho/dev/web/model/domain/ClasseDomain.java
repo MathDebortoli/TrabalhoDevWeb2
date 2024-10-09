@@ -21,14 +21,31 @@ public class ClasseDomain {
     private Date data;
 
 
+
     public ClasseDomain(String nome) {
         this.nome = nome;
     }
 
-    public ClasseDomain( String nome, double valor, Date data) {
+    public ClasseDomain(String nome, Long id) {
+        this.nome = nome;
+        this.id = id;
+    }
+
+    public ClasseDomain(String nome, double valor, Date data) {
         this.nome = nome;
         this.valor = valor;
         this.data = data;
+    }
+
+    public ClasseDomain(String nome, Long id, Date data, double valor) {
+        this.nome = nome;
+        this.id = id;
+        this.data = data;
+        this.valor = valor;
+    }
+
+    public ClasseDomain() {
+
     }
 
     public Long getId() {

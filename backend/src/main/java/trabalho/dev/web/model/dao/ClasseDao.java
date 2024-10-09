@@ -19,7 +19,7 @@ public class ClasseDao {
             entityManager.persist(classe);  // Substitui session.save(ator)
             return 1;
         } catch (Exception e) {
-            System.err.println("Erro ao adicionar ator: " + e.getMessage());
+            System.err.println("Erro ao adicionar Classe: " + e.getMessage());
             e.printStackTrace();
             return -1;
         }
@@ -28,10 +28,10 @@ public class ClasseDao {
     @Transactional
     public int removeClasse(ClasseDomain classe) {
         try {
-            entityManager.remove(entityManager.contains(classe) ? classe : entityManager.merge(classe));  // Substitui session.remove(ator)
+            entityManager.remove(entityManager.contains(classe) ? classe : entityManager.merge(classe));  // Substitui session.remove(Classe)
             return 1;
         } catch (Exception e) {
-            System.err.println("Erro ao remover ator: " + e.getMessage());
+            System.err.println("Erro ao remover Classe: " + e.getMessage());
             e.printStackTrace();
             return -1;
         }
@@ -40,10 +40,10 @@ public class ClasseDao {
     @Transactional
     public int editClasse(ClasseDomain classe) {
         try {
-            entityManager.merge(classe);  // Substitui session.update(ator)
+            entityManager.merge(classe);  // Substitui session.update(Classe)
             return 1;
         } catch (Exception e) {
-            System.err.println("Erro ao editar ator: " + e.getMessage());
+            System.err.println("Erro ao editar Classe: " + e.getMessage());
             e.printStackTrace();
             return -1;
         }
@@ -54,7 +54,7 @@ public class ClasseDao {
         try {
             return entityManager.createQuery("from Classe", ClasseDomain.class).getResultList();  // Substitui session.createQuery
         } catch (Exception e) {
-            System.err.println("Erro ao buscar atores: " + e.getMessage());
+            System.err.println("Erro ao buscar Classees: " + e.getMessage());
             e.printStackTrace();
             return null;
         }

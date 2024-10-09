@@ -19,6 +19,11 @@ public class DiretorDomain {
     public DiretorDomain(){
     }
 
+    public DiretorDomain(String nome, int id) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }

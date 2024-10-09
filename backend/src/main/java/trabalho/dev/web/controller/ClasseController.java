@@ -35,11 +35,32 @@ public class ClasseController {
     @GetMapping("/Cadastrar/{nome}/{valor}/{data}")
     public void getCadastrarClasse(@PathVariable String nome, @PathVariable double valor, @PathVariable String data) throws ParseException {
 
-        SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
 
         Date dataFormatada = formatoData.parse(data);
 
         ClasseDomain classe = new ClasseDomain(nome,valor,dataFormatada);
         apl.addClasse(classe);
+    }
+
+    @GetMapping("/Remover/{nome}/{id}")
+    public void getRemoverClasse(@PathVariable String nome, @PathVariable Long id) {
+        ClasseDomain classe = new ClasseDomain(nome, id);
+        apl.removeClasse(classe);
+    }
+
+    @GetMapping("/Editar/{nome}/{id}/{valor}/{data}")
+    public void getEditarClasse (@PathVariable String nome, @PathVariable Long id, @PathVariable String data, @PathVariable int valor) throws ParseException {
+
+        SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
+
+        Date dataFormatada = formatoData.parse(data);
+        ClasseDomain classe = new ClasseDomain(nome, id,dataFormatada,valor);
+        apl.editClasse(classe);
+    }
+
+    @GetMapping("/Listar")
+    public void getListarClasse() {
+        System.out.println(apl.getClasse());
     }
 }

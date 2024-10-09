@@ -18,16 +18,16 @@ public class ClasseApplication {
         this.dao = dao;
     }
 
-    public int addClasse(ClasseDomain ator) {
-        return dao.addClasse(ator);
+    public int addClasse(ClasseDomain classe) {
+        return dao.addClasse(classe);
     }
 
-    public int removeAtor(ClasseDomain ator) {
-        return dao.removeClasse(ator);
+    public int removeClasse(ClasseDomain classe) {
+        return dao.removeClasse(classe);
     }
 
-    public int editAtor(ClasseDomain ator) {
-        return dao.editClasse(ator);
+    public int editClasse(ClasseDomain classe) {
+        return dao.editClasse(classe);
     }
 
     public List<ClasseDomain> getClasse() {
