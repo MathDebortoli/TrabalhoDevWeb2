@@ -1,12 +1,13 @@
 package trabalho.dev.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import trabalho.dev.web.model.application.AtorApplication;
 import trabalho.dev.web.model.domain.AtorDomain;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/Ator")
@@ -19,27 +20,28 @@ public class AtorController {
         this.apl = apl;
     }
 
-    @GetMapping("/Cadastrar/{nome}")
-    public void getCadastrarAtor(@PathVariable String nome) {
-        AtorDomain ator = new AtorDomain(nome);
+    @PostMapping("/Cadastrar")
+        public ResponseEntity<AtorDomain> postCadastrarAtor(@RequestBody AtorDomain ator ) {
         apl.addAtor(ator);
+        return ResponseEntity.ok(ator);
     }
 
-    @GetMapping("/Remover/{nome}/{id}")
-    public void getRemoverAtor(@PathVariable String nome, @PathVariable int id) {
-        AtorDomain ator = new AtorDomain(nome, id);
+    @PostMapping("/Remover")
+    public ResponseEntity<AtorDomain> delRemoverAtor(@RequestBody AtorDomain ator) {
         apl.removeAtor(ator);
+        return ResponseEntity.ok(ator);
     }
 
-    @GetMapping("/Editar/{nome}/{id}")
-    public void getEditarAtor(@PathVariable String nome, @PathVariable int id) {
-        AtorDomain ator = new AtorDomain(nome, id);
+    @PutMapping("/Editar")
+    public ResponseEntity<AtorDomain> putEditarAtor(@RequestBody AtorDomain ator) {
         apl.editAtor(ator);
+        return ResponseEntity.ok(ator);
     }
 
     @GetMapping("/Listar")
-    public void getListarAtores() {
-        System.out.println(apl.getAtores());
+    public ResponseEntity<List<AtorDomain>> getAtores() {
+        List<AtorDomain> atores = apl.getAtores();
+        return ResponseEntity.ok(atores);
     }
 }
 
