@@ -54,7 +54,7 @@ public class DiretorDao {
     @Transactional
     public List<DiretorDomain> getDiretores() {
         try {
-            return entityManager.createQuery("from Ator ", DiretorDomain.class).getResultList();  // Substitui session.createQuery
+            return entityManager.createQuery("from Diretor ", DiretorDomain.class).getResultList();  // Substitui session.createQuery
         } catch (Exception e) {
             System.err.println("Erro ao buscar diretores: " + e.getMessage());
             e.printStackTrace();

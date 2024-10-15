@@ -8,7 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClasseDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/AtorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/AtorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/ClasseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/ClasseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
-    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
+    &quot;accountId&quot;: &quot;596e8201-d4bf-4c04-91b0-e1eaf439ffcb&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -81,8 +87,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +113,8 @@
       <workItem from="1728492247317" duration="2220000" />
       <workItem from="1728936038448" duration="3634000" />
       <workItem from="1728946680735" duration="4241000" />
+      <workItem from="1729015706809" duration="5785000" />
+      <workItem from="1729022400499" duration="2783000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />

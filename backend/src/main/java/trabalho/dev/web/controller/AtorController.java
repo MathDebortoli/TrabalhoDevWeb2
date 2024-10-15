@@ -27,13 +27,13 @@ public class AtorController {
     }
 
     @PostMapping("/Remover")
-    public ResponseEntity<AtorDomain> delRemoverAtor(@RequestBody AtorDomain ator) {
+    public ResponseEntity<AtorDomain> postRemoverAtor(@RequestBody AtorDomain ator) {
         apl.removeAtor(ator);
         return ResponseEntity.ok(ator);
     }
 
     @PostMapping("/Editar")
-    public ResponseEntity<AtorDomain> putEditarAtor(@RequestBody AtorDomain ator) {
+    public ResponseEntity<AtorDomain> postEditarAtor(@RequestBody AtorDomain ator) {
         apl.editAtor(ator);
         return ResponseEntity.ok(ator);
     }

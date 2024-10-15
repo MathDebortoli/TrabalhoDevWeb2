@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trabalho.dev.web.model.application.ClasseApplication;
+import trabalho.dev.web.model.domain.AtorDomain;
 import trabalho.dev.web.model.domain.ClasseDomain;
 
 import java.text.ParseException;
@@ -24,29 +25,22 @@ public class ClasseController {
 
     @PostMapping("/Cadastrar")
     public ResponseEntity<ClasseDomain> getCadastrarClasse(@RequestBody ClasseDomain classe) throws ParseException {
-
-        //SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
-        //Date dataFormatada = formatoData.parse(data);
-        //ClasseDomain classe = new ClasseDomain(nome,valor,dataFormatada);
-
         apl.addClasse(classe);
         return ResponseEntity.ok(classe);
     }
 
-    @GetMapping("/Remover/{nome}/{id}")
-    public void getRemoverClasse(@PathVariable String nome, @PathVariable Long id) {
-        ClasseDomain classe = new ClasseDomain(nome, id);
+    @PostMapping("/Remover")
+    public ResponseEntity<ClasseDomain> postRemoverClasse(@RequestBody ClasseDomain classe) {
+
         apl.removeClasse(classe);
+        return ResponseEntity.ok(classe);
     }
 
-    @GetMapping("/Editar/{nome}/{id}/{valor}/{data}")
-    public void getEditarClasse (@PathVariable String nome, @PathVariable Long id, @PathVariable String data, @PathVariable int valor) throws ParseException {
+    @PostMapping("/Editar")
+    public ResponseEntity<ClasseDomain> postEditarClasse(@RequestBody ClasseDomain classe)  {
 
-        SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
-
-        Date dataFormatada = formatoData.parse(data);
-        ClasseDomain classe = new ClasseDomain(nome, id,dataFormatada,valor);
         apl.editClasse(classe);
+        return ResponseEntity.ok(classe);
     }
 
     @GetMapping("/Listar")
