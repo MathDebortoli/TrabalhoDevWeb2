@@ -21,13 +21,21 @@
       <!-- Position Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let element">{{ element.id}}</td>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let element">{{ element.nome}}</td>
+        <td mat-cell *matCellDef="let element">
+          <!-- Se o id for o que está sendo editado, exibe um input. Caso contrário, exibe o nome. -->
+          <ng-container *ngIf="editandoId !== element.id; else editando">
+            {{ element.nome }}
+          </ng-container>
+          <ng-template #editando>
+            <input matInput [(ngModel)]="element.nome" />
+          </ng-template>
+        </td>
       </ng-container>
 
       <!-- Ações Column -->
@@ -42,11 +50,36 @@
               gap: 8px;
             "
           >
-          <button mat-flat-button color="warn" (click)="deletarAtor(element.id, element.nome)">              <mat-icon>delete</mat-icon>
-            </button>
-            <button mat-flat-button color="accent">
-              <mat-icon>edit</mat-icon>
-            </button>
+            <!-- Mostrar o botão de editar/excluir apenas se não estiver editando -->
+            <ng-container *ngIf="editandoId !== element.id">
+              <button
+                mat-flat-button
+                color="warn"
+                (click)="deletarAtor(element.id, element.nome)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button
+                mat-flat-button
+                color="accent"
+                (click)="editarAtor(element)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </ng-container>
+            <!-- Mostrar botões de salvar e cancelar ao editar -->
+            <ng-container *ngIf="editandoId === element.id">
+              <button
+                mat-flat-button
+                color="primary"
+                (click)="salvarEdicao(element.nome)"
+              >
+                <mat-icon>save</mat-icon>
+              </button>
+              <button mat-flat-button class="btn-cancel" (click)="cancelarEdicao()">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </ng-container>
           </div>
         </td>
       </ng-container>

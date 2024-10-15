@@ -1,18 +1,15 @@
 package trabalho.dev.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import trabalho.dev.web.model.application.AtorApplication;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import trabalho.dev.web.model.application.ClasseApplication;
-import trabalho.dev.web.model.domain.AtorDomain;
 import trabalho.dev.web.model.domain.ClasseDomain;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/Classe")
@@ -22,25 +19,18 @@ public class ClasseController {
 
     @Autowired
     public ClasseController(ClasseApplication apl) {
-
         this.apl= apl;
     }
 
-    @GetMapping(value ="/CadastrarClasse")
-    public String getCadastroLivro() {
-        return "";
-    }
+    @PostMapping("/Cadastrar")
+    public ResponseEntity<ClasseDomain> getCadastrarClasse(@RequestBody ClasseDomain classe) throws ParseException {
 
+        //SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
+        //Date dataFormatada = formatoData.parse(data);
+        //ClasseDomain classe = new ClasseDomain(nome,valor,dataFormatada);
 
-    @GetMapping("/Cadastrar/{nome}/{valor}/{data}")
-    public void getCadastrarClasse(@PathVariable String nome, @PathVariable double valor, @PathVariable String data) throws ParseException {
-
-        SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
-
-        Date dataFormatada = formatoData.parse(data);
-
-        ClasseDomain classe = new ClasseDomain(nome,valor,dataFormatada);
         apl.addClasse(classe);
+        return ResponseEntity.ok(classe);
     }
 
     @GetMapping("/Remover/{nome}/{id}")
@@ -60,7 +50,8 @@ public class ClasseController {
     }
 
     @GetMapping("/Listar")
-    public void getListarClasse() {
-        System.out.println(apl.getClasse());
+    public ResponseEntity<List<ClasseDomain>> getListarClasse() {
+        List<ClasseDomain> classes = apl.getClasse();
+        return ResponseEntity.ok(classes);
     }
 }

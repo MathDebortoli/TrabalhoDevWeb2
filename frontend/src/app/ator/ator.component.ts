@@ -6,18 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; // <-- Corrigido aqui
+import { CommonModule } from '@angular/common'; // <-- Importe aqui o CommonModule
 
 export interface Ator {
   id: number;
   nome: string;
 }
-
-const ELEMENT_DATA: Ator[] = [
-  { id: 1, nome: 'Hydrogen' },
-  { id: 2, nome: 'Helium' },
-  { id: 3, nome: 'Lithium' },
-  { id: 4, nome: 'Beryllium' },
-];
 
 @Component({
   selector: 'app-ator',
@@ -30,7 +24,8 @@ const ELEMENT_DATA: Ator[] = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule,
   ],
   styleUrls: ['./ator.component.scss'],
 })
@@ -38,11 +33,14 @@ const ELEMENT_DATA: Ator[] = [
 export class AtorComponent {
   private apiUrl = 'http://localhost:8080/Ator';  // URL base da sua API
   nomeAtor: string = '';  // Variável que armazenará o nome do input
-
+  editandoId: number | null = null; // Armazena o id do ator que está sendo editado
+  nomeOriginal: string = ''; // Armazena o nome original antes de editar
   displayedColumns: string[] = ['id', 'nome', 'acoes'];
-  dataSource = ELEMENT_DATA;
+  dataSource = [] as Ator[]; // Array de atores
 
-  constructor(private http: HttpClient) {}  // <-- Corrigido aqui
+  constructor(private http: HttpClient) {
+    this.listarAtores();
+  }
 
   salvarAtor() {
     const ator = { nome: this.nomeAtor }; // Cria um objeto JSON com o nome do ator
@@ -71,19 +69,21 @@ export class AtorComponent {
       });
   }
 
-  editarAtor() {
-    this.http.get<Ator[]>(`${this.apiUrl}/Editar`)
-    .subscribe({
-      next: () => {
-        console.log('Ator salvo com sucesso!');
-        this.nomeAtor = ''; // Limpa o input após salvar
-        this.listarAtores(); // Atualiza a lista de atores
-      },
-      error: err => {
-        console.error('Erro ao salvar o ator:', err);
-      }
-    });
-  }
+  salvarEdicao(nomeA: string) {
+    const ator = { id: this.editandoId, nome: nomeA }; // Aqui, `nomeA` deve ser uma string
+    console.log(ator); // Isso mostrará o objeto que está sendo enviado
+    this.http.post(`${this.apiUrl}/Editar`, ator)
+        .subscribe({
+            next: () => {
+                this.listarAtores(); // Atualiza a lista de atores
+                this.editandoId = null; // Reseta o id após salvar
+            },
+            error: err => {
+                console.error('Erro ao editar o ator:', err);
+            }
+        });
+}
+
 
   deletarAtor(id: number, nome: string) {
     const confirmDelete = confirm(`Tem certeza que deseja deletar o ator ${nome}?`);
@@ -101,6 +101,20 @@ export class AtorComponent {
           }
         });
     }
+  }
+
+  editarAtor(element: Ator) {
+    this.editandoId = element.id; // Define o id do ator que está sendo editado
+    this.nomeOriginal = element.nome; // Armazena o nome original
+  }
+
+  cancelarEdicao() {
+    // Restaura o nome original na lista
+    const atorEditado = this.dataSource.find(ator => ator.id === this.editandoId);
+    if (atorEditado) {
+      atorEditado.nome = this.nomeOriginal;
+    }
+    this.editandoId = null; // Reseta o estado de edição
   }
 
 }

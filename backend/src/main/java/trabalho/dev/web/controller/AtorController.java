@@ -32,7 +32,7 @@ public class AtorController {
         return ResponseEntity.ok(ator);
     }
 
-    @PutMapping("/Editar")
+    @PostMapping("/Editar")
     public ResponseEntity<AtorDomain> putEditarAtor(@RequestBody AtorDomain ator) {
         apl.editAtor(ator);
         return ResponseEntity.ok(ator);

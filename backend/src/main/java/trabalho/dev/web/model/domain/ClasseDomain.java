@@ -21,7 +21,6 @@ public class ClasseDomain {
     private Date data;
 
 
-
     public ClasseDomain(String nome) {
         this.nome = nome;
     }
