@@ -43,6 +43,10 @@ export class AtorComponent {
   }
 
   salvarAtor() {
+    if(this.nomeAtor === '') {
+      alert('O nome do ator não pode ser vazio!');
+      return;
+    }
     const ator = { nome: this.nomeAtor }; // Cria um objeto JSON com o nome do ator
     this.http.post(`${this.apiUrl}/Cadastrar`, ator)
       .subscribe({

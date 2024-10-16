@@ -49,6 +49,11 @@ export class DiretorComponent {
 
 
   salvarDiretor() {
+    if(this.nomeDiretor === '') {
+      alert('O nome do diretor não pode ser vazio!');
+      return;
+    }
+
     const diretor = { nome: this.nomeDiretor }; // Cria um objeto JSON com o nome do ator
     this.http.post(`${this.apiUrl}/Cadastrar`, diretor)
       .subscribe({

@@ -86,6 +86,11 @@ export class ClasseComponent {
 
 
   salvarClasse() {
+    if(this.nomeClasse === '' || this.valorClasse === 0) {
+      alert('Erro no Salvamento!');
+      return;
+    }
+
     const classe = { nome: this.nomeClasse, valor: this.valorClasse, data: this.dataClasse}; // Cria um objeto JSON com o nome da classe
     this.http.post(`${this.apiUrl}/Cadastrar`, classe)
       .subscribe({
@@ -141,6 +146,9 @@ export class ClasseComponent {
             next: () => {
                 this.listarClasses(); // Atualiza a lista de classe
                 this.editandoId = null; // Reseta o id após salvar
+                this.nomeClasse = ""; // Armazena o nome original
+                this.dataClasse = new Date();
+                this.valorClasse=0;
             },
             error: err => {
                 console.error('Erro ao editar o classe:', err);
@@ -161,6 +169,8 @@ export class ClasseComponent {
     const classeEditada = this.dataSource.find(classe => classe.id === this.editandoId);
     if (classeEditada) {
       classeEditada.nome = this.nomeClasse;
+      classeEditada.data = this.dataClasse;
+      classeEditada.valor = this.valorClasse;
     }
     this.editandoId = null; // Reseta o estado de edição
     this.nomeClasse = ""; // Armazena o nome original

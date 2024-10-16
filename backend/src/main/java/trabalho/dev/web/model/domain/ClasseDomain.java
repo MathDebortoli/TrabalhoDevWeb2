@@ -20,7 +20,6 @@ public class ClasseDomain {
     @Column(nullable = false)
     private Date data;
 
-
     public ClasseDomain(String nome) {
         this.nome = nome;
     }
