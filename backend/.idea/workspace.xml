@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +35,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/MathDebortoli/TrabalhoDevWeb2.git",
-    "accountId": "309d3fad-3ce8-4017-9290-ed2582d15696"
+    "accountId": "2ed32b3b-2b93-4f51-8015-e0d9c93c2317"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -75,6 +79,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,6 +111,7 @@
       <workItem from="1729015706809" duration="5785000" />
       <workItem from="1729022400499" duration="2783000" />
       <workItem from="1729080197482" duration="1252000" />
+      <workItem from="1729529497500" duration="2001000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
