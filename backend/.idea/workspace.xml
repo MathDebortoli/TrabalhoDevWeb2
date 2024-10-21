@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +31,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/MathDebortoli/TrabalhoDevWeb2.git",
-    "accountId": "2ed32b3b-2b93-4f51-8015-e0d9c93c2317"
+    "accountId": "596e8201-d4bf-4c04-91b0-e1eaf439ffcb"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -82,8 +78,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -112,6 +108,7 @@
       <workItem from="1729022400499" duration="2783000" />
       <workItem from="1729080197482" duration="1252000" />
       <workItem from="1729529497500" duration="2001000" />
+      <workItem from="1729531696573" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />

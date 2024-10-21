@@ -71,7 +71,7 @@ export class DiretorComponent {
   salvarEdicao(nomeA: string) {
     const ator = { id: this.editandoId, nome: nomeA }; // Aqui, `nomeA` deve ser uma string
     console.log(ator); // Isso mostrará o objeto que está sendo enviado
-    this.http.post(`${this.apiUrl}/Editar`, ator)
+    this.http.put(`${this.apiUrl}/Editar`, ator)
         .subscribe({
             next: () => {
                 this.listarDiretores(); // Atualiza a lista de atores
@@ -97,9 +97,9 @@ export class DiretorComponent {
 
   deletarDiretor(id: number, nome: string) {
     const confirmDelete = confirm(`Tem certeza que deseja deletar o diretor ${nome}?`);
-    const ator = { id: id, nome: nome };
+    const diretor = { id: id, nome: nome };
     if (confirmDelete) {
-      this.http.post(`${this.apiUrl}/Remover`,ator)
+      this.http.delete(`${this.apiUrl}/Remover`, { body: diretor })
         .subscribe({
           next: () => {
             console.log(`Diretor${nome} deletado com sucesso!`);

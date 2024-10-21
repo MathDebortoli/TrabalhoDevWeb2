@@ -123,7 +123,7 @@ export class ClasseComponent {
     const confirmDelete = confirm(`Tem certeza que deseja deletar a classe ${nome}?`);
     const classe = { id: id, nome: nome,data: data, valor: valor };
     if (confirmDelete) {
-      this.http.post(`${this.apiUrl}/Remover`,classe)
+      this.http.delete(`${this.apiUrl}/Remover`,{ body: classe})
         .subscribe({
           next: () => {
             console.log(`Classe ${nome} deletado com sucesso!`);
@@ -141,7 +141,7 @@ export class ClasseComponent {
   salvarEdicao(nomeA: string, valorA: number, dataA: Date) {
     const classe = { id: this.editandoId, nome:nomeA,valor:valorA,data:dataA}; // Aqui, `nomeA` deve ser uma string
     console.log(classe); // Isso mostrará o objeto que está sendo enviado
-    this.http.post(`${this.apiUrl}/Editar`, classe)
+    this.http.put(`${this.apiUrl}/Editar`, classe)
         .subscribe({
             next: () => {
                 this.listarClasses(); // Atualiza a lista de classe
