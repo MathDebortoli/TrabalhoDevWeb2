@@ -1,0 +1,44 @@
+<div class="form-container">
+  <div class="form-content">
+    <h1>Cadastro de Item</h1>
+    <div class="forms">
+
+      <div class="nome">
+        <mat-form-field class="example-full-width" id="nome">
+          <mat-label>Digite o Número de Série</mat-label>
+          <input matInput placeholder="Nome da classe" [(ngModel)]="numSerie"/>
+        </mat-form-field>
+      </div>
+
+      <div class="valor">
+        <mat-form-field class="example-full-width" id="titulo">
+          <mat-label>Selecione o Titulo</mat-label>
+          <mat-select [(ngModel)]="titulo">
+            <mat-option *ngFor="let item of items" [value]="item.titulo">{{ item.titulo }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field  class="example-full-width" id ="tipo">
+        <mat-label>Selecione o Tipo</mat-label>
+        <mat-select [(value)]="selected" >
+          <mat-option value="fita">Fita</mat-option>
+          <mat-option value="dvd">DVD</mat-option>
+          <mat-option value="bluray">Blu-ray</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width" id="devolucao">
+      <mat-label>Data de Aquisição</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="dataAquisicao" placeholder="dd/MM/yyyy" />
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="format">
+      <button mat-raised-button color="primary" id="botaoenviar">Salvar Item</button>
+    </div>
+
+    <h1 class="envio">Lista de Items</h1>
+
+
+  </div>

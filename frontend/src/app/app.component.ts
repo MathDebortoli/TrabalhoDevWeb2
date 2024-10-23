@@ -31,6 +31,10 @@ import { CommonModule } from '@angular/common'; // Importe CommonModule
       <button mat-button [routerLink]="['/diretor']">
         Diretor
       </button>
+      <button mat-button [routerLink]="['/item']">
+        Item
+      </button>
+
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,

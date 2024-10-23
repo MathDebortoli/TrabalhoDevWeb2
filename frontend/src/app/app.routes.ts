@@ -6,6 +6,7 @@ import { AtorComponent } from './ator/ator.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ClasseComponent } from './classe/classe.component';
 import { DiretorComponent } from './diretor/diretor.component';
+import { ItemComponent } from './item/item.component';
 
 
 export const routes: Routes = [
@@ -24,4 +25,8 @@ export const routes: Routes = [
   { path: 'diretor',
     component: DiretorComponent
   },
+  {
+    path:'item',
+    component: ItemComponent
+  }
 ];
