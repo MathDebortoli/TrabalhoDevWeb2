@@ -1,0 +1,89 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  text-align: center;
+}
+
+th{
+  font-size: 20px;
+}
+
+h1{
+  font-size: 40px;
+}
+
+#valor {
+  width: 35%;
+}
+ #ano {
+  width: 20%;
+
+}
+
+#atores{
+  width: 35%;
+}
+
+#sinopse{
+  width: 50%;
+
+}
+#categoria{
+  width:27%;
+}
+
+#titulo{
+  width: 30%;
+}
+
+#nome{
+  width: 45%;
+}
+
+.btn-cancel {
+  background-color: #ff9800; /* Escolha a cor que desejar */
+  color: white; /* Cor do texto */
+}
+
+.btn-cancel:hover {
+  background-color: #e68900; /* Cor ao passar o mouse */
+}
+
+
+.form-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.envio{
+  margin-top: 50px;
+}
+
+
+th,td {
+  font-weight: bold;
+  text-align: center;
+}
+
+.format{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  font-weight: bold;
+}
+
+
+#botaoenviar{
+  width: 15%;
+}
+button {
+  width: 100%;
+}

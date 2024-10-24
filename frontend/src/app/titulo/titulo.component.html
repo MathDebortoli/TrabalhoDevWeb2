@@ -1,0 +1,70 @@
+<div class="form-container">
+  <div class="form-content">
+    <h1>Cadastro de Título</h1>
+    <div class="forms">
+
+      <div class="nome">
+        <mat-form-field class="example-full-width" id="nome">
+          <mat-label>Digite o Nome do Título</mat-label>
+          <input matInput placeholder="Nome da classe" [(ngModel)]="nome"/>
+        </mat-form-field>
+      </div>
+
+
+      <div class="atores">
+        <mat-form-field class="example-full-width" id="atores">
+          <mat-label>Digite os atores</mat-label>
+          <input matInput placeholder="Nome da classe" [(ngModel)]="atores"/>
+        </mat-form-field>
+      </div>
+
+      <div class="diretor">
+        <mat-form-field class="example-full-width" id="titulo">
+          <mat-label>Selecione o Titulo</mat-label>
+          <mat-select [(ngModel)]="diretor">
+            <mat-option *ngFor="let titulo of titulos" [value]="titulo.diretor">{{ titulo.diretor }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="ano">
+        <mat-form-field class="example-full-width" id="ano">
+          <mat-label>Digite o Ano de Lançamento </mat-label>
+          <input matInput placeholder="Numero de serie" [(ngModel)]="ano"/>
+        </mat-form-field>
+      </div>
+
+      <div class="sinopse">
+      <mat-form-field class="example-full-width"id = "sinopse">
+        <mat-label>Escreva a Sinopse</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."[(ngModel)]="sinopse" ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="categoria">
+      <mat-form-field class="example-full-width" id="categoria">
+        <mat-label>Digite a Categoria</mat-label>
+        <input matInput placeholder="Numero de serie" [(ngModel)]="ano"/>
+      </mat-form-field>
+    </div>
+
+    <div class="classe">
+      <mat-form-field class="example-full-width" id="titulo">
+        <mat-label>Selecione a Classe</mat-label>
+        <mat-select [(ngModel)]="classe">
+          <mat-option *ngFor="let titulo of titulos" [value]="titulo.classe">{{ titulo.classe }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="format">
+      <button mat-raised-button color="primary" id="botaoenviar">Salvar Título</button>
+    </div>
+
+    <h1 class="envio">Lista de Títulos</h1>
+
+
+    </div>
+
+
