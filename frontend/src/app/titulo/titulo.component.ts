@@ -1,7 +1,7 @@
 import { DatePipe, CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -37,6 +37,7 @@ export interface Titulo {
     DatePipe,
     CommonModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './titulo.component.html',
   styleUrl: './titulo.component.scss'
@@ -54,7 +55,8 @@ export class TituloComponent {
   categoria: string = '';
   classe: string = '';
   selected = '';
-
+  actores = new FormControl('');
+  atoresList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   titulos: Titulo[] = [
     { nome: 'O Poderoso Chefão', atores: 'Marlon Brando, Al Pacino, James Caan', diretor: 'Francis Ford Coppola', ano: 1972, sinopse: 'A história', categoria: 'Drama', classe: 'A' },

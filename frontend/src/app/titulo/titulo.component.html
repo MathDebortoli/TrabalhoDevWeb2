@@ -13,14 +13,17 @@
 
       <div class="atores">
         <mat-form-field class="example-full-width" id="atores">
-          <mat-label>Digite os atores</mat-label>
-          <input matInput placeholder="Nome da classe" [(ngModel)]="atores"/>
+          <mat-label>Selecione os atores</mat-label>
+          <mat-select [formControl]="actores" multiple>
+            <mat-option *ngFor="let ator of atoresList" [value]="ator">{{ ator }}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
 
+
       <div class="diretor">
         <mat-form-field class="example-full-width" id="titulo">
-          <mat-label>Selecione o Titulo</mat-label>
+          <mat-label>Selecione o Diretor</mat-label>
           <mat-select [(ngModel)]="diretor">
             <mat-option *ngFor="let titulo of titulos" [value]="titulo.diretor">{{ titulo.diretor }}</mat-option>
           </mat-select>
@@ -37,14 +40,16 @@
       <div class="sinopse">
       <mat-form-field class="example-full-width"id = "sinopse">
         <mat-label>Escreva a Sinopse</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."[(ngModel)]="sinopse" ></textarea>
+        <textarea matInput placeholder="Escreva a sinopse aqui..."[(ngModel)]="sinopse" ></textarea>
       </mat-form-field>
     </div>
 
     <div class="categoria">
       <mat-form-field class="example-full-width" id="categoria">
-        <mat-label>Digite a Categoria</mat-label>
-        <input matInput placeholder="Numero de serie" [(ngModel)]="ano"/>
+        <mat-label>Selecione a categoria</mat-label>
+        <mat-select [(ngModel)]="categoria">
+          <mat-option *ngFor="let titulo of titulos" [value]="titulo.categoria">{{ titulo.categoria }}</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
