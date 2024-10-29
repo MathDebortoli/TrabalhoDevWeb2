@@ -1,0 +1,69 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d6e54e2d-0675-4a1b-8e36-fc18c84130f9\" name=\"Changes\" comment=\"Hibernate conecta mas nao cria\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;MathDebortoli&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/MathDebortoli/TrabalhoDevWeb2.git\",\n    \"accountId\": \"2ed32b3b-2b93-4f51-8015-e0d9c93c2317\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"2mnbw1d7K4SniCSwRrtdDaygyqs\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,\n    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,\n    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,\n    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucas/OneDrive/Área de Trabalho/TrabalhoDevWeb2/backend&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"DemoApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\n      <module name=\"demo\" />\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"trabalho.dev.web.DemoApplication\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d6e54e2d-0675-4a1b-8e36-fc18c84130f9\" name=\"Changes\" comment=\"\" />\n      <created>1727715523590</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1727715523590</updated>\n      <workItem from=\"1727715524615\" duration=\"20000\" />\n      <workItem from=\"1727715684963\" duration=\"107000\" />\n      <workItem from=\"1727716973474\" duration=\"13000\" />\n      <workItem from=\"1727717003080\" duration=\"435000\" />\n      <workItem from=\"1727720212079\" duration=\"4000\" />\n      <workItem from=\"1727887120120\" duration=\"238000\" />\n      <workItem from=\"1727887421086\" duration=\"4822000\" />\n      <workItem from=\"1727893028813\" duration=\"570000\" />\n      <workItem from=\"1727896132922\" duration=\"1503000\" />\n      <workItem from=\"1727899693341\" duration=\"307000\" />\n      <workItem from=\"1728492247317\" duration=\"2220000\" />\n      <workItem from=\"1728936038448\" duration=\"3634000\" />\n      <workItem from=\"1728946680735\" duration=\"4241000\" />\n      <workItem from=\"1729015706809\" duration=\"5785000\" />\n      <workItem from=\"1729022400499\" duration=\"2783000\" />\n      <workItem from=\"1729080197482\" duration=\"1252000\" />\n      <workItem from=\"1729529497500\" duration=\"2001000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Banco ok\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1727717212887</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1727717212887</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Hibernate conecta mas nao cria\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1727891152684</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1727891152684</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Banco ok\" />\n    <MESSAGE value=\"Hibernate conecta mas nao cria\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Hibernate conecta mas nao cria\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 14ff36609ed05f3d3cedfc2cb080d99099effbab)
++++ b/.idea/workspace.xml	(date 1729532284315)
+@@ -4,13 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/DiretorController.java" afterDir="false" />
+-    </list>
++    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Swagger add" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -111,7 +105,7 @@
+       <workItem from="1729015706809" duration="5785000" />
+       <workItem from="1729022400499" duration="2783000" />
+       <workItem from="1729080197482" duration="1252000" />
+-      <workItem from="1729529497500" duration="2001000" />
++      <workItem from="1729529497500" duration="2787000" />
+     </task>
+     <task id="LOCAL-00001" summary="Banco ok">
+       <option name="closed" value="true" />
+@@ -129,7 +123,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1727891152684</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Swagger add">
++      <option name="closed" value="true" />
++      <created>1729531624748</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1729531624748</updated>
++    </task>
++    <task id="LOCAL-00004" summary="Swagger add">
++      <option name="closed" value="true" />
++      <created>1729531644703</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1729531644703</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -149,6 +159,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Banco ok" />
+     <MESSAGE value="Hibernate conecta mas nao cria" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Hibernate conecta mas nao cria" />
++    <MESSAGE value="Swagger add" />
++    <option name="LAST_COMMIT_MESSAGE" value="Swagger add" />
+   </component>
+ </project>
+\ No newline at end of file
