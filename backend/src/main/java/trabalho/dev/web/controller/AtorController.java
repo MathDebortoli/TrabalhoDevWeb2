@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/Ator")
-@Tag(name = "AtorController", description = "Fornece serviços web REST para acesso e manipulação de dados de atores.")
+@Tag(name = "AtorController", description = "Fornece serviços web REST para acesso e manipulação de dados de Ator.")
 public class AtorController {
 
     private final AtorApplication apl;

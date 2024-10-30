@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DiretorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DiretorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ItemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ItemApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ItemDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ItemDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/TituloDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/TituloDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DiretorApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DiretorApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/DiretorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/DiretorDao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

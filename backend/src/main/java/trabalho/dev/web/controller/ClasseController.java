@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Classe")
-@Tag(name = "ClasseController", description = "Fornece serviços web REST para acesso e manipulação de dados de Classes.")
+@Tag(name = "ClasseController", description = "Fornece serviços web REST para acesso e manipulação de dados de Classe.")
 public class ClasseController {
     ClasseApplication apl;
 

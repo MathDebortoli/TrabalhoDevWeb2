@@ -2,9 +2,7 @@ package trabalho.dev.web.model.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import trabalho.dev.web.model.dao.AtorDao;
 import trabalho.dev.web.model.dao.DiretorDao;
-import trabalho.dev.web.model.domain.AtorDomain;
 import trabalho.dev.web.model.domain.DiretorDomain;
 
 import java.util.List;

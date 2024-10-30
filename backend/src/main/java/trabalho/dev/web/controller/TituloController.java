@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Titulo")
-@Tag(name = "TituloController", description = "Fornece serviços web REST para acesso e manipulação de dados de Diretor.")
+@Tag(name = "TituloController", description = "Fornece serviços web REST para acesso e manipulação de dados de Titulo.")
 public class TituloController {
     private final TituloApplication apl;
 
@@ -21,31 +21,31 @@ public class TituloController {
         this.apl = apl;
     }
 
-    @Operation(description="Realiza o Cadastro de Titulo")
+    @Operation(description = "Realiza o Cadastro de Titulo")
     @PostMapping("/Cadastrar")
-    public ResponseEntity<TituloDomain> postCadastrarTitulo(@RequestBody TituloDomain item) {
-        apl.addTitulo(item);
-        return ResponseEntity.ok(item);
+    public ResponseEntity<TituloDomain> postCadastrarTitulo(@RequestBody TituloDomain titulo) {
+        apl.addTitulo(titulo);
+        return ResponseEntity.ok(titulo);
     }
 
-    @Operation(description="Remove um Titulo")
+    @Operation(description = "Remove um Titulo")
     @DeleteMapping("/Remover")
-    public ResponseEntity<TituloDomain>  delRemoveTitulo(@RequestBody TituloDomain item) {
-        apl.removeTitulo(item);
-        return ResponseEntity.ok(item);
+    public ResponseEntity<TituloDomain> delRemoveTitulo(@RequestBody TituloDomain titulo) {
+        apl.removeTitulo(titulo);
+        return ResponseEntity.ok(titulo);
     }
 
-    @Operation(description="Edita um Titulo")
+    @Operation(description = "Edita um Titulo")
     @PutMapping("/Editar")
-    public ResponseEntity<TituloDomain>  putEditarTitulo(@RequestBody TituloDomain item) {
-        apl.editTitulo(item);
-        return ResponseEntity.ok(item);
+    public ResponseEntity<TituloDomain> putEditarTitulo(@RequestBody TituloDomain titulo) {
+        apl.editTitulo(titulo);
+        return ResponseEntity.ok(titulo);
     }
 
-    @Operation(description="Retorna uma Lista de Itens")
+    @Operation(description = "Retorna uma Lista de Itens")
     @GetMapping("/Listar")
     public ResponseEntity<List<TituloDomain>> getTitulos() {
-        List<TituloDomain> titulos = apl.getTitulos();
-        return ResponseEntity.ok(titulos);
+        List<TituloDomain> itens = apl.getTitulos();
+        return ResponseEntity.ok(itens);
     }
 }

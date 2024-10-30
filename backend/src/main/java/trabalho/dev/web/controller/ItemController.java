@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Item")
-@Tag(name = "ItemController", description = "Fornece serviços web REST para acesso e manipulação de dados de Diretor.")
+@Tag(name = "ItemController", description = "Fornece serviços web REST para acesso e manipulação de dados de Item.")
 public class ItemController {
     private final ItemApplication apl;
 

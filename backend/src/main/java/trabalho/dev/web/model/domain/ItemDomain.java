@@ -14,8 +14,8 @@ public class ItemDomain {
     @Column(nullable = false)
     private int numSerie;
 
-    //@Column(nullable = false)
-    //private TituloDomain tituloDomain;
+    @OneToOne(cascade = CascadeType.ALL)
+    private TituloDomain tituloDomain;
 
     @Column(nullable = false)
     private Date DataAquisicao;
