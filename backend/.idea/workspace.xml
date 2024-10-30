@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Adiantamento do Backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/AtorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ClasseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ClasseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DiretorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DiretorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ItemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/ItemApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ClasseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/DiretorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/ItemDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ItemDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ItemDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/TituloDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/TituloDomain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/ClasseApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DiretorApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DiretorApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/ClasseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/DiretorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/DiretorDao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +32,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
-    &quot;accountId&quot;: &quot;596e8201-d4bf-4c04-91b0-e1eaf439ffcb&quot;
+    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -98,8 +79,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -130,6 +111,8 @@
       <workItem from="1729529497500" duration="2001000" />
       <workItem from="1729531696573" duration="341000" />
       <workItem from="1730113273970" duration="4000" />
+      <workItem from="1730311686984" duration="40000" />
+      <workItem from="1730312859807" duration="1032000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
@@ -147,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727891152684</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adiantamento do Backend">
+      <option name="closed" value="true" />
+      <created>1730309972883</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730309972883</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Banco ok" />
     <MESSAGE value="Hibernate conecta mas nao cria" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hibernate conecta mas nao cria" />
+    <MESSAGE value="Adiantamento do Backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adiantamento do Backend" />
   </component>
 </project>
