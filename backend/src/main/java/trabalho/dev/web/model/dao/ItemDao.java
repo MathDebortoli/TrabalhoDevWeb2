@@ -5,6 +5,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import trabalho.dev.web.model.domain.ItemDomain;
+import trabalho.dev.web.model.domain.TituloDomain;
 
 import java.util.List;
 
@@ -16,24 +17,42 @@ public class ItemDao {
     @Transactional
     public int addItem(ItemDomain item) {
         try {
-            entityManager.persist(item);  // Substitui session.save(item)
+            // Verifique se o TituloDomain existe e se está sendo corretamente associado
+            TituloDomain titulo = entityManager.find(TituloDomain.class, item.getTituloDomain().getId());
+            if (titulo != null) {
+                item.setTituloDomain(titulo); // Associar a entidade existente
+            } else {
+                System.err.println("Título não encontrado com o ID: " + item.getTituloDomain().getId());
+                return -1; // Ou trate conforme necessário
+            }
+
+            entityManager.persist(item);
             return 1;
         } catch (Exception e) {
-            System.err.println("Erro ao adicionar item) " + e.getMessage());
+            System.err.println("Erro ao adicionar item: " + e.getMessage());
             e.printStackTrace();
             return -1;
         }
     }
 
+
     @Transactional
     public int removeItem(ItemDomain item) {
         try {
-            entityManager.remove(entityManager.contains(item) ? item: entityManager.merge(item));  // Substitui session.remove(item)
-            return 1;
+            // Verificar se o item existe no banco de dados antes de removê-lo
+            ItemDomain itemToRemove = entityManager.find(ItemDomain.class, item.getId());
+
+            if (itemToRemove != null) {
+                entityManager.remove(itemToRemove);
+                return 1; // Remoção bem-sucedida
+            } else {
+                System.err.println("Item não encontrado para remoção com ID: " + item.getId());
+                return -1; // Item não encontrado
+            }
         } catch (Exception e) {
-            System.err.println("Erro ao remover item) " + e.getMessage());
+            System.err.println("Erro ao remover item: " + e.getMessage());
             e.printStackTrace();
-            return -1;
+            return -1; // Erro na remoção
         }
     }
 

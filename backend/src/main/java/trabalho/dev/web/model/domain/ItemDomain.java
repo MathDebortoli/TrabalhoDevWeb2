@@ -14,12 +14,19 @@ public class ItemDomain {
     @Column(nullable = false)
     private int numSerie;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private TituloDomain tituloDomain;
 
     @Column(nullable = false)
     private Date DataAquisicao;
 
+    public TituloDomain getTituloDomain() {
+        return tituloDomain;
+    }
+
+    public void setTituloDomain(TituloDomain tituloDomain) {
+        this.tituloDomain = tituloDomain;
+    }
     @Column(nullable = false)
     private int tipo;
 
