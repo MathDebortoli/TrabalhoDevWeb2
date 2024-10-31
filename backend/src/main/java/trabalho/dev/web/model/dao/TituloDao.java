@@ -16,7 +16,7 @@ public class TituloDao {
     @Transactional
     public int addTitulo(TituloDomain titulo) {
         try {
-            entityManager.persist(titulo);  // Substitui session.save(titulo)
+            entityManager.merge(titulo);  // Substitui session.save(titulo)
             return 1;
         } catch (Exception e) {
             System.err.println("Erro ao adicionar titulo: " + e.getMessage());
@@ -28,14 +28,28 @@ public class TituloDao {
     @Transactional
     public int removeTitulo(TituloDomain titulo) {
         try {
-            entityManager.remove(entityManager.contains(titulo) ? titulo : entityManager.merge(titulo));  // Substitui session.remove(titulo)
-            return 1;
+            // Verifica se a entidade está gerenciada
+            if (entityManager.contains(titulo)) {
+                // Se a entidade já estiver gerenciada, remove diretamente
+                entityManager.remove(titulo);
+            } else {
+                // Caso contrário, você precisa buscar a entidade no banco de dados
+                TituloDomain managedTitulo = entityManager.find(TituloDomain.class, titulo.getId());
+                if (managedTitulo != null) {
+                    entityManager.remove(managedTitulo);
+                } else {
+                    System.err.println("Título não encontrado para ID: " + titulo.getId());
+                    return -1; // Título não encontrado
+                }
+            }
+            return 1; // Sucesso na remoção
         } catch (Exception e) {
-            System.err.println("Erro ao remover titulo: " + e.getMessage());
+            System.err.println("Erro ao remover título: " + e.getMessage());
             e.printStackTrace();
-            return -1;
+            return -1; // Erro na remoção
         }
     }
+
 
     @Transactional
     public int editTitulo(TituloDomain titulo) {

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Adiantamento do Backend">
+    <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Hibernate conecta mas nao cria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/TituloDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/TituloDao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
-    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
+    &quot;accountId&quot;: &quot;596e8201-d4bf-4c04-91b0-e1eaf439ffcb&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -113,6 +114,9 @@
       <workItem from="1730113273970" duration="4000" />
       <workItem from="1730311686984" duration="40000" />
       <workItem from="1730312859807" duration="1032000" />
+      <workItem from="1730394163002" duration="2850000" />
+      <workItem from="1730404264816" duration="609000" />
+      <workItem from="1730404993129" duration="1150000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
