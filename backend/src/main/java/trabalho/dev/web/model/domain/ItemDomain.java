@@ -20,6 +20,9 @@ public class ItemDomain {
     @Column(nullable = false)
     private Date DataAquisicao;
 
+    @Column(nullable = false)
+    private int tipo;
+
     public TituloDomain getTituloDomain() {
         return tituloDomain;
     }
@@ -27,8 +30,6 @@ public class ItemDomain {
     public void setTituloDomain(TituloDomain tituloDomain) {
         this.tituloDomain = tituloDomain;
     }
-    @Column(nullable = false)
-    private int tipo;
 
     public ItemDomain() {
     }

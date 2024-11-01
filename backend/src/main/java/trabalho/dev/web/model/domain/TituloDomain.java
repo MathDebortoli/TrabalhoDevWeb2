@@ -2,6 +2,7 @@ package trabalho.dev.web.model.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class TituloDomain {
     @Column(nullable = false, length = 40)
     private String nome;
 
+    @Column(nullable = false)
     @JsonProperty
     @ManyToMany
     @JoinTable(
