@@ -14,14 +14,14 @@ public class ItemDomain {
     @Column(nullable = false)
     private int numSerie;
 
-    @OneToOne
+    @ManyToOne
     private TituloDomain tituloDomain;
 
     @Column(nullable = false)
     private Date DataAquisicao;
 
     @Column(nullable = false)
-    private int tipo;
+    private String tipo;
 
     public TituloDomain getTituloDomain() {
         return tituloDomain;
@@ -58,11 +58,11 @@ public class ItemDomain {
         DataAquisicao = dataAquisicao;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 }

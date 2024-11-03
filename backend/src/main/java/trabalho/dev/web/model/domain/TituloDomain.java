@@ -28,8 +28,9 @@ public class TituloDomain {
     private List<AtorDomain> atores;
 
     @JsonProperty
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne // Diretores podem estar em múltiplos títulos
     private DiretorDomain diretor;
+
 
     @JsonProperty
     @Column(nullable = false)
@@ -44,7 +45,7 @@ public class TituloDomain {
     private String categoria;
 
     @JsonProperty
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private ClasseDomain classe;
 
     public TituloDomain() {

@@ -13,20 +13,24 @@
       <div class="valor">
         <mat-form-field class="example-full-width" id="titulo">
           <mat-label>Selecione o Titulo</mat-label>
-          <mat-select [(ngModel)]="titulo">
-            <mat-option *ngFor="let item of items" [value]="item.titulo">{{ item.titulo }}</mat-option>
+          <mat-select [(ngModel)]="selectedTituloId">
+            <mat-option *ngFor="let titulo of titulos" [value]="titulo.id">
+              {{ titulo.nome }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-      <mat-form-field  class="example-full-width" id ="tipo">
+
+      <mat-form-field class="example-full-width" id="tipo">
         <mat-label>Selecione o Tipo</mat-label>
-        <mat-select [(value)]="selected" >
+        <mat-select [(ngModel)]="selected">
           <mat-option value="fita">Fita</mat-option>
           <mat-option value="dvd">DVD</mat-option>
           <mat-option value="bluray">Blu-ray</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
+
     <mat-form-field class="example-full-width" id="devolucao">
       <mat-label>Data de Aquisição</mat-label>
       <input matInput [matDatepicker]="picker" [(ngModel)]="dataAquisicao" placeholder="dd/MM/yyyy" />
@@ -35,10 +39,54 @@
     </mat-form-field>
 
     <div class="format">
-      <button mat-raised-button color="primary" id="botaoenviar">Salvar Item</button>
+      <button mat-raised-button color="primary" id="botaoenviar" (click)="itemToEdit ? atualizarItem() : salvarItem()">
+        {{ itemToEdit ? 'Atualizar Item' : 'Salvar Item' }}
+      </button>
     </div>
 
     <h1 class="envio">Lista de Items</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+      <!-- Coluna ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+      </ng-container>
 
+      <!-- Coluna Número de Série -->
+      <ng-container matColumnDef="numSerie">
+        <th mat-header-cell *matHeaderCellDef> Número de Série </th>
+        <td mat-cell *matCellDef="let element"> {{ element.numSerie }} </td>
+      </ng-container>
+
+      <!-- Coluna Título -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> Título (Nome) </th>
+        <td mat-cell *matCellDef="let element"> {{ element.tituloDomain.nome }} </td>
+      </ng-container>
+
+      <!-- Coluna Tipo -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{ element.tipo }} </td>
+      </ng-container>
+
+      <!-- Coluna Data de Aquisição -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{ element.dataAquisicao | date: 'dd/MM/yyyy' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="warn" (click)="DeletarItem(element.id, element.numSerie, element.tituloDomain, element.tipo, element.dataAquisicao)">Remover</button>
+          <button mat-button color="accent" (click)="editarItem(element)">Editar</button> <!-- Botão de edição -->
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </div>
+</div>

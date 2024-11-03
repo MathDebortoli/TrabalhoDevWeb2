@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 
 
 export interface Titulo {
+  id:string;
   nome: string;
   atores: string;
   diretor: string;
@@ -59,9 +60,7 @@ export class TituloComponent {
   atoresList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   titulos: Titulo[] = [
-    { nome: 'O Poderoso Chefão', atores: 'Marlon Brando, Al Pacino, James Caan', diretor: 'Francis Ford Coppola', ano: 1972, sinopse: 'A história', categoria: 'Drama', classe: 'A' },
-    { nome: 'O Poderoso Chefão II', atores: 'Al Pacino, Robert De Niro, Robert Duvall', diretor: 'Matt Murdock', ano: 1974, sinopse: 'A história', categoria: 'Drama', classe: 'B' },
-    { nome: 'O Poderoso Chefão III', atores: 'Al Pacino, Diane Keaton, Andy Garcia', diretor: ' Cassius Clay', ano: 1990, sinopse: 'A história', categoria: 'Drama', classe: 'C' },
+    
 
 
   ];

@@ -119,6 +119,8 @@ export class ClasseComponent {
       });
   }
 
+  
+
   deletarClasse(id: number, nome: string, data: Date, valor: number) {
     const confirmDelete = confirm(`Tem certeza que deseja deletar a classe ${nome}?`);
     const classe = { id: id, nome: nome,data: data, valor: valor };
