@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Titulo exceptions">
-      <change afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/exceptions/TituloException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/exceptions/AtorException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/TituloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/TituloDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DiretorDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DiretorDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/exceptions/AtorException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/TituloDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/dao/TituloDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/DiretorDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/DiretorDomain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/TituloDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/TituloDomain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +30,12 @@
     &quot;assignee&quot;: &quot;MathDebortoli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MathDebortoli/TrabalhoDevWeb2.git",
-    "accountId": "2ed32b3b-2b93-4f51-8015-e0d9c93c2317"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MathDebortoli/TrabalhoDevWeb2.git&quot;,
+    &quot;accountId&quot;: &quot;2ed32b3b-2b93-4f51-8015-e0d9c93c2317&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -129,7 +118,8 @@
       <workItem from="1730404264816" duration="609000" />
       <workItem from="1730404993129" duration="2428000" />
       <workItem from="1730649531015" duration="1644000" />
-      <workItem from="1730718161340" duration="7820000" />
+      <workItem from="1730718161340" duration="8250000" />
+      <workItem from="1730736536545" duration="502000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />

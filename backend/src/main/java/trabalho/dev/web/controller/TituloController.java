@@ -43,7 +43,7 @@ public class TituloController {
         return ResponseEntity.ok(titulo);
     }
 
-    @Operation(description = "Retorna uma Lista de Itens")
+    @Operation(description = "Retorna uma Lista de Titulos")
     @GetMapping("/Listar")
     public ResponseEntity<List<TituloDomain>> getTitulos() {
         List<TituloDomain> itens = apl.getTitulos();
