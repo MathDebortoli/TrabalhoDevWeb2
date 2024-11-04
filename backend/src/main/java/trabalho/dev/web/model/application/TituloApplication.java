@@ -1,7 +1,9 @@
 package trabalho.dev.web.model.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import trabalho.dev.web.exceptions.TituloRestricaoException;
 import trabalho.dev.web.model.dao.TituloDao;
 import trabalho.dev.web.model.domain.TituloDomain;
 
@@ -22,7 +24,12 @@ public class TituloApplication {
     }
 
     public int removeTitulo(TituloDomain titulo) {
-        return dao.removeTitulo(titulo);
+        try {
+           return dao.removeTitulo(titulo);
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new TituloRestricaoException("Título com Restrição para Deletar!" + titulo);
+        }
     }
 
     public int editTitulo(TituloDomain titulo) {

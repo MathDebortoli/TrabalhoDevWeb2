@@ -2,11 +2,14 @@
   <div class="form-content">
     <h1>Cadastro de Item</h1>
     <div class="forms">
-
       <div class="nome">
         <mat-form-field class="example-full-width" id="nome">
           <mat-label>Digite o Número de Série</mat-label>
-          <input matInput placeholder="Numero de serie" [(ngModel)]="numSerie"/>
+          <input
+            matInput
+            placeholder="Numero de serie"
+            [(ngModel)]="numSerie"
+          />
         </mat-form-field>
       </div>
 
@@ -33,60 +36,106 @@
 
     <mat-form-field class="example-full-width" id="devolucao">
       <mat-label>Data de Aquisição</mat-label>
-      <input matInput [matDatepicker]="picker" [(ngModel)]="dataAquisicao" placeholder="dd/MM/yyyy" />
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="dataAquisicao"
+        placeholder="dd/MM/yyyy"
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <div class="format">
-      <button mat-raised-button color="primary" id="botaoenviar" (click)="itemToEdit ? atualizarItem() : salvarItem()">
-        {{ itemToEdit ? 'Atualizar Item' : 'Salvar Item' }}
+      <button
+        mat-raised-button
+        color="primary"
+        id="botaoenviar"
+        (click)="itemToEdit ? atualizarItem() : salvarItem()"
+      >
+        {{ itemToEdit ? "Atualizar Item" : "Salvar Item" }}
       </button>
     </div>
 
     <h1 class="envio">Lista de Items</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
       <!-- Coluna ID -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
 
       <!-- Coluna Número de Série -->
       <ng-container matColumnDef="numSerie">
-        <th mat-header-cell *matHeaderCellDef> Número de Série </th>
-        <td mat-cell *matCellDef="let element"> {{ element.numSerie }} </td>
+        <th mat-header-cell *matHeaderCellDef>Número de Série</th>
+        <td mat-cell *matCellDef="let element">{{ element.numSerie }}</td>
       </ng-container>
 
       <!-- Coluna Título -->
       <ng-container matColumnDef="titulo">
-        <th mat-header-cell *matHeaderCellDef> Título (Nome) </th>
-        <td mat-cell *matCellDef="let element"> {{ element.tituloDomain.nome }} </td>
+        <th mat-header-cell *matHeaderCellDef>Título (Nome)</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.tituloDomain.nome }}
+        </td>
       </ng-container>
 
       <!-- Coluna Tipo -->
       <ng-container matColumnDef="tipo">
-        <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let element"> {{ element.tipo }} </td>
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>
       </ng-container>
 
       <!-- Coluna Data de Aquisição -->
       <ng-container matColumnDef="data">
-        <th mat-header-cell *matHeaderCellDef> Data </th>
-        <td mat-cell *matCellDef="let element"> {{ element.dataAquisicao | date: 'dd/MM/yyyy' }} </td>
+        <th mat-header-cell *matHeaderCellDef>Data</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.dataAquisicao | date : "dd/MM/yyyy" }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button color="warn" (click)="DeletarItem(element.id, element.numSerie, element.tituloDomain, element.tipo, element.dataAquisicao)">Remover</button>
-          <button mat-button color="accent" (click)="editarItem(element)">Editar</button> <!-- Botão de edição -->
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+            "
+          >
+            <button
+              mat-flat-button
+              color="warn"
+              (click)="
+                DeletarItem(
+                  element.id,
+                  element.numSerie,
+                  element.tituloDomain,
+                  element.tipo,
+                  element.dataAquisicao
+                )
+              "
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button
+              mat-flat-button
+              color="accent"
+              (click)="editarItem(element)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <!-- Botão de edição -->
+          </div>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
 </div>

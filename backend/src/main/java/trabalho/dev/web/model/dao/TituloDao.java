@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import trabalho.dev.web.exceptions.TituloRestricaoException;
 import trabalho.dev.web.model.domain.TituloDomain;
 
 import java.util.List;
@@ -45,8 +46,7 @@ public class TituloDao {
             return 1; // Sucesso na remoção
         } catch (Exception e) {
             System.err.println("Erro ao remover título: " + e.getMessage());
-            e.printStackTrace();
-            return -1; // Erro na remoção
+            throw new TituloRestricaoException("Título com Restrição para Deletar!");
         }
     }
 

@@ -25,7 +25,6 @@ export interface Titulo {
   classe: Classe | null;
 }
 
-
 @Component({
   selector: 'app-titulo',
   standalone: true,
@@ -47,13 +46,21 @@ export interface Titulo {
   templateUrl: './titulo.component.html',
   styleUrl: './titulo.component.scss',
 })
-
 export class TituloComponent {
   diretores: Diretor[] = []; // Changed from 'classe' to 'classes'
   classes: Classe[] = []; // Changed from 'classe' to 'classes'
   atoresList: Ator[] = [];
-  displayedColumns: string[] = ['id', 'atores', 'nome', 'ano', 'diretor', 'categoria', 'classe', 'sinopse', 'acoes'];
-
+  displayedColumns: string[] = [
+    'id',
+    'atores',
+    'nome',
+    'ano',
+    'diretor',
+    'categoria',
+    'classe',
+    'sinopse',
+    'acoes',
+  ];
   ano: number = 0;
   atores: Ator[] = [];
   sinopse: string = '';
@@ -64,8 +71,74 @@ export class TituloComponent {
   diretor: Diretor | null = null; // Item selecionado na lista de diretores
   classeItem: Classe | null = null; // Item selecionado na lista de classes
 
+  isEditing: boolean = false; // Indica se estamos em modo de edição
+  editandoId: number | null = null; // ID do título que está sendo editado
+
+  editarItem(titulo: Titulo) {
+    this.isEditing = true; // Muda para o modo de edição
+    this.editandoId = titulo.id; // Define o título que está sendo editado
+    this.nome = titulo.nome; // Preenche os campos com os valores do título
+    this.ano = titulo.ano;
+    this.sinopse = titulo.sinopse;
+    this.categoria = titulo.categoria;
+    this.diretor = titulo.diretor;
+    this.classeItem = titulo.classe;
+    this.actores.setValue(titulo.atores); // Preenche a lista de atores
+  }
+
+  salvarEdicao() {
+    if (this.editandoId) {
+      const tituloAtualizado: Titulo = {
+        id: this.editandoId,
+        nome: this.nome,
+        ano: this.ano,
+        sinopse: this.sinopse,
+        categoria: this.categoria,
+        diretor: this.diretor,
+        classe: this.classeItem,
+        atores: this.actores.value,
+      };
+
+      // A chamada PUT estava errada, removi uma chave extra
+      this.http
+        .put(
+          `http://localhost:8080/Titulo/Editar`,
+          tituloAtualizado
+        )
+        .subscribe({
+          next: () => {
+            this.lerTitulos(); // Atualiza a lista de títulos
+            this.cancelarEdicao(); // Cancela o modo de edição
+            alert('Título atualizado com sucesso!');
+          },
+          error: (err) => {
+            console.error('Erro ao atualizar o Titulo:', err);
+          },
+        });
+    }
+  }
+
+  cancelarEdicao() {
+    this.isEditing = false; // Volta ao modo normal
+    this.editandoId = null; // Limpa o ID do título em edição
+    this.limparCampos(); // Limpa os campos
+  }
+
+  getCategoriaNome(categoria: string): string {
+    switch (categoria) {
+      case 'f':
+        return 'Faroeste';
+      case 't':
+        return 'Terror';
+      case 'c':
+        return 'Comédia';
+      default:
+        return categoria;
+    }
+  }
+
   getAtoresNomes(atores: Ator[]): string {
-    return atores.map(ator => ator.nome).join(', ');
+    return atores.map((ator) => ator.nome).join(', ');
   }
 
   constructor(private http: HttpClient) {
@@ -75,17 +148,45 @@ export class TituloComponent {
     this.lerTitulos();
   }
 
+  deletarItem(id: number) {
+    const confirmDelete = confirm(
+      `Tem certeza que deseja deletar o Titulo com Id: ${id}?`
+    );
+    if (confirmDelete) {
+      const item = { id: id };
+      this.http
+        .request('DELETE', 'http://localhost:8080/Titulo/Remover', {
+          body: item,
+        })
+        .subscribe({
+          next: () => {
+            this.lerTitulos();
+          },
+          error: (err) => {
+            alert('Titulo Com Restricao de Chave Estrangeira!');
+          },
+        });
+    }
+  }
+
   lerTitulos() {
     this.http
       .get<Titulo[]>('http://localhost:8080/Titulo/Listar')
       .subscribe((data) => {
         this.titulos = data; // Assign to 'titulos' property
       });
-    }
+  }
 
   validarCampos() {
-    if (this.ano == 0 || this.actores.value?.length ==0 || this.sinopse == '' || this.nome == '' || this.diretor == null || this.classeItem == null) {
-      alert("Preencha todos os campos");
+    if (
+      this.ano == 0 ||
+      this.actores.value?.length == 0 ||
+      this.sinopse == '' ||
+      this.nome == '' ||
+      this.diretor == null ||
+      this.classeItem == null
+    ) {
+      alert('Preencha Todos os Campos!');
       return;
     }
     this.inserirTitulo();
@@ -100,18 +201,19 @@ export class TituloComponent {
       ano: this.ano,
       sinopse: this.sinopse,
       categoria: this.categoria,
-      classe: this.classeItem // Deve ser um objeto Classe
+      classe: this.classeItem, // Deve ser um objeto Classe
     };
 
-    this.http.post('http://localhost:8080/Titulo/Cadastrar', titulo).subscribe((data) => {
-      //this.lerTitulos(); // Função para recarregar a lista (caso exista)
-      this.limparCampos(); // Chame a função de limpar os campos após a inserção
-      alert("Título inserido com sucesso");
-    }); // Função para inserir o item no banco de dados,
+    this.http
+      .post('http://localhost:8080/Titulo/Cadastrar', titulo)
+      .subscribe((data) => {
+        this.lerTitulos(); // Função para recarregar a lista (caso exista)
+        this.limparCampos(); // Chame a função de limpar os campos após a inserção
+        alert('Título inserido com sucesso!');
+      }); // Função para inserir o item no banco de dados,
     error: (err: any) => {
       console.error('Erro ao atualizar o item:', err);
-    }
-
+    };
   }
 
   limparCampos() {
@@ -123,7 +225,6 @@ export class TituloComponent {
     this.diretor = null;
     this.classeItem = null;
   }
-
 
   lerAtores() {
     this.http

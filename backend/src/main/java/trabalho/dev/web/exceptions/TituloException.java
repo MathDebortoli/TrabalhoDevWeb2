@@ -1,7 +1,7 @@
 package trabalho.dev.web.exceptions;
 
-public class AtorException extends RuntimeException{
-    public AtorException(String message) {
+public class TituloException extends RuntimeException{
+    public TituloException(String message) {
         super(message);
     }
 }

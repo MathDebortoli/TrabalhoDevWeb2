@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 @Entity(name = "Diretor")
 public class DiretorDomain {
 
+    //ALTER TABLE titulo DROP CONSTRAINT titulo_classe_id_key;
+    //ALTER TABLE titulo DROP CONSTRAINT titulo_diretor_id_key;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
