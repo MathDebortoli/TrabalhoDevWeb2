@@ -24,6 +24,7 @@ public class TituloController {
     @Operation(description = "Realiza o Cadastro de Titulo")
     @PostMapping("/Cadastrar")
     public ResponseEntity<TituloDomain> postCadastrarTitulo(@RequestBody TituloDomain titulo) {
+        System.out.println(titulo);
         apl.addTitulo(titulo);
         return ResponseEntity.ok(titulo);
     }

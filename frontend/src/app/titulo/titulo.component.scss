@@ -13,34 +13,6 @@ h1{
   font-size: 40px;
 }
 
-#valor {
-  width: 35%;
-}
- #ano {
-  width: 20%;
-
-}
-
-#atores{
-  width: 35%;
-}
-
-#sinopse{
-  width: 50%;
-
-}
-#categoria{
-  width:27%;
-}
-
-#titulo{
-  width: 30%;
-}
-
-#nome{
-  width: 45%;
-}
-
 .btn-cancel {
   background-color: #ff9800; /* Escolha a cor que desejar */
   color: white; /* Cor do texto */
@@ -53,7 +25,7 @@ h1{
 
 .form-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 3000px;
   padding: 20px;
 }
 
@@ -78,6 +50,28 @@ th,td {
 
 h1{
   font-weight: bold;
+}
+
+.forms{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.forms1{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.forms2{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 

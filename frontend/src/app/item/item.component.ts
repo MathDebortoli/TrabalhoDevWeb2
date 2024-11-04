@@ -31,7 +31,6 @@ export interface Item {
   dataAquisicao: Date;
 }
 
-
 export const MY_DATE_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',  // Definindo o formato para input
@@ -97,7 +96,6 @@ export class ItemComponent {
         console.error('Erro ao listar os classes:', err);
       }
     });
-
   }
 
   loadTitulos() {
@@ -111,6 +109,7 @@ export class ItemComponent {
       }
     );
   }
+  
   loadItems() {
     this.http.get<Item[]>(`${this.apiUrl}/Listar`).subscribe(
       (response) => {
@@ -126,14 +125,10 @@ export class ItemComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-
     this.loadTitles();
     this.loadTitulos();
     this.loadItems();
-
   }
-
-
 
    // Função para editar um item
    editarItem(item: Item) {
@@ -143,8 +138,6 @@ export class ItemComponent {
     this.tipo = item.tipo;
     this.dataAquisicao = item.dataAquisicao;
   }
-
-
 
   DeletarItem(id: number, numSerie: number, titulo: string, tipo: string, dataAquisicao: Date) {
     const confirmDelete = confirm(`Tem certeza que deseja deletar o item com numSerie ${numSerie}?`);

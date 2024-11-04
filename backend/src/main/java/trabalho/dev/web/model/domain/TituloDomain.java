@@ -31,7 +31,6 @@ public class TituloDomain {
     @ManyToOne // Diretores podem estar em múltiplos títulos
     private DiretorDomain diretor;
 
-
     @JsonProperty
     @Column(nullable = false)
     private int ano;
