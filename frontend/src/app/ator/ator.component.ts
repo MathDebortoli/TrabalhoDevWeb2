@@ -9,8 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'; // <-- Corr
 import { CommonModule } from '@angular/common'; // <-- Importe aqui o CommonModule
 
 export interface Ator {
-  id: number;
-  nome: string;
+  id?: number;
+  nome?: string;
 }
 
 @Component({
@@ -29,96 +29,93 @@ export interface Ator {
   ],
   styleUrls: ['./ator.component.scss'],
 })
-
 export class AtorComponent {
-  private apiUrl = 'http://localhost:8080/Ator';  // URL base da sua API
-  nomeAtor: string = '';  // Variável que armazenará o nome do input
-  editandoId: number | null = null; // Armazena o id do ator que está sendo editado
-  nomeOriginal: string = ''; // Armazena o nome original antes de editar
+  private apiUrl = 'http://localhost:8080/Ator'; // URL base da sua API
+  nomeAtor?: string = ''; // Variável que armazenará o nome do input
+  editandoId?: number | null = null; // Armazena o id do ator que está sendo editado
   displayedColumns: string[] = ['id', 'nome', 'acoes'];
   dataSource = [] as Ator[]; // Array de atores
+  editando: boolean = false; // Define o estado de edição
 
   constructor(private http: HttpClient) {
     this.listarAtores();
   }
 
   salvarAtor() {
-    if(this.nomeAtor === '') {
+    if (this.nomeAtor === '') {
       alert('O nome do ator não pode ser vazio!');
       return;
     }
     const ator = { nome: this.nomeAtor }; // Cria um objeto JSON com o nome do ator
-    this.http.post(`${this.apiUrl}/Cadastrar`, ator)
-      .subscribe({
-        next: () => {
-          console.log('Ator salvo com sucesso!');
-          this.nomeAtor = ''; // Limpa o input após salvar
-          this.listarAtores(); // Atualiza a lista de atores
-        },
-        error: err => {
-          console.error('Erro ao salvar o ator:', err);
-        }
-      });
+    this.http.post(`${this.apiUrl}/Cadastrar`, ator).subscribe({
+      next: () => {
+        console.log('Ator salvo com sucesso!');
+        this.nomeAtor = ''; // Limpa o input após salvar
+        this.listarAtores(); // Atualiza a lista de atores
+      },
+      error: (err) => {
+        console.error('Erro ao salvar o ator:', err);
+      },
+    });
   }
 
   listarAtores() {
-    this.http.get<Ator[]>(`${this.apiUrl}/Listar`)
-      .subscribe({
-        next: data => {
-          this.dataSource = data;
-        },
-        error: err => {
-          console.error('Erro ao listar os atores:', err);
-        }
-      });
+    this.http.get<Ator[]>(`${this.apiUrl}/Listar`).subscribe({
+      next: (data) => {
+        this.dataSource = data;
+      },
+      error: (err) => {
+        console.error('Erro ao listar os atores:', err);
+      },
+    });
   }
 
-  salvarEdicao(nomeA: string) {
-    const ator = { id: this.editandoId, nome: nomeA }; // Aqui, `nomeA` deve ser uma string
-    console.log(ator); // Isso mostrará o objeto que está sendo enviado
-    this.http.put(`${this.apiUrl}/Editar`, ator)
-        .subscribe({
-            next: () => {
-                this.listarAtores(); // Atualiza a lista de atores
-                this.editandoId = null; // Reseta o id após salvar
-            },
-            error: err => {
-                console.error('Erro ao editar o ator:', err);
-            }
-        });
-}
+  salvarEdicao() {
+    if (this.editandoId) {
+      const ator: Ator = { id: this.editandoId, nome: this.nomeAtor };
 
+      this.http.put(`${this.apiUrl}/Editar`, ator).subscribe({
+        next: () => {
+          this.listarAtores(); // Atualiza a lista de atores
+          this.editandoId = null; // Reseta o id após salvar
+          this.nomeAtor = undefined; // Limpa o input
+          this.editando = false; // Reseta o estado de edição
+        },
+        error: (err) => {
+          console.error('Erro ao editar o ator:', err);
+        },
+      });
+    }
+  }
 
   deletarAtor(id: number, nome: string) {
-    const confirmDelete = confirm(`Tem certeza que deseja deletar o ator ${nome}?`);
+    const confirmDelete = confirm(
+      `Tem certeza que deseja deletar o ator ${nome}?`
+    );
     const ator = { id: id, nome: nome };
     if (confirmDelete) {
-      this.http.delete(`${this.apiUrl}/Remover`, { body: ator })
-        .subscribe({
-          next: () => {
-            console.log(`Ator ${nome} deletado com sucesso!`);
-            // Atualiza a dataSource para remover o ator da tabela
-            this.listarAtores();
-          },
-          error: err => {
-            console.error('Erro ao deletar o ator:', err);
-          }
-        });
+      this.http.delete(`${this.apiUrl}/Remover`, { body: ator }).subscribe({
+        next: () => {
+          console.log(`Ator ${nome} deletado com sucesso!`);
+          // Atualiza a dataSource para remover o ator da tabela
+          this.listarAtores();
+        },
+        error: (err) => {
+          console.error('Erro ao deletar o ator:', err);
+        },
+      });
     }
   }
 
   editarAtor(element: Ator) {
+    this.editando = true; // Define o estado de edição
     this.editandoId = element.id; // Define o id do ator que está sendo editado
-    this.nomeOriginal = element.nome; // Armazena o nome original
+    this.nomeAtor= element.nome; // Armazena o nome original
   }
 
   cancelarEdicao() {
-    // Restaura o nome original na lista
-    const atorEditado = this.dataSource.find(ator => ator.id === this.editandoId);
-    if (atorEditado) {
-      atorEditado.nome = this.nomeOriginal;
-    }
-    this.editandoId = null; // Reseta o estado de edição
+    this.editando = false; // Reseta o estado de edição
+    this.editandoId = null; // Reseta o id após cancelar
+    this.nomeAtor = undefined; // Limpa o input
   }
-
 }

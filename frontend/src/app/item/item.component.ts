@@ -4,7 +4,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  MatNativeDateModule,
+} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,10 +18,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
-
 export interface TituloDomain {
   nome?: string;
-  id:number;
+  id: number;
 }
 
 export interface Item {
@@ -29,16 +33,15 @@ export interface Item {
 
 export const MY_DATE_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY',  // Definindo o formato para input
+    dateInput: 'DD/MM/YYYY', // Definindo o formato para input
   },
   display: {
-    dateInput: 'DD/MM/YYYY',  // Definindo o formato de exibição
+    dateInput: 'DD/MM/YYYY', // Definindo o formato de exibição
     monthYearLabel: 'MMMM YYYY',
     dateA11yLabel: 'DD/MM/YYYY',
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
-
 
 @Component({
   selector: 'app-item',
@@ -59,16 +62,26 @@ export const MY_DATE_FORMATS = {
     CommonModule,
     MatSelectModule,
   ],
-  providers:[
+  providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
   ],
 })
-
 export class ItemComponent {
-  displayedColumns: string[] = ['id', 'numSerie', 'titulo', 'tipo', 'data', 'acoes'];
+  displayedColumns: string[] = [
+    'id',
+    'numSerie',
+    'titulo',
+    'tipo',
+    'data',
+    'acoes',
+  ];
+
   private apiUrl = 'http://localhost:8080/Item';
   private apiUrl2 = 'http://localhost:8080/Titulo';
   items: Item[] = [];
@@ -78,19 +91,19 @@ export class ItemComponent {
   dataAquisicao: Date = new Date();
   selectedTituloId: number | undefined; // Novo campo para armazenar o id do título selecionado
   tipo: string = '';
-  selected:string='fita';
-  selected1:string='';
+  selected: string = 'fita';
   dataSource = [] as Item[];
-  itemToEdit: Item | null = null;
+  editandoId?: number | null = null;
+  editando: boolean = false;
 
   loadTitles() {
     this.http.get<Item[]>(`${this.apiUrl}/Listar`).subscribe({
-      next: data => {
+      next: (data) => {
         this.dataSource = data;
       },
-      error: err => {
+      error: (err) => {
         console.error('Erro ao listar os classes:', err);
-      }
+      },
     });
   }
 
@@ -98,10 +111,10 @@ export class ItemComponent {
     this.http.get<Titulo[]>(`${this.apiUrl2}/Listar`).subscribe(
       (response) => {
         this.titulos = response;
-        console.log("Lista de Titulos recebida:", this.titulos);
+        console.log('Lista de Titulos recebida:', this.titulos);
       },
       (error) => {
-        console.error("Erro ao carregar os Titulos:", error);
+        console.error('Erro ao carregar os Titulos:', error);
       }
     );
   }
@@ -110,10 +123,10 @@ export class ItemComponent {
     this.http.get<Item[]>(`${this.apiUrl}/Listar`).subscribe(
       (response) => {
         this.items = response;
-        console.log("Lista de items recebida:", this.items);
+        console.log('Lista de items recebida:', this.items);
       },
       (error) => {
-        console.error("Erro ao carregar os Titulos:", error);
+        console.error('Erro ao carregar os Titulos:', error);
       }
     );
   }
@@ -126,43 +139,60 @@ export class ItemComponent {
     this.loadItems();
   }
 
-   // Função para editar um item
-   editarItem(item: Item) {
-    this.itemToEdit = item; // Armazena o item a ser editado
+  // Função para editar um item
+  editarItem(item: Item) {
+    this.editando = true; // Muda para o modo de edição
+    this.editandoId = item.id; // Armazena o item a ser editado
     this.numSerie = item.numSerie;
     this.selectedTituloId = item.tituloDomain.id;
-    this.tipo = item.tipo;
+    this.selected = item.tipo;
     this.dataAquisicao = item.dataAquisicao;
   }
 
-  DeletarItem(id: number, numSerie: number, titulo: string, tipo: string, dataAquisicao: Date) {
-    const confirmDelete = confirm(`Tem certeza que deseja deletar o item com numSerie ${numSerie}?`);
-    const item = { id: id, numSerie: numSerie, titulo: titulo, tipo: tipo, dataAquisicao: dataAquisicao };
+  DeletarItem(
+    id: number,
+    numSerie: number,
+    titulo: string,
+    tipo: string,
+    dataAquisicao: Date
+  ) {
+    const confirmDelete = confirm(
+      `Tem certeza que deseja deletar o item com numSerie ${numSerie}?`
+    );
+    const item = {
+      id: id,
+      numSerie: numSerie,
+      titulo: titulo,
+      tipo: tipo,
+      dataAquisicao: dataAquisicao,
+    };
+
     if (confirmDelete) {
       this.http.delete(`${this.apiUrl}/Remover`, { body: item }).subscribe({
         next: () => {
-
           this.loadTitles();
         },
-        error: err => {
+        error: (err) => {
           console.error('Erro ao deletar o item:', err);
-        }
+        },
       });
     }
   }
 
-
   resetForm() {
     this.numSerie = 0;
     this.selectedTituloId = undefined;
-    this.tipo = '';
+    this.selected = '';
     this.dataAquisicao = new Date();
-    this.itemToEdit = null; // Limpa o item a ser editado
+    this.editandoId = undefined;
   }
 
-
   salvarItem() {
-    if (this.numSerie === 0 || this.selectedTituloId === undefined || this.dataAquisicao === null) {
+    if (
+      this.numSerie === 0 ||
+      this.selectedTituloId === undefined ||
+      this.dataAquisicao === null
+    ) {
       alert('Erro no Salvamento! Verifique os campos.');
       return;
     }
@@ -182,18 +212,19 @@ export class ItemComponent {
         this.tipo = ''; // Limpa o input de tipo se necessário
         this.loadTitles(); // Atualiza a lista de itens
       },
-      error: err => {
+      error: (err) => {
         console.error('Erro ao salvar o item:', err);
-      }
+      },
     });
   }
 
-  atualizarItem() {
-    if (this.itemToEdit) {
-      const tituloId = this.selectedTituloId !== undefined ? this.selectedTituloId : 0; // ou outro valor padrão que faça sentido
+  salvarEdicao() {
+    if (this.editandoId) {
+      const tituloId =
+        this.selectedTituloId !== undefined ? this.selectedTituloId : 0; // ou outro valor padrão que faça sentido
 
       const updatedItem: Item = {
-        id: this.itemToEdit.id,
+        id: this.editandoId,
         numSerie: this.numSerie,
         tituloDomain: { id: tituloId }, // Usando o ID do título selecionado
         tipo: this.selected,
@@ -205,20 +236,17 @@ export class ItemComponent {
           console.log('Item atualizado com sucesso!');
           this.resetForm(); // Reseta o formulário após a atualização
           this.loadTitles(); // Atualiza a lista de itens
+          this.editando = false; // Sai do modo de edição
         },
-        error: err => {
+        error: (err) => {
           console.error('Erro ao atualizar o item:', err);
-        }
+        },
       });
     }
   }
 
-
+  cancelarEdicao(){
+    this.resetForm();
+    this.editando = false;
+  }
 }
-
-
-
-
-
-
-

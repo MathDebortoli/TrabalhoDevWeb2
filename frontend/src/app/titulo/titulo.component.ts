@@ -97,7 +97,7 @@ export class TituloComponent {
         diretor: { id: this.diretor},
         classe: {id: this.classeItem},
         atores: this.actores.value,
-      };
+      }
 
       // A chamada PUT estava errada, removi uma chave extra
       this.http
