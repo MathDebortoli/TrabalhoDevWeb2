@@ -10,13 +10,9 @@ import { CommonModule } from '@angular/common';
 
 
 export interface Diretor {
-  id: number;
-  nome: string;
+  id?: number;
+  nome?: string;
 }
-
-
-
-
 
 @Component({
   selector: 'app-diretor',
@@ -35,9 +31,9 @@ export interface Diretor {
 
 export class DiretorComponent {
   private apiUrl = 'http://localhost:8080/Diretor';  // URL base da sua API
-  nomeDiretor: string = '';  // Variável que armazenará o nome do input
-  editandoId: number | null = null; // Armazena o id do ator que está sendo editado
-  nomeOriginal: string = ''; // Armazena o nome original antes de editar
+  nomeDiretor?: string = '';  // Variável que armazenará o nome do input
+  editandoId?: number | null = null; // Armazena o id do ator que está sendo editado
+  nomeOriginal?: string = ''; // Armazena o nome original antes de editar
   displayedColumns: string[] = ['id', 'nome', 'acoes'];
   dataSource = [] as Diretor[]; // Array de atores
 
@@ -45,8 +41,6 @@ export class DiretorComponent {
     this.listarDiretores();
 
   }
-
-
 
   salvarDiretor() {
     if(this.nomeDiretor === '') {

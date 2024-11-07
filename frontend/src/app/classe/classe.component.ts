@@ -27,10 +27,10 @@ export const MY_DATE_FORMATS = {
 };
 
 export interface Classe {
-  id: number;
-  nome: string;
-  data: Date;
-  valor: number;
+  id?: number;
+  nome?: string;
+  data?: Date;
+  valor?: number;
 }
 
 
@@ -61,17 +61,14 @@ export interface Classe {
   ]
 })
 
-
-
-
 export class ClasseComponent {
   displayedColumns: string[] = ['id', 'data', 'valor', 'nome' , 'acoes'];
   dataSource = [] as Classe[]; // Array de classes
   private apiUrl = 'http://localhost:8080/Classe';  // URL base da sua API
-  editandoId: number | null = null; // Armazena o id da classe que está sendo editada
-  nomeClasse: string = '';  // Variável que armazenará o nome do input para cadastro
-  dataClasse: Date = new Date();  // Variável para armazenar a data
-  valorClasse: number = 0;  // Variável para armazenar o valor
+  editandoId?: number | null = null; // Armazena o id da classe que está sendo editada
+  nomeClasse?: string = '';  // Variável que armazenará o nome do input para cadastro
+  dataClasse?: Date = new Date();  // Variável para armazenar a data
+  valorClasse?: number = 0;  // Variável para armazenar o valor
 
   // Variáveis temporárias para edição
   nomeEditado: string = '';
@@ -81,9 +78,6 @@ export class ClasseComponent {
   constructor(private http: HttpClient) {
     this.listarClasses();
   }
-
-
-
 
   salvarClasse() {
     if(this.nomeClasse === '' || this.valorClasse === 0) {
@@ -118,8 +112,6 @@ export class ClasseComponent {
         }
       });
   }
-
-  
 
   deletarClasse(id: number, nome: string, data: Date, valor: number) {
     const confirmDelete = confirm(`Tem certeza que deseja deletar a classe ${nome}?`);

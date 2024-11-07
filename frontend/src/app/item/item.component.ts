@@ -12,10 +12,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { Ator } from '../ator/ator.component';
-import { Diretor } from '../diretor/diretor.component';
-import { Classe } from '../classe/classe.component';
-
 
 
 export interface TituloDomain {
@@ -109,7 +105,7 @@ export class ItemComponent {
       }
     );
   }
-  
+
   loadItems() {
     this.http.get<Item[]>(`${this.apiUrl}/Listar`).subscribe(
       (response) => {
@@ -181,7 +177,6 @@ export class ItemComponent {
     this.http.post(`${this.apiUrl}/Cadastrar`, item).subscribe({
       next: () => {
         console.log('Item salvo com sucesso!');
-
         this.numSerie = 0; // Limpa o input após salvar
         this.selectedTituloId = undefined; // Limpa a seleção do título
         this.tipo = ''; // Limpa o input de tipo se necessário

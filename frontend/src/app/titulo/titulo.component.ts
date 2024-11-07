@@ -68,8 +68,8 @@ export class TituloComponent {
   titulos: Titulo[] = [];
   categoria: string = 'f';
   actores = new FormControl<Ator[]>([]); // FormControl que armazena os atores selecionados
-  diretor: Diretor | null = null; // Item selecionado na lista de diretores
-  classeItem: Classe | null = null; // Item selecionado na lista de classes
+  diretor: number | undefined; // Item selecionado na lista de diretores
+  classeItem: number | undefined; // Item selecionado na lista de classes
 
   isEditing: boolean = false; // Indica se estamos em modo de edição
   editandoId: number | null = null; // ID do título que está sendo editado
@@ -81,8 +81,8 @@ export class TituloComponent {
     this.ano = titulo.ano;
     this.sinopse = titulo.sinopse;
     this.categoria = titulo.categoria;
-    this.diretor = titulo.diretor;
-    this.classeItem = titulo.classe;
+    this.diretor = titulo.diretor?.id;
+    this.classeItem = titulo.classe?.id;
     this.actores.setValue(titulo.atores); // Preenche a lista de atores
   }
 
@@ -94,8 +94,8 @@ export class TituloComponent {
         ano: this.ano,
         sinopse: this.sinopse,
         categoria: this.categoria,
-        diretor: this.diretor,
-        classe: this.classeItem,
+        diretor: { id: this.diretor},
+        classe: {id: this.classeItem},
         atores: this.actores.value,
       };
 
@@ -116,6 +116,10 @@ export class TituloComponent {
           },
         });
     }
+  }
+
+  compareAtores(a1: Ator, a2: Ator): boolean {
+    return a1 && a2 ? a1.id === a2.id : a1 === a2;
   }
 
   cancelarEdicao() {
@@ -197,11 +201,11 @@ export class TituloComponent {
       id: null,
       nome: this.nome,
       atores: this.actores.value, // Deve ser uma lista de objetos Ator
-      diretor: this.diretor, // Deve ser um objeto Diretor
+      diretor: {id: this.diretor}, // Deve ser um objeto Diretor
       ano: this.ano,
       sinopse: this.sinopse,
       categoria: this.categoria,
-      classe: this.classeItem, // Deve ser um objeto Classe
+      classe: {id: this.classeItem}, // Deve ser um objeto Classe
     };
 
     this.http
@@ -222,8 +226,8 @@ export class TituloComponent {
     this.sinopse = '';
     this.nome = '';
     this.categoria = 'f';
-    this.diretor = null;
-    this.classeItem = null;
+    this.diretor = undefined;
+    this.classeItem = undefined;
   }
 
   lerAtores() {

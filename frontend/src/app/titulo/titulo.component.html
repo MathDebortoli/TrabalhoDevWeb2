@@ -13,8 +13,7 @@
         <div class="atores">
           <mat-form-field class="example-full-width" id="atores">
             <mat-label>Selecione os atores</mat-label>
-            <mat-select [formControl]="actores" multiple>
-              <mat-option *ngFor="let ator of atoresList" [value]="ator">{{
+            <mat-select [formControl]="actores" multiple [compareWith]="compareAtores">              <mat-option *ngFor="let ator of atoresList" [value]="ator">{{
                 ator.nome
               }}</mat-option>
             </mat-select>
@@ -25,7 +24,7 @@
           <mat-form-field class="example-full-width" id="titulo">
             <mat-label>Selecione o Diretor</mat-label>
             <mat-select [(ngModel)]="diretor">
-              <mat-option *ngFor="let diretor1 of diretores" [value]="diretor1">
+              <mat-option *ngFor="let diretor1 of diretores" [value]="diretor1.id">
                 {{ diretor1.nome }}
               </mat-option>
             </mat-select>
@@ -60,7 +59,7 @@
           <mat-form-field class="example-full-width" id="atores">
             <mat-label>Selecione a Classe</mat-label>
             <mat-select [(ngModel)]="classeItem">
-              <mat-option *ngFor="let classe of classes" [value]="classe">
+              <mat-option *ngFor="let classe of classes" [value]="classe.id">
                 {{ classe.nome }}
               </mat-option>
             </mat-select>
