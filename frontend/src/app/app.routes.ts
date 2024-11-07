@@ -8,6 +8,7 @@ import { ClasseComponent } from './classe/classe.component';
 import { DiretorComponent } from './diretor/diretor.component';
 import { ItemComponent } from './item/item.component';
 import { TituloComponent } from './titulo/titulo.component';
+import { SocioComponent } from './socio/socio.component';
 
 
 export const routes: Routes = [
@@ -29,13 +30,16 @@ export const routes: Routes = [
   {
     path:'titulo',
     component: TituloComponent
-
   },
 
   {
     path:'item',
     component: ItemComponent
-  }
+  },
 
+  {
+    path:'socio',
+    component: SocioComponent
+  }
 
 ];

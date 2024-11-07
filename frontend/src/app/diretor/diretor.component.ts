@@ -7,7 +7,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; // <-- Corrigido aqui
 import { CommonModule } from '@angular/common';
-import { dir } from 'console';
 
 export interface Diretor {
   id?: number;

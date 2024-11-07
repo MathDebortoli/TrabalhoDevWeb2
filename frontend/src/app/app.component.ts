@@ -37,7 +37,9 @@ import { CommonModule } from '@angular/common'; // Importe CommonModule
       <button mat-button [routerLink]="['/item']">
         Item
       </button>
-
+      <button mat-button [routerLink]="['/socio']">
+        Sócio
+      </button>
 
     </mat-toolbar>
     <router-outlet></router-outlet>
