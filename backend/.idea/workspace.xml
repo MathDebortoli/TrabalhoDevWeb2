@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Titulo exceptions">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/TituloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClienteDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DependenteDomain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/SocioDomain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
