@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SocioComponent } from './socio.component';
+import { SocioComponent } from './cliente.component';
 
 describe('SocioComponent', () => {
   let component: SocioComponent;
@@ -11,7 +11,7 @@ describe('SocioComponent', () => {
       imports: [SocioComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SocioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
