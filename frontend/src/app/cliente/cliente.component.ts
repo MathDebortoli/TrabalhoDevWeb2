@@ -15,6 +15,18 @@ import { MY_DATE_FORMATS } from '../classe/classe.component';
 import { DependenteDialogComponent } from '../dependente-dialog/dependente-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
+
+
+export interface Cliente{
+  id?: number;
+  nome: string;
+  endereco: string;
+  telefone: number;
+  sexo:string;
+  cpf:string;
+  dataNascimento: Date;
+}
+
 @Component({
   selector: 'app-socio',
   standalone: true,
@@ -62,7 +74,8 @@ export class SocioComponent {
 
   openDependenteDialog(): void {
     const dialogRef = this.dialog.open(DependenteDialogComponent, {
-      width: '500px',
+      width: '35%',
+      height: '45%',
       data: { nome: '', sexo: 'Masculino', dataNascimento: new Date() },
     });
 

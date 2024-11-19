@@ -54,13 +54,26 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <!-- Botão Adicionar Dependente -->
-        <div class="envio">
-          <button mat-raised-button (click)="openDependenteDialog()">Adicionar Dependente</button>
-          <button mat-raised-button id="botaoenviar">Enviar</button>
+
+        <div class="openDependenteDialog">
+          <button mat-raised-button color="primary" (click)="openDependenteDialog()">Adicionar Dependente</button>
+
 
         </div>
+
+
       </div>
     </div>
+
+    <div class="format">
+      <div>
+        <button mat-raised-button color="primary">Salvar Cliente</button>
+      </div>
+    </div>
+
+    <h1 class="envio">Lista de Clientes</h1>
+
   </div>
+
+
 </div>

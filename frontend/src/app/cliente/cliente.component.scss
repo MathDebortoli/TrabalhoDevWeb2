@@ -4,7 +4,10 @@
   gap: 20px; /* Espaçamento entre os campos */
   align-items: start; /* Alinha os campos no topo */
 }
-
+.format{
+  display: flex;
+  justify-content: center;
+}
 .form-container {
   display: flex;
   justify-content: center;
@@ -24,4 +27,24 @@
 
 button {
   width: 100%;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: bold;
+
+}
+
+.envio{
+  margin-top: 50px;
+}
+
+
+
+.enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
 }

@@ -1,0 +1,110 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  text-align: center;
+}
+
+th{
+  font-size: 20px;
+}
+
+#cliente{
+  width: 25%;
+}
+
+#valorPrevisto{
+  width: 20%;
+}
+
+#dataPrevista{
+  width: 15%;
+}
+
+.format{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#titulo{
+  width: 30%;
+}
+
+h1{
+  font-size: 40px;
+}
+
+.btn-cancel {
+  background-color: #ff9800; /* Escolha a cor que desejar */
+  color: white; /* Cor do texto */
+}
+
+.btn-cancel:hover {
+  background-color: #e68900; /* Cor ao passar o mouse */
+}
+
+
+.form-content {
+  width: 100%;
+  max-width: 3000px;
+  padding: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.envio{
+  margin-top: 50px;
+}
+
+
+th,td {
+  font-weight: bold;
+  text-align: center;
+}
+
+.format{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-weight: bold;
+}
+
+.forms{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.forms1{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.forms2{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+
+#botaoenviar{
+  width: 15%;
+}
+button {
+  width: 100%;
+}

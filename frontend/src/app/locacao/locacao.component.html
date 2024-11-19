@@ -1,0 +1,53 @@
+<div class="form-container">
+  <div class="form-content">
+    <h1>Locação de Títulos</h1>
+
+    <div class="titulo">
+      <mat-form-field class="example-full-width" id="titulo">
+        <mat-label>Selecione o titulo</mat-label>
+        <mat-select [(ngModel)]="titulos">
+          <mat-option *ngFor="let titulo of titulos" [value]="titulo.id">
+            {{ titulo.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="cliente">
+      <mat-form-field class="example-full-width" id="cliente">
+        <mat-label>Selecione um Cliente</mat-label>
+        <mat-select [(ngModel)]="clientes">
+          <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">  {{cliente.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="valor">
+    <mat-form-field class="example-full-width" id ="valorPrevisto">
+      <mat-label>Valor Previsto</mat-label>
+      <input matInput placeholder="valorPrevisto" [(ngModel)]="valorPrevisto"/>
+    </mat-form-field>
+     </div>
+
+    <div class="data">
+    <mat-form-field class="example-full-width" id="dataPrevista">
+      <mat-label>Data Prevista</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="dataPrevista" placeholder="dd/MM/yyyy" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+
+
+    <div class="format">
+      <div>
+        <button mat-raised-button color="primary">Salvar Locação</button>
+      </div>
+    </div>
+
+    <h1 class="envio">Lista de Locações</h1>
+  </div>
+</div>
+
+

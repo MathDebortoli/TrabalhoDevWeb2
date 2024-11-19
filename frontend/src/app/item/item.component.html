@@ -51,11 +51,7 @@
 
     <div class="format">
       <div>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="editando ? salvarEdicao() : salvarItem()"
-        >
+        <button mat-raised-button color="primary"(click)="editando ? salvarEdicao() : salvarItem()">
           {{ editando ? "Salvar Edição" : "Enviar" }}
         </button>
       </div>

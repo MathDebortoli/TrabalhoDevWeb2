@@ -1,0 +1,43 @@
+<div class="form-container">
+  <div class="form-content">
+    <h1>Devolução de Itens</h1>
+
+    <div class="item">
+      <mat-form-field class="example-full-width" id="item">
+        <mat-label>Selecione o item a ser devolvido</mat-label>
+        <mat-select [(ngModel)]="items">
+          <mat-option *ngFor="let item of items" [value]="item.id">
+            {{ item.tituloDomain.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="locacao">
+      <mat-form-field class="example-full-width" id="locacao">
+        <mat-label>Selecione a locação</mat-label>
+        <mat-select [(ngModel)]="locacaos">
+          <mat-option *ngFor="let locacao of locacaos" [value]="locacao.id">
+            (Devolução prevista: {{ locacao.devolucaoPrevista | date: 'dd/MM/yyyy' }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="valor">
+      <mat-form-field class="example-full-width" id="valor-a-pagar">
+        <mat-label>Valor a ser pago</mat-label>
+        <input matInput [value]="0" readonly />
+      </mat-form-field>
+    </div>
+
+
+    <div class="format">
+      <div>
+        <button mat-raised-button color="primary">Efetuar Devolucao</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>

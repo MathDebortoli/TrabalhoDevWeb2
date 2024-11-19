@@ -100,11 +100,7 @@ export class TituloComponent {
       }
 
       // A chamada PUT estava errada, removi uma chave extra
-      this.http
-        .put(
-          `http://localhost:8080/Titulo/Editar`,
-          tituloAtualizado
-        )
+      this.http.put(`http://localhost:8080/Titulo/Editar`,tituloAtualizado)
         .subscribe({
           next: () => {
             this.lerTitulos(); // Atualiza a lista de títulos

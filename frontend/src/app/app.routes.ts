@@ -1,7 +1,9 @@
 
 import { Routes } from '@angular/router';
 
-//Paginas
+
+
+
 import { AtorComponent } from './ator/ator.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ClasseComponent } from './classe/classe.component';
@@ -9,6 +11,8 @@ import { DiretorComponent } from './diretor/diretor.component';
 import { ItemComponent } from './item/item.component';
 import { TituloComponent } from './titulo/titulo.component';
 import { SocioComponent } from './cliente/cliente.component';
+import { LocacaoComponent } from './locacao/locacao.component';
+import { DevolucaoComponent } from './devolucao/devolucao.component';
 
 
 export const routes: Routes = [
@@ -40,6 +44,16 @@ export const routes: Routes = [
   {
     path:'socio',
     component: SocioComponent
+  },
+
+  {
+    path:'locacao',
+    component:LocacaoComponent
+  },
+  
+  {
+    path:'devolucao',
+    component:DevolucaoComponent
   }
 
 ];
