@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Titulo exceptions">
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/titulo/titulo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClienteDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClienteDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DependenteDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/DependenteDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/SocioDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/SocioDomain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +124,8 @@
       <workItem from="1730736536545" duration="502000" />
       <workItem from="1731946550372" duration="3310000" />
       <workItem from="1732043520315" duration="1293000" />
+      <workItem from="1732210308386" duration="22000" />
+      <workItem from="1732218915090" duration="3450000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
