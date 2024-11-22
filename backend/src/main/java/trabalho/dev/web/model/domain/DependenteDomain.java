@@ -1,8 +1,10 @@
 package trabalho.dev.web.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import jakarta.persistence.*;
 import java.util.Date;
 
+@JsonTypeName("dependente")
 @Entity(name="Dependente")
 public class DependenteDomain extends ClienteDomain {
 

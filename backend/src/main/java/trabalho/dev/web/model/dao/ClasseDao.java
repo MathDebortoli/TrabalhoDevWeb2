@@ -15,7 +15,7 @@ public class ClasseDao {
     @Transactional
     public int addClasse(ClasseDomain classe) {
         try {
-            entityManager.persist(classe);  // Substitui session.save(ator)
+            entityManager.merge(classe);  // Substitui session.save(ator)
             return 1;
         } catch (Exception e) {
             System.err.println("Erro ao adicionar Classe: " + e.getMessage());

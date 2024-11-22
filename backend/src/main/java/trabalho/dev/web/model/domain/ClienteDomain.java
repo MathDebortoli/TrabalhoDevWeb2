@@ -1,10 +1,24 @@
 package trabalho.dev.web.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import java.util.Date;
-
-@MappedSuperclass
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "tipo")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = SocioDomain.class, name = "socio"),
+        @JsonSubTypes.Type(value = DependenteDomain.class, name = "dependente")
+})
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ClienteDomain {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String nome;

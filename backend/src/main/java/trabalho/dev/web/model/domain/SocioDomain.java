@@ -1,8 +1,11 @@
 package trabalho.dev.web.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import jakarta.persistence.*;
 import java.util.Date;
 
+
+@JsonTypeName("socio")
 @Entity (name="Socio")
 public class SocioDomain extends ClienteDomain {
 
