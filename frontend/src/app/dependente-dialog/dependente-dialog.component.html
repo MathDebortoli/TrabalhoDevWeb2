@@ -1,14 +1,17 @@
-<h1 mat-dialog-title>Adicionar Dependente</h1>
+<h1 mat-dialog-title>Cadastrar Dependente</h1>
 <div mat-dialog-content>
   <mat-form-field class="example-full-width" id="data">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="dependente.nome" placeholder="Nome do Dependente" />
+    <input
+      matInput
+      [(ngModel)]="nome"
+      placeholder="Nome do Dependente"
+    />
   </mat-form-field>
 
-
-  <mat-form-field class="example-full-width" id ="data">
+  <mat-form-field class="example-full-width" id="data">
     <mat-label>Sexo</mat-label>
-    <mat-select [(ngModel)]="dependente.sexo">
+    <mat-select [(ngModel)]="selected">
       <mat-option value="Masculino">Masculino</mat-option>
       <mat-option value="Feminino">Feminino</mat-option>
     </mat-select>
@@ -16,14 +19,96 @@
 
   <mat-form-field class="example-full-width" id="data">
     <mat-label>Data de Nascimento</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="dependente.dataNascimento" placeholder="dd/MM/yyyy" />
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [(ngModel)]="nascimento"
+      placeholder="dd/MM/yyyy"
+    />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+
+  <div
+  mat-dialog-actions
+  style="display: flex; justify-content: flex-end; gap: 8px"
+>
+  <button mat-flat-button color="warn" (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
 </div>
 
-<div mat-dialog-actions style="display: flex; justify-content: flex-end; gap: 8px;">
-  <button mat-flat-button color="warn" (click)="onNoClick()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="onSave()">Salvar</button>
-</div>
+  <div>
+    <h1>Dependentes Selecionados</h1>
+  </div>
 
+  <div class="flexzim">
+    <mat-form-field class="metade">
+      <mat-label>Dependente 1</mat-label>
+      <mat-select [(ngModel)]="dependente1">
+        <mat-option *ngFor="let dep of dependentes" [value]="dep">
+          {{ dep.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="accent">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="flexzim">
+    <mat-form-field class="metade">
+      <mat-label>Dependente 2</mat-label>
+      <mat-select [(ngModel)]="dependente2">
+        <mat-option *ngFor="let dep of dependentes" [value]="dep">
+          {{ dep.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="accent">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="flexzim">
+    <mat-form-field class="metade">
+      <mat-label>Dependente 3</mat-label>
+      <mat-select [(ngModel)]="dependente3">
+        <mat-option *ngFor="let dep of dependentes" [value]="dep">
+          {{ dep.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="accent">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+</div>

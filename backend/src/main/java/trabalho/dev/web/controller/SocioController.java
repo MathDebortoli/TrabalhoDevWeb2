@@ -25,6 +25,10 @@ public class SocioController {
     @Operation(description = "Realiza o Cadastro de Sócio")
     @PostMapping("/Cadastrar")
     public ResponseEntity<SocioDomain> postCadastrarSocio(@RequestBody SocioDomain socio) {
+        if(socio != null){
+            System.out.println("Sócio: " + socio.getDependentes().get(0).getNome());
+        }
+
         apl.addSocio(socio);
         return ResponseEntity.ok(socio);
     }

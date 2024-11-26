@@ -3,24 +3,19 @@ package trabalho.dev.web.model.domain;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @JsonTypeName("socio")
 @Entity (name="Socio")
 public class SocioDomain extends ClienteDomain {
 
-    @OneToOne(cascade = CascadeType.ALL) // Relacionamento com dependentes
-    private DependenteDomain dep1;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private DependenteDomain dep2;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private DependenteDomain dep3;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // Relacionamento correto para múltiplos dependentes
+    private List<DependenteDomain> dependentes;
 
     public SocioDomain() {
     }
@@ -29,29 +24,12 @@ public class SocioDomain extends ClienteDomain {
         super(nome, sexo, cpf, rua, numero, telefone, dataNascimento);
     }
 
-    // Getters e Setters
-    public DependenteDomain getDep1() {
-        return dep1;
+    public List<DependenteDomain> getDependentes() {
+        return dependentes;
     }
 
-    public void setDep1(DependenteDomain dep1) {
-        this.dep1 = dep1;
-    }
-
-    public DependenteDomain getDep2() {
-        return dep2;
-    }
-
-    public void setDep2(DependenteDomain dep2) {
-        this.dep2 = dep2;
-    }
-
-    public DependenteDomain getDep3() {
-        return dep3;
-    }
-
-    public void setDep3(DependenteDomain dep3) {
-        this.dep3 = dep3;
+    public void setDependentes(List<DependenteDomain> dependentes) {
+        this.dependentes = dependentes;
     }
 
     public void setId(Long id) {

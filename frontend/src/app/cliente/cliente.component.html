@@ -2,7 +2,7 @@
   <div class="form-content">
     <div class="forms">
       <div class="titulo">
-        <h1>Cadastro de Cliente</h1>
+        <h1>Cadastro de Sócios</h1>
       </div>
 
       <div class="form-grid">
@@ -32,7 +32,6 @@
           <mat-select [(ngModel)]="selected">
             <mat-option value="Masculino">Masculino</mat-option>
             <mat-option value="Feminino">Feminino</mat-option>
-            <mat-option value="Outros">Helicóptero AK47</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -49,31 +48,144 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Data de Nascimento</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="dataNascimento" placeholder="dd/MM/yyyy" />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="dataNascimento"
+            placeholder="dd/MM/yyyy"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
+        <div class="flex1">
+          <div class="divisao">
+            <mat-form-field>
+              <mat-label>Dependentes</mat-label>
+              <input matInput [value]="formatarDependentes(dependentesSelecionados)" [disabled]="true" />
+            </mat-form-field>
+          </div>
 
-        <div class="openDependenteDialog">
-          <button mat-raised-button color="primary" (click)="openDependenteDialog()">Adicionar Dependente</button>
-
-
+          <div class="openDependenteDialog">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="openDependenteDialog()"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
         </div>
-
-
       </div>
     </div>
 
     <div class="format">
       <div>
-        <button mat-raised-button color="primary">Salvar Cliente</button>
+        <button mat-raised-button color="primary" (click)="cadastrarSocio()">
+          Salvar Sócio
+        </button>
       </div>
     </div>
 
-    <h1 class="envio">Lista de Clientes</h1>
+    <h1 class="envio">Lista de Sócios</h1>
 
+    <div class="meiop">
+      <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef>Número</th>
+            <td mat-cell *matCellDef="let element">{{ element.numero }}</td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="rua">
+            <th mat-header-cell *matHeaderCellDef>Rua</th>
+            <td mat-cell *matCellDef="let element">{{ element.rua }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="telefone">
+            <th mat-header-cell *matHeaderCellDef>Telefone</th>
+            <td mat-cell *matCellDef="let element">{{ element.telefone }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="sexo">
+            <th mat-header-cell *matHeaderCellDef>Sexo</th>
+            <td mat-cell *matCellDef="let element">{{ element.sexo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef>Cpf</th>
+            <td mat-cell *matCellDef="let element">{{ element.cpf }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nascimento">
+            <th mat-header-cell *matHeaderCellDef>Nascimento</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.dataNascimento | date : "dd/MM/yyyy" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dependente">
+            <th mat-header-cell *matHeaderCellDef>Dependentes</th>
+            <td mat-cell *matCellDef="let element">{{ formatarDependentes(element.dependente)}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let element">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 8px;
+                "
+              >
+                <!-- Botões de Excluir e Editar -->
+                <button mat-flat-button color="warn" (click)="removerSocio(element)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-flat-button color="accent">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+
+              <ng-template #emEdicao>
+                <!-- Apenas o botão de Cancelar ao editar -->
+                <div
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                  "
+                >
+                  <button mat-flat-button color="warn">
+                    <mat-icon>close</mat-icon> Cancelar
+                  </button>
+                </div>
+              </ng-template>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
   </div>
-
-
 </div>

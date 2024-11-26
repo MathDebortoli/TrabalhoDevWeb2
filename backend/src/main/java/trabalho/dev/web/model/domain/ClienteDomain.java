@@ -30,7 +30,9 @@ public abstract class ClienteDomain {
     private String cpf;
 
     private String rua;
+
     private int numero;
+
     private int telefone;
 
     @Temporal(TemporalType.DATE) // Mapeia o campo Date para um formato de data do banco
