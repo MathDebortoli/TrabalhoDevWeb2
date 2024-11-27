@@ -4,7 +4,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  MatNativeDateModule,
+} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,14 +19,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MY_DATE_FORMATS } from '../classe/classe.component';
 import { DependenteDialogComponent } from '../dependente-dialog/dependente-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { stringify } from 'node:querystring';
 
-export interface Cliente{
+export interface Cliente {
   id?: number;
   nome: string;
   rua: string;
   telefone: number;
-  sexo:string;
-  cpf:string;
+  sexo: string;
+  cpf: string;
   dataNascimento: Date;
   tipo: string;
 }
@@ -75,7 +81,6 @@ export interface Dependente {
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
   ],
 })
-
 export class SocioComponent {
   id?: number;
   nome?: string = '';
@@ -86,7 +91,18 @@ export class SocioComponent {
   selected: string = 'Masculino';
   cpf?: string = '';
   dataNascimento?: Date = new Date();
-  displayedColumns: string[] = ['id', 'nome', 'numero', 'rua', 'telefone', 'sexo', 'cpf', 'nascimento', 'dependente', 'acoes'];
+  displayedColumns: string[] = [
+    'id',
+    'nome',
+    'numero',
+    'rua',
+    'telefone',
+    'sexo',
+    'cpf',
+    'nascimento',
+    'dependente',
+    'acoes',
+  ];
   dataSource: Cliente[] = [];
   dependentes?: Dependente[] = [];
   dependentesSelecionados?: Dependente[] = [];
@@ -109,27 +125,34 @@ export class SocioComponent {
       },
     });
 
-    dialogRef.afterClosed().subscribe((result: { dependentes: Dependente[], dependentesSelecionados: Dependente[] } | null) => {
-      if (result) {
-        this.dependentes = result.dependentes; // Atualiza o primeiro vetor
-        this.dependentesSelecionados = result.dependentesSelecionados; // Atualiza o segundo vetor
-      } else {
-        console.log('Diálogo cancelado ou sem alterações.');
+    dialogRef.afterClosed().subscribe(
+      (
+        result: {
+          dependentes: Dependente[];
+          dependentesSelecionados: Dependente[];
+        } | null
+      ) => {
+        if (result) {
+          this.dependentes = result.dependentes; // Atualiza o primeiro vetor
+          this.dependentesSelecionados = result.dependentesSelecionados; // Atualiza o segundo vetor
+        } else {
+          console.log('Diálogo cancelado ou sem alterações.');
+        }
       }
-    });
+    );
   }
 
-
-  formatarDependentes(dependentes: { nome: string }[] | null | undefined): string {
+  formatarDependentes(
+    dependentes: { nome: string }[] | null | undefined
+  ): string {
     if (!dependentes || dependentes.length === 0) {
       return '';
     }
     return dependentes
-      .filter(dep => dep != null && dep.nome) // Filtra dependentes válidos com nome
-      .map(dep => dep.nome) // Extrai o nome de cada dependente
+      .filter((dep) => dep != null && dep.nome) // Filtra dependentes válidos com nome
+      .map((dep) => dep.nome) // Extrai o nome de cada dependente
       .join(', '); // Junta os nomes em uma string separada por vírgula
   }
-
 
   formatCPF(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -139,30 +162,35 @@ export class SocioComponent {
       value = value.slice(0, 11);
     }
 
-    this.cpf = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})?/, (match, p1, p2, p3, p4) => {
-      let formatted = `${p1}.${p2}.${p3}`;
-      if (p4) {
-        formatted += `-${p4}`;
+    this.cpf = value.replace(
+      /(\d{3})(\d{3})(\d{3})(\d{1,2})?/,
+      (match, p1, p2, p3, p4) => {
+        let formatted = `${p1}.${p2}.${p3}`;
+        if (p4) {
+          formatted += `-${p4}`;
+        }
+        return formatted;
       }
-      return formatted;
-    });
+    );
 
     input.value = this.cpf;
   }
-
 
   blockExcessDigits(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
     const value = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
 
-    if (value.length >= 11 && !['Backspace', 'ArrowLeft', 'ArrowRight', 'Delete'].includes(event.key)) {
+    if (
+      value.length >= 11 &&
+      !['Backspace', 'ArrowLeft', 'ArrowRight', 'Delete'].includes(event.key)
+    ) {
       event.preventDefault(); // Bloqueia a entrada de mais caracteres
     }
   }
 
   removerSocio(socio: Cliente): void {
     if (confirm('Tem certeza que deseja remover este sócio?')) {
-      this.http.delete(`${this.apiUrl}/Remover`, { body:socio }).subscribe({
+      this.http.delete(`${this.apiUrl}/Remover`, { body: socio }).subscribe({
         next: () => {
           console.log(`Sócio: ${socio.nome} deletado com sucesso!`);
           // Atualiza a dataSource para remover o ator da tabela
@@ -170,7 +198,7 @@ export class SocioComponent {
         },
         error: (err) => {
           alert('Erro ao deletar o socio!: ' + err);
-        }
+        },
       });
     }
   }
@@ -178,20 +206,20 @@ export class SocioComponent {
   cadastrarSocio(): void {
     let genero;
 
-    if(this.validarCampos()){
+    if (this.validarCampos()) {
       alert('Erro no Salvamento! Verifique os campos.');
       return;
     }
 
-    if(this.selected === "Masculino"){
+    if (this.selected === 'Masculino') {
       genero = 'm';
-    }
-
-    else{
+    } else {
       genero = 'f';
     }
 
-    this.dependentesSelecionados = this.dependentesSelecionados?.filter(dep => dep.nome && dep.sexo && dep.dataNascimento);
+    this.dependentesSelecionados = this.dependentesSelecionados?.filter(
+      (dep) => dep.nome && dep.sexo && dep.dataNascimento
+    );
 
     const socio = {
       id: this.id,
@@ -217,7 +245,7 @@ export class SocioComponent {
     });
   }
 
-  listarSocios(){
+  listarSocios() {
     this.http.get<Cliente[]>(`${this.apiUrl}/Listar`).subscribe({
       next: (data) => {
         this.dataSource = data;
@@ -228,11 +256,18 @@ export class SocioComponent {
     });
   }
 
-  validarCampos(){
-    return this.nome === '' || this.rua === '' || this.numero === 0 || this.telefone === '' || this.cpf === '' || this.dataNascimento === null;
+  validarCampos() {
+    return (
+      this.nome === '' ||
+      this.rua === '' ||
+      this.numero === 0 ||
+      this.telefone === '' ||
+      this.cpf === '' ||
+      this.dataNascimento === null
+    );
   }
 
-  limparCampos(){
+  limparCampos() {
     this.nome = '';
     this.rua = '';
     this.numero = 0;
@@ -255,8 +290,8 @@ export class SocioComponent {
     this.telefone = socio.telefone;
     this.cpf = socio.cpf;
     this.dataNascimento = socio.dataNascimento;
-    this.dependentesSelecionados = socio.dependentes;
     this.selected = socio.sexo === 'm' ? 'Masculino' : 'Feminino';
+    this.dependentesSelecionados = socio.dependentes;
     this.dependentes = socio.dependentes;
 
     this.editandoId = socio.id; // Define o id do ator que está sendo editado
@@ -264,6 +299,23 @@ export class SocioComponent {
   }
 
   salvarEdicao(): void {
+    // Filtra os dependentes nulos e adiciona o tipo 'dependente'
+    // Filtra os dependentes nulos ou incompletos e adiciona o tipo 'dependente'
+    const dependentesFiltrados =
+      this.dependentesSelecionados
+        ?.filter(
+          (dependente) =>
+            dependente != null &&
+            dependente.nome &&
+            dependente.sexo &&
+            dependente.dataNascimento
+        )
+        .map((dependente) => {
+          dependente.tipo = 'dependente'; // Modifica o dependente
+          return dependente; // Retorna o dependente modificado
+        }) || []; // Garante que a variável não seja nula, caso dependentesSelecionados seja undefined
+
+    // Agora cria o objeto socio com a lista de dependentes já filtrados e modificados
     const socio = {
       id: this.id,
       nome: this.nome,
@@ -273,13 +325,11 @@ export class SocioComponent {
       sexo: this.selected === 'Masculino' ? 'm' : 'f',
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
-      dependentes:   this.dependentes?.forEach(dependente => {
-        if (dependente !== null) {
-          dependente.tipo = 'dependente';
-        }
-      }),
+      dependentes: dependentesFiltrados, // Utiliza a lista de dependentes modificada
       tipo: 'socio',
     };
+
+    //alert('Socio:' + JSON.stringify(socio));
 
     this.http.put(`${this.apiUrl}/Editar`, socio).subscribe({
       next: () => {
@@ -299,7 +349,4 @@ export class SocioComponent {
     this.socioEmEdicao = {};
     this.emEdicao = false; // Sai do modo de edição sem salvar
   }
-
-
-
 }

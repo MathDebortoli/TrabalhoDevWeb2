@@ -62,8 +62,6 @@ export class DependenteDialogComponent {
   emEdicao1 = false; // Controla se estamos no modo de edição
   emEdicao2 = false; // Controla se estamos no modo de edição
 
-
-
   dependentes: Dependente[] = []; // Lista de dependentes
   dependenteSelecionados: Dependente[] = []; // Dependente selecionado
 

@@ -177,8 +177,8 @@ export class LocacaoComponent {
       // Atualize os valores de locacaoSelecionada com os dados de entrada do formulário
       locacaoSelecionada.valorPrevisto = this.valorPrevisto;
       locacaoSelecionada.devolucaoPrevista = this.dataPrevista;
-      locacaoSelecionada.item = this.item;
-      locacaoSelecionada.cliente = this.socio;
+      locacaoSelecionada.item = this.itens.find(item => item.id === this.idItem);
+      locacaoSelecionada.cliente = this.socios.find(socio => socio.id === this.idCliente);
 
       console.log('Locacao a ser editada:', locacaoSelecionada);
 

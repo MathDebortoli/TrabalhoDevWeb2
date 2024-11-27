@@ -14,7 +14,7 @@ public class SocioDomain extends ClienteDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true) // Relacionamento correto para múltiplos dependentes
+    @OneToMany(cascade = CascadeType.ALL) // Relacionamento correto para múltiplos dependentes
     private List<DependenteDomain> dependentes;
 
     public SocioDomain() {
