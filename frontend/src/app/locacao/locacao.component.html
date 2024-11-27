@@ -4,10 +4,10 @@
 
     <div class="titulo">
       <mat-form-field class="example-full-width" id="titulo">
-        <mat-label>Selecione o titulo</mat-label>
-        <mat-select [(ngModel)]="titulo" (selectionChange)="onInputChange($event)">
-          <mat-option *ngFor="let titulo of titulos" [value]="titulo">
-            {{ titulo.nome }}
+        <mat-label>Selecione o Item</mat-label>
+        <mat-select [(ngModel)]="item" (selectionChange)="onInputChange($event)">
+          <mat-option *ngFor="let item of itens" [value]="item">
+            {{ item.tituloDomain?.nome}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -52,9 +52,9 @@
 
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="titulo">
-          <th mat-header-cell *matHeaderCellDef>Título</th>
-          <td mat-cell *matCellDef="let element">{{ element.titulo?.nome }}</td>
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef>Item</th>
+          <td mat-cell *matCellDef="let element">{{ element.item?.tituloDomain?.nome }}</td>
         </ng-container>
 
         <ng-container matColumnDef="cliente">

@@ -17,14 +17,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import { Titulo } from '../titulo/titulo.component';
 import { Cliente, Socio } from '../cliente/cliente.component';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { MY_DATE_FORMATS } from '../item/item.component';
+import { Item, MY_DATE_FORMATS } from '../item/item.component';
 
-export interface locacao {
+export interface Locacao {
   id?: number;
-  titulo?: Titulo;
+  item?: Item;
   cliente?: Socio;
   valorPrevisto?: number;
   devolucaoPrevista?: Date;
@@ -65,19 +64,19 @@ export interface locacao {
   ],
 })
 export class LocacaoComponent {
-  titulos: Titulo[] = [];
+  itens: Item[] = [];
   socios: Socio[] = [];
-  titulo?: Titulo = {};
+  item?: Item = {};
   socio?: Socio = {};
   valorPrevisto?: number = 0;
   dataPrevista?: Date = new Date();
   apiUrl = 'http://localhost:8080';
   editandoId?: number;
   emEdicao = false;
-  dataSource: locacao[] = [];
-  locacaoEmEdicao: locacao = {};
+  dataSource: Locacao[] = [];
+  locacaoEmEdicao: Locacao = {};
   displayedColumns: string[] = [
-    'titulo',
+    'item',
     'cliente',
     'valorPrevisto',
     'dataPrevista',
@@ -87,28 +86,28 @@ export class LocacaoComponent {
   ];
 
   constructor(private http: HttpClient,private datePipe: DatePipe) {
-    this.lerTitulos();
-    this.lerClientes();
+    this.lerItens();
+    this.lerSocios();
     this.listarLocacoes();
   }
 
   onInputChange(event: any) {
-    const tituloSelecionado = this.titulo;
+    const ItemSelecionado = this.item;
 
-    if (tituloSelecionado) {
-      console.log('Título selecionado:', tituloSelecionado);
+    if (ItemSelecionado) {
+      console.log('Título selecionado:', ItemSelecionado);
 
       // Verifica se a classe está presente
-      const classe = tituloSelecionado.classe;
+      const classe = ItemSelecionado;
       if (classe) {
         console.log('Classe selecionada:', classe);
 
         // Obtém o valor da classe
-        this.valorPrevisto = classe.valor || 0; // Valor da classe
+        this.valorPrevisto = ItemSelecionado.tituloDomain?.classe?.valor || 0; // Valor da classe
         console.log('Valor previsto:', this.valorPrevisto);
 
         // Acesse o campo correto do prazo, que é 'dataPrazo'
-        const prazoClasseEmDias = Number(classe.dataPrazo) || 0; // Garantir que dataPrazo seja um número
+        const prazoClasseEmDias = Number(ItemSelecionado.tituloDomain?.classe?.dataPrazo) || 0; // Garantir que dataPrazo seja um número
         console.log('Prazo da classe (em dias):', prazoClasseEmDias);
 
         // Verifique se o prazo foi corretamente atribuído
@@ -139,20 +138,18 @@ export class LocacaoComponent {
   }
 
 
-
-
-  lerClientes() {
-    this.http.get<Titulo[]>(`${this.apiUrl}/Titulo/Listar`).subscribe({
+  lerItens() {
+    this.http.get<Item[]>(`${this.apiUrl}/Item/Listar`).subscribe({
       next: (data) => {
-        this.titulos = data;
+        this.itens = data;
       },
       error: (err) => {
-        console.error('Erro ao listar os Titulos:', err);
+        console.error('Erro ao listar os Items:', err);
       },
     });
   }
 
-  lerTitulos() {
+  lerSocios() {
     this.http.get<Socio[]>(`${this.apiUrl}/Socio/Listar`).subscribe({
       next: (data) => {
         this.socios = data;
@@ -163,10 +160,10 @@ export class LocacaoComponent {
     });
   }
 
-  iniciarEdicaoLocacao(locacao: locacao): void {
+  iniciarEdicaoLocacao(locacao: Locacao): void {
     this.locacaoEmEdicao = locacao; // Armazena o dependente em edição
 
-    this.titulo = locacao.titulo;
+    this.item = locacao.item;
     this.socio = locacao.cliente;
     this.valorPrevisto = locacao.valorPrevisto;
     this.dataPrevista = locacao.devolucaoPrevista;
@@ -178,10 +175,10 @@ export class LocacaoComponent {
   salvarEdicaoLocacao(): void {
     const locacao = {
       id: this.editandoId,
-      titulo: this.titulo,
+      item: this.item,
       cliente: this.socio,
       valorPrevisto: this.valorPrevisto,
-      pago : 'true',
+      pago : 'false',
       dataDevolucaoPrevista: this.dataPrevista,
     };
 
@@ -204,7 +201,7 @@ export class LocacaoComponent {
     };
 
     const locacao = {
-      titulo: this.titulo,
+      item: this.item,
       cliente: this.socio,
       valorPrevisto: this.valorPrevisto,
       devolucaoPrevista: formatarData(this.dataPrevista ?? new Date()), // Formata a data
@@ -212,7 +209,8 @@ export class LocacaoComponent {
       dataLocacao: formatarData(new Date()), // Formata a data atual
     };
 
-    console.log('Locacao:', locacao);
+    alert('Locacao: ' + JSON.stringify(locacao));
+
     this.http.post(`${this.apiUrl}/Locacao/Cadastrar`, locacao).subscribe({
       next: () => {
         this.listarLocacoes();
@@ -223,10 +221,17 @@ export class LocacaoComponent {
       },
     });
   }
-  removerLocacao(locacao: locacao): void {
+
+  removerLocacao(locacao: Locacao): void {
     const confirmDelete = confirm(
-      `Tem certeza que deseja deletar a locacao do Titulo: ${locacao.titulo}?`
+      `Tem certeza que deseja deletar a locacao do Item: ${locacao.item}?`
     );
+
+    if(locacao.pago == true){
+      alert('Item ja foi pago, não pode ser deletado!');
+      return;
+    }
+
     if (confirmDelete) {
       this.http
         .request('DELETE', 'http://localhost:8080/Locacao/Remover', {
@@ -234,17 +239,17 @@ export class LocacaoComponent {
         })
         .subscribe({
           next: () => {
-            this.lerTitulos();
+            this.lerSocios();
           },
           error: (err) => {
-            alert('Titulo Com Restricao de Chave Estrangeira!');
+            alert('Item Com Restricao de Chave Estrangeira!');
           },
         });
     }
   }
 
   limparCampos(): void {
-    this.titulo = {};
+    this.item = {};
     this.socio = {};
     this.valorPrevisto = 0;
     this.dataPrevista = new Date();
@@ -257,7 +262,7 @@ export class LocacaoComponent {
   }
 
   listarLocacoes(): void {
-    this.http.get<locacao[]>(`${this.apiUrl}/Locacao/Listar`).subscribe({
+    this.http.get<Locacao[]>(`${this.apiUrl}/Locacao/Listar`).subscribe({
       next: (data) => {
         this.dataSource = data;
       },

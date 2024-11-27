@@ -15,9 +15,10 @@ public class LocacaoDomain {
     @JoinColumn(name = "cliente_id", nullable = false)
     private ClienteDomain cliente;
 
+    @JsonProperty("item")
     @ManyToOne
-    @JoinColumn(name = "titulo_id", nullable = false)
-    private TituloDomain titulo;
+    @JoinColumn(name = "item_id", nullable = false)
+    private ItemDomain item;
 
     @Column(nullable = false)
     private Date dataLocacao;
@@ -36,8 +37,6 @@ public class LocacaoDomain {
     public LocacaoDomain() {
     }
 
-
-
     // Getters e Setters
     public Long getId() {
         return id;
@@ -55,12 +54,12 @@ public class LocacaoDomain {
         this.cliente = cliente;
     }
 
-    public TituloDomain getTitulo() {
-        return titulo;
+    public ItemDomain getItem() {
+        return item;
     }
 
-    public void setTitulo(TituloDomain titulo) {
-        this.titulo = titulo;
+    public void setItem(ItemDomain item) {
+        this.item = item;
     }
 
     public Date getDataLocacao() {
@@ -100,7 +99,7 @@ public class LocacaoDomain {
         return "LocacaoDomain{" +
                 "id=" + id +
                 ", cliente=" + cliente +
-                ", titulo=" + titulo +
+                ", item =" + item +
                 ", dataLocacao=" + dataLocacao +
                 ", dataDevolucaoPrevista=" + dataDevolucaoPrevista +
                 ", valor=" + valor +

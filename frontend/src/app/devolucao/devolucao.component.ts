@@ -1,5 +1,5 @@
 import { Item } from './../item/item.component';
-import { locacao, LocacaoComponent } from './../locacao/locacao.component';
+import { Locacao, LocacaoComponent } from './../locacao/locacao.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ export interface Devolucao {
   id?: number;
   dataDevolucao?: Date;
   valorMulta?: number;
-  locacao?: locacao | null;
+  locacao?: Locacao | null;
   item?: Item | null;
 }
 
@@ -50,7 +50,7 @@ export class DevolucaoComponent {
   multa: number = 0;
   valorAPagar: number = 0; // Propriedade para exibir o valor total a ser pago
 
-  locacaos: locacao[] = []; // Agora usando a classe locacao
+  locacaos: Locacao[] = []; // Agora usando a classe locacao
 
   items: Item[] = [];
 
@@ -73,7 +73,7 @@ export class DevolucaoComponent {
 
   // Função para carregar locações
   lerLocacoes() {
-    this.http.get<locacao[]>('http://localhost:8080/Locacao/Listar').subscribe({
+    this.http.get<Locacao[]>('http://localhost:8080/Locacao/Listar').subscribe({
       next: (data) => {
         this.locacaos = data;
       },
@@ -84,7 +84,7 @@ export class DevolucaoComponent {
   }
 
  // Função para calcular o valor total com base na locação
- calcularValorTotal(locacao: locacao): number {
+ calcularValorTotal(locacao: Locacao): number {
   if (!locacao) {
     console.error('Locação inválida.');
     return 0;

@@ -18,17 +18,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
-export interface TituloDomain {
-  nome?: string;
-  id: number;
-}
-
 export interface Item {
   id?: number;
-  numSerie: number;
-  tituloDomain: TituloDomain;
-  tipo: string;
-  dataAquisicao: Date;
+  numSerie?: number;
+  tituloDomain?: Titulo;
+  tipo?: string;
+  dataAquisicao?: Date;
 }
 
 export const MY_DATE_FORMATS = {
@@ -87,11 +82,11 @@ export class ItemComponent {
   items: Item[] = [];
   titulos: Titulo[] = [];
 
-  numSerie: number = 0;
-  dataAquisicao: Date = new Date();
-  selectedTituloId: number | undefined; // Novo campo para armazenar o id do título selecionado
+  numSerie?: number = 0;
+  dataAquisicao?: Date = new Date();
+  selectedTituloId?: number | null; // Novo campo para armazenar o id do título selecionado
   tipo: string = '';
-  selected: string = 'fita';
+  selected?: string = 'fita';
   dataSource = [] as Item[];
   editandoId?: number | null = null;
   editando: boolean = false;
@@ -144,7 +139,7 @@ export class ItemComponent {
     this.editando = true; // Muda para o modo de edição
     this.editandoId = item.id; // Armazena o item a ser editado
     this.numSerie = item.numSerie;
-    this.selectedTituloId = item.tituloDomain.id;
+    this.selectedTituloId = item.tituloDomain!.id; // Armazena o id do título selecionado
     this.selected = item.tipo;
     this.dataAquisicao = item.dataAquisicao;
   }

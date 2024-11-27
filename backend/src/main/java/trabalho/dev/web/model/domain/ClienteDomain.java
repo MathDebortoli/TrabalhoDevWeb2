@@ -33,7 +33,7 @@ public abstract class ClienteDomain {
 
     private int numero;
 
-    private int telefone;
+    private long telefone;
 
     @Temporal(TemporalType.DATE) // Mapeia o campo Date para um formato de data do banco
     private Date dataNascimento;
@@ -41,7 +41,7 @@ public abstract class ClienteDomain {
     public ClienteDomain() {
     }
 
-    public ClienteDomain(String nome, char sexo, String cpf, String rua, int numero, int telefone, Date dataNascimento) {
+    public ClienteDomain(String nome, char sexo, String cpf, String rua, int numero, long telefone, Date dataNascimento) {
         this.nome = nome;
         this.sexo = sexo;
         this.cpf = cpf;
@@ -98,11 +98,11 @@ public abstract class ClienteDomain {
         this.numero = numero;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
