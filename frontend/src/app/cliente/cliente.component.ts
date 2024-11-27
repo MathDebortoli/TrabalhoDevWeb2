@@ -26,6 +26,19 @@ export interface Cliente{
   tipo: string;
 }
 
+export interface Socio {
+  id?: number;
+  nome?: string;
+  rua?: string;
+  numero?: number;
+  telefone?: string;
+  sexo?: string;
+  cpf?: string;
+  dataNascimento?: Date;
+  dependentes?: Dependente[];
+  tipo?: string;
+}
+
 export interface Dependente {
   nome: string;
   sexo: string;
@@ -71,13 +84,16 @@ export class SocioComponent {
   telefone?: string = '';
   sexo?: string = '';
   selected: string = 'Masculino';
-  cpf: string = '';
-  dataNascimento: Date = new Date();
+  cpf?: string = '';
+  dataNascimento?: Date = new Date();
   displayedColumns: string[] = ['id', 'nome', 'numero', 'rua', 'telefone', 'sexo', 'cpf', 'nascimento', 'dependente', 'acoes'];
   dataSource: Cliente[] = [];
-  dependentes: Dependente[] = [];
-  dependentesSelecionados: Dependente[] = [];
+  dependentes?: Dependente[] = [];
+  dependentesSelecionados?: Dependente[] = [];
   apiUrl = 'http://localhost:8080/Socio';
+  emEdicao = false;
+  socioEmEdicao: Socio = {};
+  editandoId: number | undefined;
 
   constructor(public dialog: MatDialog, public http: HttpClient) {
     this.listarSocios();
@@ -105,8 +121,6 @@ export class SocioComponent {
 
 
   formatarDependentes(dependentes: { nome: string }[] | null | undefined): string {
-    console.log(dependentes);
-
     if (!dependentes || dependentes.length === 0) {
       return '';
     }
@@ -177,7 +191,7 @@ export class SocioComponent {
       genero = 'f';
     }
 
-    this.dependentesSelecionados = this.dependentesSelecionados.filter(dep => dep.nome && dep.sexo && dep.dataNascimento);
+    this.dependentesSelecionados = this.dependentesSelecionados?.filter(dep => dep.nome && dep.sexo && dep.dataNascimento);
 
     const socio = {
       id: this.id,
@@ -191,8 +205,6 @@ export class SocioComponent {
       dependentes: this.dependentesSelecionados,
       tipo: 'socio',
     };
-
-    alert(JSON.stringify(socio)); // Converte o objeto `socio` em uma string JSON e exibe no alerta
 
     this.http.post(`${this.apiUrl}/Cadastrar`, socio).subscribe({
       next: () => {
@@ -230,6 +242,62 @@ export class SocioComponent {
     this.dependentes = [];
     this.dependentesSelecionados = [];
     this.id = undefined;
+    this.editandoId = undefined; // Reseta o id após salvar
+  }
+
+  iniciarEdicao(socio: Socio): void {
+    this.socioEmEdicao = socio; // Armazena o dependente em edição
+
+    this.id = socio.id;
+    this.nome = socio.nome;
+    this.rua = socio.rua;
+    this.numero = socio.numero;
+    this.telefone = socio.telefone;
+    this.cpf = socio.cpf;
+    this.dataNascimento = socio.dataNascimento;
+    this.dependentesSelecionados = socio.dependentes;
+    this.selected = socio.sexo === 'm' ? 'Masculino' : 'Feminino';
+    this.dependentes = socio.dependentes;
+
+    this.editandoId = socio.id; // Define o id do ator que está sendo editado
+    this.emEdicao = true;
+  }
+
+  salvarEdicao(): void {
+    const socio = {
+      id: this.id,
+      nome: this.nome,
+      rua: this.rua,
+      numero: this.numero,
+      telefone: this.telefone,
+      sexo: this.selected === 'Masculino' ? 'm' : 'f',
+      cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
+      dependentes:   this.dependentes?.forEach(dependente => {
+        if (dependente !== null) {
+          dependente.tipo = 'dependente';
+        }
+      }),
+      tipo: 'socio',
+    };
+
+    this.http.put(`${this.apiUrl}/Editar`, socio).subscribe({
+      next: () => {
+        this.listarSocios();
+      },
+      error: (err) => {
+        alert('Erro ao Editar o Socio' + err);
+      },
+    });
+    this.dependentes = undefined;
+    this.limparCampos(); // Restaura os campos
+    this.emEdicao = false; // Sai do modo de edição sem salvar
+  }
+
+  cancelarEdicao(): void {
+    this.limparCampos(); // Restaura o valor original
+    this.socioEmEdicao = {};
+    this.emEdicao = false; // Sai do modo de edição sem salvar
   }
 
 

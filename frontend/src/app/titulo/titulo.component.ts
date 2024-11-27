@@ -15,14 +15,14 @@ import { Classe } from '../classe/classe.component';
 import { Diretor } from '../diretor/diretor.component';
 
 export interface Titulo {
-  id: number | null;
-  nome: string;
-  atores: Ator[] | null;
-  diretor: Diretor | null;
-  ano: number;
-  sinopse: string;
-  categoria: string;
-  classe: Classe | null;
+  id?: number | null;
+  nome?: string;
+  atores?: Ator[] | null;
+  diretor?: Diretor | null;
+  ano?: number;
+  sinopse?: string;
+  categoria?: string;
+  classe?: Classe | null;
 }
 
 @Component({
@@ -61,18 +61,18 @@ export class TituloComponent {
     'sinopse',
     'acoes',
   ];
-  ano: number = 0;
+  ano?: number = 0;
   atores: Ator[] = [];
-  sinopse: string = '';
-  nome: string = '';
+  sinopse?: string = '';
+  nome?: string = '';
   titulos: Titulo[] = [];
-  categoria: string = 'f';
+  categoria?: string = 'f';
   actores = new FormControl<Ator[]>([]); // FormControl que armazena os atores selecionados
   diretor: number | undefined; // Item selecionado na lista de diretores
   classeItem: number | undefined; // Item selecionado na lista de classes
 
   isEditing: boolean = false; // Indica se estamos em modo de edição
-  editandoId: number | null = null; // ID do título que está sendo editado
+  editandoId?: number | null = null; // ID do título que está sendo editado
 
   editarItem(titulo: Titulo) {
     this.isEditing = true; // Muda para o modo de edição
@@ -83,7 +83,7 @@ export class TituloComponent {
     this.categoria = titulo.categoria;
     this.diretor = titulo.diretor?.id;
     this.classeItem = titulo.classe?.id;
-    this.actores.setValue(titulo.atores); // Preenche a lista de atores
+    this.actores.setValue(titulo.atores || []); // Garante que seja um array, mesmo que seja undefined ou null  }
   }
 
   salvarEdicao() {

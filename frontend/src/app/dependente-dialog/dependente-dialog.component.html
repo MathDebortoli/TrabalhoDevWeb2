@@ -52,17 +52,44 @@
     </mat-form-field>
 
     <div>
-      <button mat-raised-button color="accent">
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="!emEdicao"
+        (click)="iniciarEdicao(dependente1, 1)"
+      >
         <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="emEdicao"
+        (click)="salvarEdicao(dependente1)"
+      >
+        <mat-icon>save</mat-icon>
       </button>
     </div>
 
     <div>
-      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="!emEdicao"
+        (click)="excluirDep(dependente1)"
+      >
         <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="emEdicao"
+        (click)="cancelarEdicao()"
+      >
+        <mat-icon>cancel</mat-icon>
       </button>
     </div>
   </div>
+
 
 
   <div class="flexzim">
@@ -76,14 +103,40 @@
     </mat-form-field>
 
     <div>
-      <button mat-raised-button color="accent">
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="!emEdicao1"
+        (click)="iniciarEdicao(dependente2,2)"
+      >
         <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="emEdicao1"
+        (click)="salvarEdicao(dependente2)"
+      >
+        <mat-icon>save</mat-icon>
       </button>
     </div>
 
     <div>
-      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="!emEdicao1"
+        (click)="excluirDep(dependente2)"
+      >
         <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="emEdicao1"
+        (click)="cancelarEdicao()"
+      >
+        <mat-icon>cancel</mat-icon>
       </button>
     </div>
   </div>
@@ -99,14 +152,40 @@
     </mat-form-field>
 
     <div>
-      <button mat-raised-button color="accent">
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="!emEdicao2"
+        (click)="iniciarEdicao(dependente3,3)"
+      >
         <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="emEdicao2"
+        (click)="salvarEdicao(dependente3)"
+      >
+        <mat-icon>save</mat-icon>
       </button>
     </div>
 
     <div>
-      <button mat-raised-button color="warn" (click)="excluirDep(dependente1)">
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="!emEdicao2"
+        (click)="excluirDep(dependente3)"
+      >
         <mat-icon>delete</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="emEdicao2"
+        (click)="cancelarEdicao()"
+      >
+        <mat-icon>cancel</mat-icon>
       </button>
     </div>
   </div>

@@ -57,6 +57,12 @@ export class DependenteDialogComponent {
   dependente2: Dependente = {};
   dependente3: Dependente = {};
 
+  dependenteEdicao: Dependente = {}// Armazena o dependente em edição
+  emEdicao = false; // Controla se estamos no modo de edição
+  emEdicao1 = false; // Controla se estamos no modo de edição
+  emEdicao2 = false; // Controla se estamos no modo de edição
+
+
 
   dependentes: Dependente[] = []; // Lista de dependentes
   dependenteSelecionados: Dependente[] = []; // Dependente selecionado
@@ -155,6 +161,41 @@ export class DependenteDialogComponent {
       this.dependente3 = {};
     }
   }
+
+  iniciarEdicao(dependente: Dependente, numero: number): void {
+    this.dependenteEdicao = dependente; // Armazena o dependente em edição
+    this.nome = dependente.nome;
+    this.sexo = dependente.sexo;
+    this.nascimento = dependente.dataNascimento;
+
+    if(numero === 1){
+      this.emEdicao = true; // Salva as alterações e sai do modo de edição
+    }
+    else if(numero === 2){
+      this.emEdicao1 = true; // Salva as alterações e sai do modo de edição
+    }
+    else{
+      this.emEdicao2 = true; // Salva as alterações e sai do modo de ed
+    }
+  }
+
+  salvarEdicao(dependente: Dependente): void {
+    dependente.nome = this.nome;
+    dependente.sexo = this.sexo;
+    dependente.dataNascimento = this.nascimento;
+    this.limparCampos(); // Restaura os campos
+    this.emEdicao = false; // Sai do modo de edição sem salvar
+    this.emEdicao1 = false; // Salva as alterações e sai do modo de edição
+    this.emEdicao2 = false; // Salva as alterações e sai do modo de edição
+  }
+
+  cancelarEdicao(): void {
+    this.limparCampos(); // Restaura o valor original
+    this.emEdicao = false; // Sai do modo de edição sem salvar
+    this.emEdicao1 = false; // Salva as alterações e sai do modo de edição
+    this.emEdicao2 = false; // Salva as alterações e sai do modo de edição
+  }
+
 
 }
 

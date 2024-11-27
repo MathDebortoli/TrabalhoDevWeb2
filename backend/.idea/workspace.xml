@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Socio e Dependente back completod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/SocioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/SocioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClienteDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/ClienteDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/SocioDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/SocioDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/ClienteDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/ClienteDomain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/classe/classe.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/cliente/cliente.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/dependente-dialog/dependente-dialog.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +133,8 @@
       <workItem from="1732563949889" duration="4740000" />
       <workItem from="1732575843509" duration="4980000" />
       <workItem from="1732623869404" duration="2222000" />
-      <workItem from="1732645765145" duration="4788000" />
+      <workItem from="1732645765145" duration="7443000" />
+      <workItem from="1732661443290" duration="5649000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />
