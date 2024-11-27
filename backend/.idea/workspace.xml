@@ -7,11 +7,14 @@
     <list default="true" id="d6e54e2d-0675-4a1b-8e36-fc18c84130f9" name="Changes" comment="Socio e Dependente back completod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/LocacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/controller/LocacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/LocacaoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/LocacaoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/LocacaoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/dao/LocacaoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/devolucao/devolucao.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/devolucao/devolucao.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DependenteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/application/DependenteApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/LocacaoDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/trabalho/dev/web/model/domain/LocacaoDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/LocacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/controller/LocacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DependenteApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/application/DependenteApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/LocacaoDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/trabalho/dev/web/model/domain/LocacaoDomain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/devolucao/devolucao.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/devolucao/devolucao.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/locacao/locacao.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/locacao/locacao.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/locacao/locacao.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/locacao/locacao.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +144,9 @@
       <workItem from="1732728816272" duration="33000" />
       <workItem from="1732728881821" duration="31000" />
       <workItem from="1732728937326" duration="10000" />
-      <workItem from="1732728966159" duration="1414000" />
+      <workItem from="1732728966159" duration="3459000" />
+      <workItem from="1732733338458" duration="2782000" />
+      <workItem from="1732736776080" duration="434000" />
     </task>
     <task id="LOCAL-00001" summary="Banco ok">
       <option name="closed" value="true" />

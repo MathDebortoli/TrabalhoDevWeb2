@@ -82,6 +82,12 @@
           <th mat-header-cell *matHeaderCellDef>Data Locação</th>
           <td mat-cell *matCellDef="let element">{{ element.dataLocacao | date: 'dd/MM/yyyy' }}</td>
         </ng-container>
+        <ng-container matColumnDef="valorTotal">
+          <th mat-header-cell *matHeaderCellDef>Valor Total</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.valorTotal !== 0 ? (element.valorTotal | currency:'BRL':'symbol':'1.2-2') : (element.valorPrevisto | currency:'BRL':'symbol':'1.2-2') }}
+          </td>
+        </ng-container>
 
    <!-- Coluna Ações -->
    <ng-container matColumnDef="acoes">

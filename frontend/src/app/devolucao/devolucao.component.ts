@@ -19,6 +19,7 @@ export interface Devolucao {
   valorMulta?: number;
   locacao?: Locacao | null;
   item?: Item | null;
+  valortotal?: number;
 }
 
 @Component({
@@ -44,9 +45,9 @@ export interface Devolucao {
   styleUrls: ['./devolucao.component.scss'],
 })
 export class DevolucaoComponent {
+  apiUrl = 'http://localhost:8080';
   itemObj: number | undefined;
   locacaoObj: number | undefined;
-  apiUrl = 'http://localhost:8080/Devolucao';
   multa: number = 0;
   valorAPagar: number = 0; // Propriedade para exibir o valor total a ser pago
 
@@ -92,9 +93,8 @@ export class DevolucaoComponent {
 
   let total = 0;
   const dataAtual = new Date();
-  let dataDevolucaoPrevista = locacao.devolucaoPrevista; // Mantendo o nome correto
+  let dataDevolucaoPrevista = locacao.devolucaoPrevista;
 
-  // Definindo o valor da multa por atraso diretamente
   const multaPorDia = 5; // Exemplo: 5 reais por dia de atraso
 
   // Convertendo a dataDevolucaoPrevista para Date, se necessário
@@ -123,7 +123,7 @@ export class DevolucaoComponent {
   } else {
     console.log('Não há atraso ou data de devolução inválida.');
   }
-
+  locacao.valorTotal = total;
   // Verificar se o valor está pago
   if (locacao.pago === false && locacao.valorPrevisto != null) {
     console.log('Valor previsto a ser pago:', locacao.valorPrevisto);
@@ -133,6 +133,7 @@ export class DevolucaoComponent {
   }
 
   console.log('Total calculado:', total);
+
 
   return total;
 }
@@ -164,13 +165,15 @@ efetuarDevolucao() {
     return;
   }
 
+  locacaoSelecionada.valorTotal = this.valorAPagar;
+ // chama esse aqui pra editar o valor total
+  this.http.put(`${this.apiUrl}/Locacao/Editar`, locacaoSelecionada).subscribe({
+  });
   // Faça a requisição HTTP para marcar a locação como paga
   this.http.put(`http://localhost:8080/Locacao/EfetuarDevolucao`, locacaoSelecionada.id).subscribe({
     next: (response) => {
       console.log('Devolução efetuada com sucesso!', response);
-      // Exiba mensagem de sucesso para o usuário
       alert('Devolução realizada com sucesso!');
-      // Atualize o valor a pagar
       this.valorAPagar = 0; // Zere o valor a pagar após a devolução
       this.lerLocacoes(); // Recarregue as locações
     },

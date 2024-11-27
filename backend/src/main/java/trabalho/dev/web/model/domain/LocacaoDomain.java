@@ -23,6 +23,22 @@ public class LocacaoDomain {
     @Column(nullable = false)
     private Date dataLocacao;
 
+    private double valorTotal;
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+
+
+
+
+
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     @JsonProperty("devolucaoPrevista")
     @Column(nullable = false)
     private Date dataDevolucaoPrevista;

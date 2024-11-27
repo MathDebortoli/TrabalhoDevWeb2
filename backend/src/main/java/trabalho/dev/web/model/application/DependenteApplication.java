@@ -11,7 +11,6 @@ import java.util.List;
 public class DependenteApplication {
 
     private final DependenteDao dao;
-
     @Autowired
     public DependenteApplication(DependenteDao dao) {
         this.dao = dao;

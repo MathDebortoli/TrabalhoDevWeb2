@@ -29,6 +29,7 @@ export interface Locacao {
   devolucaoPrevista?: Date;
   pago?: boolean;
   dataLocacao?: Date;
+  valorTotal?: number;
 }
 
 @Component({
@@ -77,15 +78,8 @@ export class LocacaoComponent {
   idItem: number | undefined;
   idCliente: number | undefined;
   locacaoEmEdicao: Locacao = {};
-  displayedColumns: string[] = [
-    'item',
-    'cliente',
-    'valorPrevisto',
-    'dataPrevista',
-    'dataLocacao',
-    'pago',
-    'acoes',
-  ];
+  displayedColumns: string[] = ['item', 'cliente', 'valorPrevisto', 'dataPrevista', 'dataLocacao', 'pago', 'valorTotal', 'acoes'];
+
 
   constructor(private http: HttpClient,private datePipe: DatePipe) {
     this.lerItens();
@@ -175,32 +169,53 @@ export class LocacaoComponent {
   }
 
   salvarEdicaoLocacao(): void {
+    const locacaoSelecionada = this.dataSource.find(
+      (locacao) => locacao.id === this.editandoId
+    );
 
-    const locacao: Locacao = {
-      id: this.editandoId,
-      item: { id: this.idItem },
-      cliente: { id: this.idCliente },
-      valorPrevisto: this.valorPrevisto,
-      devolucaoPrevista: this.dataPrevista,
-    };
+    if (locacaoSelecionada) {
+      // Atualize os valores de locacaoSelecionada com os dados de entrada do formulário
+      locacaoSelecionada.valorPrevisto = this.valorPrevisto;
+      locacaoSelecionada.devolucaoPrevista = this.dataPrevista;
+      locacaoSelecionada.item = this.item;
+      locacaoSelecionada.cliente = this.socio;
 
-    console.log('Locacao a ser editada:', locacao);
+      console.log('Locacao a ser editada:', locacaoSelecionada);
 
-    this.http.put(`${this.apiUrl}/Editar`, locacao).subscribe({
-      next: () => {
-        this.listarLocacoes();
-      },
-      error: (err) => {
-        alert('Erro ao Editar a Locacao' + err);
-        this.limparCampos(); // Restaura os campos
-        this.editandoId = undefined; // Limpa o ID do ator em edição
-        this.emEdicao = false; // Sai do modo de edição sem salvar
-      },
-    });
+      // Envia a locação atualizada para o backend
+      this.http.put<Locacao>(`${this.apiUrl}/Locacao/Editar`, locacaoSelecionada).subscribe({
+        next: (response) => {
+          console.log('Resposta do backend:', response);
 
-    this.limparCampos(); // Restaura os campos
-    this.emEdicao = false; // Sai do modo de edição sem salvar
+          // Verifica se a resposta contém os dados atualizados
+          if (response.id === this.editandoId) {
+            // Atualiza a lista de locações e o estado
+            this.listarLocacoes(); // Carrega as locações atualizadas
+            this.emEdicao = false;  // Sai do modo de edição
+            this.editandoId = undefined; // Limpa o ID de edição
+            alert('Locação editada com sucesso!');
+          } else {
+            alert('Erro ao editar a locação!');
+          }
+        },
+        error: (err) => {
+          console.error('Erro ao editar locação:', err);
+          alert('Erro ao Editar a Locacao: ' + (err?.message || err));
+          this.limparCampos(); // Restaura os campos
+          this.editandoId = undefined; // Limpa o ID da locação em edição
+          this.emEdicao = false; // Sai do modo de edição sem salvar
+        },
+      });
+    } else {
+      console.error('Locação não encontrada');
+    }
+    this.limparCampos();
   }
+
+
+
+
+
 
   realizarLocacao(): void {
     const formatarData = (data: Date) => {

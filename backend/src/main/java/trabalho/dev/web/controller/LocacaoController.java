@@ -61,6 +61,7 @@ public class LocacaoController {
             return ResponseEntity.notFound().build();
         }
         locacao.setPago(true);
+        locacao.setValorTotal(locacao.getValorTotal());
 
         // Atualiza no banco de dados
         apl.editLocacao(locacao);
