@@ -64,4 +64,7 @@ public class LocacaoDao {
             return null;
         }
     }
+    public LocacaoDomain findById(Long id) {
+        return entityManager.find(LocacaoDomain.class, id); // Busca pelo ID usando o EntityManager
+    }
 }

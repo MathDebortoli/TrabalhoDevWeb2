@@ -94,8 +94,7 @@ export class LocacaoComponent {
   }
 
   onInputChange(event: any) {
-    const ItemSelecionado = this.item;
-
+    const ItemSelecionado = this.itens.find(item => item.id === this.idItem); // Substitua `this.itens` pela sua lista
     if (ItemSelecionado) {
       console.log('Título selecionado:', ItemSelecionado);
 
@@ -177,12 +176,12 @@ export class LocacaoComponent {
 
   salvarEdicaoLocacao(): void {
 
-    const locacao = {
+    const locacao: Locacao = {
       id: this.editandoId,
-      item: this.idItem,
-      cliente: this.idCliente,
+      item: { id: this.idItem },
+      cliente: { id: this.idCliente },
       valorPrevisto: this.valorPrevisto,
-      dataDevolucaoPrevista: this.dataPrevista,
+      devolucaoPrevista: this.dataPrevista,
     };
 
     console.log('Locacao a ser editada:', locacao);
@@ -193,6 +192,9 @@ export class LocacaoComponent {
       },
       error: (err) => {
         alert('Erro ao Editar a Locacao' + err);
+        this.limparCampos(); // Restaura os campos
+        this.editandoId = undefined; // Limpa o ID do ator em edição
+        this.emEdicao = false; // Sai do modo de edição sem salvar
       },
     });
 
@@ -206,8 +208,8 @@ export class LocacaoComponent {
     };
 
     const locacao = {
-      item: this.item,
-      cliente: this.socio,
+      item: this.itens.find(item => item.id === this.idItem),
+      cliente: this.socios.find(socio => socio.id === this.idCliente),
       valorPrevisto: this.valorPrevisto,
       devolucaoPrevista: formatarData(this.dataPrevista ?? new Date()), // Formata a data
       pago: false,
@@ -278,3 +280,4 @@ export class LocacaoComponent {
     });
   }
 }
+

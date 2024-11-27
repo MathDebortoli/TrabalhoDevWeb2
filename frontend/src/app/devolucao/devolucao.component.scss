@@ -8,6 +8,14 @@
 th{
   font-size: 20px;
 }
+.btn-devolucao {
+  padding: 5px 10px; /* Diminui o padding para um botão menor */
+  font-size: 14px; /* Reduz o tamanho da fonte */
+  width: auto; /* Define a largura do botão como 'auto' para se ajustar ao conteúdo */
+  height: auto; /* Ajusta a altura do botão automaticamente */
+  min-width: 150px; /* Define uma largura mínima para o botão */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
 
 #cliente{
   width: 40%;

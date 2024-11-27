@@ -50,4 +50,21 @@ public class LocacaoController {
         List<LocacaoDomain> locacoes = apl.getLocacoes();
         return ResponseEntity.ok(locacoes);
     }
+
+    @Operation(description = "Marca uma locação como paga e devolvida")
+    @PutMapping("/EfetuarDevolucao")
+    public ResponseEntity<LocacaoDomain> efetuarDevolucao(@RequestBody Long locacaoId) {
+        // Busca a locação pelo ID
+        LocacaoDomain locacao = apl.getLocacaoById(locacaoId);
+
+        if (locacao == null) {
+            return ResponseEntity.notFound().build();
+        }
+        locacao.setPago(true);
+
+        // Atualiza no banco de dados
+        apl.editLocacao(locacao);
+
+        return ResponseEntity.ok(locacao);
+    }
 }

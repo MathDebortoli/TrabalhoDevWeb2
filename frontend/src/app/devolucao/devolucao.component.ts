@@ -153,6 +153,33 @@ atualizarValorAPagar() {
 
   console.log('Valor a pagar atualizado:', this.valorAPagar);
 }
+efetuarDevolucao() {
+  // Verifique se a locação foi selecionada
+  const locacaoSelecionada = this.locacaos.find(
+    (locacao) => locacao.id === this.locacaoObj
+  );
 
+  if (!locacaoSelecionada) {
+    console.error('Locação não selecionada ou inválida!');
+    return;
+  }
+
+  // Faça a requisição HTTP para marcar a locação como paga
+  this.http.put(`http://localhost:8080/Locacao/EfetuarDevolucao`, locacaoSelecionada.id).subscribe({
+    next: (response) => {
+      console.log('Devolução efetuada com sucesso!', response);
+      // Exiba mensagem de sucesso para o usuário
+      alert('Devolução realizada com sucesso!');
+      // Atualize o valor a pagar
+      this.valorAPagar = 0; // Zere o valor a pagar após a devolução
+      this.lerLocacoes(); // Recarregue as locações
+    },
+    error: (err) => {
+      console.error('Erro ao efetuar devolução:', err);
+      // Exiba mensagem de erro para o usuário
+      alert('Ocorreu um erro ao realizar a devolução. Tente novamente.');
+    },
+  });
+}
 
 }

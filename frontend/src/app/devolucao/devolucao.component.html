@@ -36,12 +36,15 @@
     </div>
 
 
-
-
-    <div class="format">
-      <div>
-        <button mat-raised-button color="primary">Efetuar Devolucao</button>
-      </div>
+    <div class="valor">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="efetuarDevolucao()"
+        [disabled]="!locacaoObj || !itemObj"
+        class="btn-devolucao">
+        Efetuar Devolução
+      </button>
     </div>
 
 

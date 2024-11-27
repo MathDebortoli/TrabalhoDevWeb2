@@ -36,4 +36,7 @@ public class LocacaoApplication {
     public List<LocacaoDomain> getLocacoes() {
         return dao.getLocacoes();
     }
+    public LocacaoDomain getLocacaoById(Long id) {
+        return dao.findById(id);
+    }
 }
