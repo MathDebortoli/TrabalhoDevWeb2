@@ -5,8 +5,8 @@
     <div class="titulo">
       <mat-form-field class="example-full-width" id="titulo">
         <mat-label>Selecione o Item</mat-label>
-        <mat-select [(ngModel)]="item" (selectionChange)="onInputChange($event)">
-          <mat-option *ngFor="let item of itens" [value]="item">
+        <mat-select [(ngModel)]="idItem" (selectionChange)="onInputChange($event)">
+          <mat-option *ngFor="let item of itens" [value]="item.id">
             {{ item.tituloDomain?.nome}}
           </mat-option>
         </mat-select>
@@ -16,8 +16,8 @@
     <div class="cliente">
       <mat-form-field class="example-full-width" id="cliente">
         <mat-label>Selecione um Cliente</mat-label>
-        <mat-select [(ngModel)]="socio" (selectionChange)="onInputChange($event)">
-          <mat-option *ngFor="let cliente of socios" [value]="cliente">
+        <mat-select [(ngModel)]="idCliente" (selectionChange)="onInputChange($event)">
+          <mat-option *ngFor="let cliente of socios" [value]="cliente.id">
             {{cliente.nome}}
           </mat-option>
         </mat-select>
@@ -44,7 +44,8 @@
 
     <div class="format">
       <div>
-        <button mat-raised-button color="primary" (click)="realizarLocacao()">Salvar Locação</button>
+        <button *ngIf="!emEdicao" mat-raised-button color="primary" (click)="realizarLocacao()">Salvar Locação</button>
+        <button *ngIf="emEdicao" mat-raised-button color="accent" (click)="salvarEdicaoLocacao()">Salvar Edição</button>
       </div>
     </div>
 
@@ -82,42 +83,55 @@
           <td mat-cell *matCellDef="let element">{{ element.dataLocacao | date: 'dd/MM/yyyy' }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="acoes">
-          <th mat-header-cell *matHeaderCellDef>Ações</th>
-          <td mat-cell *matCellDef="let element">
-            <div
-              *ngIf="editandoId !== element.id; else emEdicao"
-              style="display: flex; justify-content: center; align-items: center; gap: 8px;"
-            >
-              <!-- Botões de Excluir e Editar -->
-              <button
-                mat-flat-button
-                color="warn"
-                (click)="removerLocacao(element)"
-              >
-                <mat-icon>delete</mat-icon>
-              </button>
-              <button
-                mat-flat-button
-                color="accent"
-                (click)="iniciarEdicaoLocacao(element)"
-              >
-                <mat-icon>edit</mat-icon>
-              </button>
-            </div>
+   <!-- Coluna Ações -->
+   <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <td mat-cell *matCellDef="let element">
+      <div
+        *ngIf="editandoId !== element.id; else emEdicao"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <!-- Botões de Excluir e Editar -->
+        <button
+          mat-flat-button
+          color="warn"
+          (click)="
+            removerLocacao(element);
+          "
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-flat-button
+          color="accent"
+          (click)="iniciarEdicaoLocacao(element)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
 
-            <ng-template #emEdicao>
-              <!-- Apenas o botão de Cancelar ao editar -->
-              <div
-                style="display: flex; justify-content: center; align-items: center; gap: 8px;"
-              >
-                <button mat-flat-button color="warn" (click)="cancelarEdicao()">
-                  <mat-icon>close</mat-icon> Cancelar
-                </button>
-              </div>
-            </ng-template>
-          </td>
-        </ng-container>
+      <ng-template #emEdicao>
+        <!-- Apenas o botão de Cancelar ao editar -->
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+          "
+        >
+          <button mat-flat-button color="warn" (click)="cancelarEdicao()">
+            <mat-icon>close</mat-icon> Cancelar
+          </button>
+        </div>
+      </ng-template>
+    </td>
+  </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

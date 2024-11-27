@@ -74,6 +74,8 @@ export class LocacaoComponent {
   editandoId?: number;
   emEdicao = false;
   dataSource: Locacao[] = [];
+  idItem: number | undefined;
+  idCliente: number | undefined;
   locacaoEmEdicao: Locacao = {};
   displayedColumns: string[] = [
     'item',
@@ -137,7 +139,6 @@ export class LocacaoComponent {
     }
   }
 
-
   lerItens() {
     this.http.get<Item[]>(`${this.apiUrl}/Item/Listar`).subscribe({
       next: (data) => {
@@ -167,30 +168,34 @@ export class LocacaoComponent {
     this.socio = locacao.cliente;
     this.valorPrevisto = locacao.valorPrevisto;
     this.dataPrevista = locacao.devolucaoPrevista;
+    this.idItem = locacao.item?.id;
+    this.idCliente = locacao.cliente?.id;
 
     this.editandoId = locacao.id; // Define o id do ator que está sendo editado
     this.emEdicao = true;
   }
 
   salvarEdicaoLocacao(): void {
+
     const locacao = {
       id: this.editandoId,
-      item: this.item,
-      cliente: this.socio,
+      item: this.idItem,
+      cliente: this.idCliente,
       valorPrevisto: this.valorPrevisto,
-      pago : 'false',
       dataDevolucaoPrevista: this.dataPrevista,
     };
 
+    console.log('Locacao a ser editada:', locacao);
 
     this.http.put(`${this.apiUrl}/Editar`, locacao).subscribe({
       next: () => {
         this.listarLocacoes();
       },
       error: (err) => {
-        alert('Erro ao Editar a LocacaoS' + err);
+        alert('Erro ao Editar a Locacao' + err);
       },
     });
+
     this.limparCampos(); // Restaura os campos
     this.emEdicao = false; // Sai do modo de edição sem salvar
   }
@@ -208,8 +213,6 @@ export class LocacaoComponent {
       pago: false,
       dataLocacao: formatarData(new Date()), // Formata a data atual
     };
-
-    alert('Locacao: ' + JSON.stringify(locacao));
 
     this.http.post(`${this.apiUrl}/Locacao/Cadastrar`, locacao).subscribe({
       next: () => {
@@ -239,7 +242,7 @@ export class LocacaoComponent {
         })
         .subscribe({
           next: () => {
-            this.lerSocios();
+            this.listarLocacoes();
           },
           error: (err) => {
             alert('Item Com Restricao de Chave Estrangeira!');
@@ -253,11 +256,14 @@ export class LocacaoComponent {
     this.socio = {};
     this.valorPrevisto = 0;
     this.dataPrevista = new Date();
+    this.idCliente = undefined;
+    this.idItem = undefined;
   }
 
   cancelarEdicao(): void {
     this.limparCampos();
     this.locacaoEmEdicao = {};
+    this.editandoId = undefined;
     this.emEdicao = false;
   }
 
