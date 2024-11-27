@@ -25,6 +25,7 @@ public class LocacaoController {
     @Operation(description = "Realiza o Cadastro de Locação")
     @PostMapping("/Cadastrar")
     public ResponseEntity<LocacaoDomain> postCadastrarLocacao(@RequestBody LocacaoDomain locacao) {
+        System.out.println("Locacao recebida: " + locacao);
         apl.addLocacao(locacao);
         return ResponseEntity.ok(locacao);
     }

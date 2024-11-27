@@ -2,14 +2,12 @@ package trabalho.dev.web.model.domain;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity(name = "Classe")
 public class ClasseDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     @Column(nullable = false, length = 40)
     private String nome;
@@ -18,8 +16,9 @@ public class ClasseDomain {
     private double valor;
 
     @Column(nullable = false)
-    private Date data;
+    private int dataPrazo; // Alterado de Date para int
 
+    // Construtores
     public ClasseDomain(String nome) {
         this.nome = nome;
     }
@@ -29,23 +28,23 @@ public class ClasseDomain {
         this.id = id;
     }
 
-    public ClasseDomain(String nome, double valor, Date data) {
+    public ClasseDomain(String nome, double valor, int dataPrazo) {
         this.nome = nome;
         this.valor = valor;
-        this.data = data;
+        this.dataPrazo = dataPrazo;
     }
 
-    public ClasseDomain(String nome, Long id, Date data, double valor) {
+    public ClasseDomain(String nome, Long id, int dataPrazo, double valor) {
         this.nome = nome;
         this.id = id;
-        this.data = data;
+        this.dataPrazo = dataPrazo;
         this.valor = valor;
     }
 
     public ClasseDomain() {
-
     }
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -70,11 +69,11 @@ public class ClasseDomain {
         this.valor = valor;
     }
 
-    public Date getData() {
-        return data;
+    public int getDataPrazo() {
+        return dataPrazo; // Atualizado para refletir o tipo int
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataPrazo(int dataPrazo) {
+        this.dataPrazo = dataPrazo; // Atualizado para refletir o tipo int
     }
 }

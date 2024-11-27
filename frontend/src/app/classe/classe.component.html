@@ -19,21 +19,15 @@
           <input matInput placeholder="Valor" [(ngModel)]="valorClasse" />
         </mat-form-field>
       </div>
+
+      <div class="prazo">
+        <mat-form-field class="example-full-width" id="valor">
+          <mat-label>Digite o Prazo máximo de dias de devolução</mat-label>
+          <input matInput placeholder="Prazo" [(ngModel)]="prazoClasse" />
+        </mat-form-field>
+      </div>
     </div>
-    <mat-form-field class="example-full-width" id="devolucao">
-      <mat-label>Data de Devolução</mat-label>
-      <input
-        matInput
-        [matDatepicker]="picker"
-        [(ngModel)]="dataClasse"
-        placeholder="dd/MM/yyyy"
-      />
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+
 
     <div class="format">
       <div>
@@ -57,12 +51,12 @@
       </ng-container>
 
       <!-- Coluna de Data -->
-      <ng-container matColumnDef="data">
-        <th mat-header-cell *matHeaderCellDef>Data</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.data | date : "dd/MM/yyyy" }}
-        </td>
+      <!-- Coluna de Prazo -->
+    <ng-container matColumnDef="prazo">
+      <th mat-header-cell *matHeaderCellDef>Prazo Devolução</th>
+      <td mat-cell *matCellDef="let element">{{ element.dataPrazo }}</td> <!-- Alterado para dataPrazo -->
       </ng-container>
+
 
       <!-- Coluna de Valor -->
       <ng-container matColumnDef="valor">

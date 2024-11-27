@@ -32,7 +32,7 @@ export const MY_DATE_FORMATS = {
 export interface Classe {
   id?: number;
   nome?: string;
-  data?: Date;
+  dataPrazo?: number;  // Prazo é um número
   valor?: number;
 }
 
@@ -66,26 +66,26 @@ export interface Classe {
   ],
 })
 export class ClasseComponent {
-  displayedColumns: string[] = ['id', 'data', 'valor', 'nome', 'acoes'];
+  displayedColumns: string[] = ['id', 'prazo', 'valor', 'nome', 'acoes'];
   dataSource = [] as Classe[]; // Array de classes
   private apiUrl = 'http://localhost:8080/Classe'; // URL base da sua API
   editandoId?: number | null = null; // Armazena o id da classe que está sendo editada
   nomeClasse?: string = ''; // Variável que armazenará o nome do input para cadastro
-  dataClasse?: Date = new Date(); // Variável para armazenar a data
+  prazoClasse?: number = 0; // Variável para armazenar o prazo
   valorClasse?: number = 0; // Variável para armazenar o valor
   editando: boolean = false; // Variável para controlar o estado de edição
 
   // Variáveis temporárias para edição
   nomeEditado: string = '';
   valorEditado: number = 0;
-  dataEditada: Date = new Date();
+  prazoEditado: number = 0;
 
   constructor(private http: HttpClient) {
     this.listarClasses();
   }
 
   salvarClasse() {
-    if (this.nomeClasse === '' || this.valorClasse === 0) {
+    if (this.nomeClasse === '' || this.valorClasse === 0 || this.prazoClasse === 0) {
       alert('Erro no Salvamento!');
       return;
     }
@@ -93,38 +93,43 @@ export class ClasseComponent {
     const classe = {
       nome: this.nomeClasse,
       valor: this.valorClasse,
-      data: this.dataClasse,
-    }; // Cria um objeto JSON com o nome da classe
+      dataPrazo: this.prazoClasse, // Aqui deve ser dataPrazo, não prazo
+    };
+
+    console.log('Classe a ser salva:', classe);
     this.http.post(`${this.apiUrl}/Cadastrar`, classe).subscribe({
       next: () => {
         console.log('Classe salva com sucesso!');
         this.nomeClasse = ''; // Limpa o input após salvar
         this.valorClasse = 0;
-        this.dataClasse = new Date();
+        this.prazoClasse = 0;
         this.listarClasses(); // Atualiza a lista de classes
       },
       error: (err) => {
-        console.error('Erro ao salvar o Classe:', err);
+        console.error('Erro ao salvar a Classe:', err);
       },
     });
   }
+
 
   listarClasses() {
     this.http.get<Classe[]>(`${this.apiUrl}/Listar`).subscribe({
       next: (data) => {
         this.dataSource = data;
+        console.log('Dados recebidos:', this.dataSource);  // Adicione este log para verificar os dados
       },
       error: (err) => {
-        console.error('Erro ao listar os classes:', err);
+        console.error('Erro ao listar as classes:', err);
       },
     });
   }
 
-  deletarClasse(id: number, nome: string, data: Date, valor: number) {
+
+  deletarClasse(id: number, nome: string, prazo: number, valor: number) {
     const confirmDelete = confirm(
       `Tem certeza que deseja deletar a classe ${nome}?`
     );
-    const classe = { id: id, nome: nome, data: data, valor: valor };
+    const classe = { id: id, nome: nome, dataPrazo: prazo, valor: valor };
     if (confirmDelete) {
       this.http.delete(`${this.apiUrl}/Remover`, { body: classe }).subscribe({
         next: () => {
@@ -144,7 +149,7 @@ export class ClasseComponent {
       const classe: Classe = {
         id: this.editandoId,
         nome: this.nomeClasse,
-        data: this.dataClasse,
+        dataPrazo: this.prazoClasse,
         valor: this.valorClasse,
       };
 
@@ -162,16 +167,16 @@ export class ClasseComponent {
 
   editarClasse(element: Classe) {
     this.editando = true; // Muda para o modo de edição
-    this.editandoId = element.id; // Define o id da classe  que está sendo editada
+    this.editandoId = element.id; // Define o id da classe que está sendo editada
     this.nomeClasse = element.nome; // Armazena o nome original
-    this.dataClasse = element.data;
+    this.prazoClasse = element.dataPrazo; // Garantindo que prazo seja tratado como número
     this.valorClasse = element.valor;
   }
 
   cancelarEdicao() {
     this.editandoId = null; // Reseta o estado de edição
     this.nomeClasse = ''; // Armazena o nome original
-    this.dataClasse = new Date();
+    this.prazoClasse = 0;
     this.valorClasse = 0;
     this.editando = false; // Reseta o estado de edição
   }

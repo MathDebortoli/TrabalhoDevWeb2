@@ -27,7 +27,7 @@ export interface locacao {
   titulo?: Titulo;
   cliente?: Socio;
   valorPrevisto?: number;
-  dataDevolucaoPrevista?: Date;
+  devolucaoPrevista?: Date;
   pago?: boolean;
   dataLocacao?: Date;
 }
@@ -54,6 +54,7 @@ export interface locacao {
   templateUrl: './locacao.component.html',
   styleUrl: './locacao.component.scss',
   providers: [
+    DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     {
       provide: DateAdapter,
@@ -85,39 +86,60 @@ export class LocacaoComponent {
     'acoes',
   ];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private datePipe: DatePipe) {
     this.lerTitulos();
     this.lerClientes();
+    this.listarLocacoes();
   }
 
   onInputChange(event: any) {
     const tituloSelecionado = this.titulo;
 
     if (tituloSelecionado) {
-      // Obtém a data da classe
-      this.valorPrevisto = tituloSelecionado.classe?.valor || 0; // Valor da classe
-      const dataClasse = new Date(this.titulo?.classe?.data ?? new Date());
+      console.log('Título selecionado:', tituloSelecionado);
 
-      // Obtém a data atual
-      const dataAtual = new Date(); // Data do computador (hoje)
+      // Verifica se a classe está presente
+      const classe = tituloSelecionado.classe;
+      if (classe) {
+        console.log('Classe selecionada:', classe);
 
-      // Calcula a diferença em milissegundos entre a data atual e a data da classe
-      const diferencaEmMilissegundos =
-        dataAtual.getTime() - dataClasse.getTime();
+        // Obtém o valor da classe
+        this.valorPrevisto = classe.valor || 0; // Valor da classe
+        console.log('Valor previsto:', this.valorPrevisto);
 
-      // Converte a diferença para dias
-      const diferencaEmDias = diferencaEmMilissegundos / (1000 * 3600 * 24); // Milissegundos para dias
+        // Acesse o campo correto do prazo, que é 'dataPrazo'
+        const prazoClasseEmDias = Number(classe.dataPrazo) || 0; // Garantir que dataPrazo seja um número
+        console.log('Prazo da classe (em dias):', prazoClasseEmDias);
 
-      // Adiciona a diferença de dias à data da classe
-      dataClasse.setDate(dataClasse.getDate() + diferencaEmDias);
+        // Verifique se o prazo foi corretamente atribuído
+        if (prazoClasseEmDias > 0) {
+          // Obtém a data atual
+          const dataAtual = new Date(); // Data do computador (hoje)
 
-      // A nova data prevista é a data da classe ajustada
-      this.dataPrevista = dataClasse;
+          // Calcula a data prevista adicionando o prazo em dias à data atual
+          const dataPrevista = new Date(dataAtual);
+          dataPrevista.setDate(dataAtual.getDate() + prazoClasseEmDias); // Soma o prazo em dias à data atual
+
+          console.log('Data prevista:', dataPrevista);
+
+          // A data prevista é a nova data calculada
+          this.dataPrevista = dataPrevista;
+        } else {
+          console.log('Prazo inválido ou zero. A data prevista não será calculada.');
+          this.dataPrevista = new Date(); // Se o prazo for 0 ou inválido, mantém a data atual
+        }
+      } else {
+        console.log('Classe não encontrada no título selecionado.');
+      }
     } else {
+      console.log('Nenhum título selecionado.');
       this.valorPrevisto = 0;
       this.dataPrevista = new Date(); // Se não houver seleção, define como a data atual
     }
   }
+
+
+
 
   lerClientes() {
     this.http.get<Titulo[]>(`${this.apiUrl}/Titulo/Listar`).subscribe({
@@ -147,7 +169,7 @@ export class LocacaoComponent {
     this.titulo = locacao.titulo;
     this.socio = locacao.cliente;
     this.valorPrevisto = locacao.valorPrevisto;
-    this.dataPrevista = locacao.dataDevolucaoPrevista;
+    this.dataPrevista = locacao.devolucaoPrevista;
 
     this.editandoId = locacao.id; // Define o id do ator que está sendo editado
     this.emEdicao = true;
@@ -163,6 +185,7 @@ export class LocacaoComponent {
       dataDevolucaoPrevista: this.dataPrevista,
     };
 
+
     this.http.put(`${this.apiUrl}/Editar`, locacao).subscribe({
       next: () => {
         this.listarLocacoes();
@@ -176,26 +199,30 @@ export class LocacaoComponent {
   }
 
   realizarLocacao(): void {
+    const formatarData = (data: Date) => {
+      return data.toISOString().split('T')[0]; // Formata como 'yyyy-MM-dd'
+    };
+
     const locacao = {
       titulo: this.titulo,
       cliente: this.socio,
       valorPrevisto: this.valorPrevisto,
-      devolucaoPrevista: this.dataPrevista,
+      devolucaoPrevista: formatarData(this.dataPrevista ?? new Date()), // Formata a data
       pago: false,
-      dataLocacao: new Date(),
+      dataLocacao: formatarData(new Date()), // Formata a data atual
     };
 
+    console.log('Locacao:', locacao);
     this.http.post(`${this.apiUrl}/Locacao/Cadastrar`, locacao).subscribe({
       next: () => {
         this.listarLocacoes();
         this.limparCampos();
       },
       error: (err) => {
-        alert('Erro ao Adicionar a Locacao' + err);
+        alert('Erro ao Adicionar a Locacao: ' + err.message);
       },
     });
   }
-
   removerLocacao(locacao: locacao): void {
     const confirmDelete = confirm(
       `Tem certeza que deseja deletar a locacao do Titulo: ${locacao.titulo}?`
@@ -224,9 +251,9 @@ export class LocacaoComponent {
   }
 
   cancelarEdicao(): void {
-    this.limparCampos(); // Restaura o valor original
+    this.limparCampos();
     this.locacaoEmEdicao = {};
-    this.emEdicao = false; // Sai do modo de edição sem salvar
+    this.emEdicao = false;
   }
 
   listarLocacoes(): void {

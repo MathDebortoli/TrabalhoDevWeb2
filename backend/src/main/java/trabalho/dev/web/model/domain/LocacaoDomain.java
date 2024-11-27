@@ -1,12 +1,10 @@
 package trabalho.dev.web.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-@Entity(name="Locacao")
+@Entity(name="locacao")
 public class LocacaoDomain {
 
     @Id
@@ -22,11 +20,13 @@ public class LocacaoDomain {
     private TituloDomain titulo;
 
     @Column(nullable = false)
-    private LocalDate dataLocacao;
+    private Date dataLocacao;
 
+    @JsonProperty("devolucaoPrevista")
     @Column(nullable = false)
-    private LocalDate dataDevolucaoPrevista;
+    private Date dataDevolucaoPrevista;
 
+    @JsonProperty("valorPrevisto")
     @Column(nullable = false)
     private double valor;
 
@@ -36,31 +36,7 @@ public class LocacaoDomain {
     public LocacaoDomain() {
     }
 
-    // Construtor com o cálculo da dataDevolucaoPrevista
-    public LocacaoDomain(ClienteDomain cliente, TituloDomain titulo, boolean pago) {
-        this.cliente = cliente;
-        this.titulo = titulo;
-        this.dataLocacao = LocalDate.now();
-        this.pago = pago;
 
-        this.valor = titulo.getClasse().getValor(); // Valor vem da classe do título
-
-
-        Date dataClasse = titulo.getClasse().getData();
-        if (dataClasse != null) {
-            System.out.println("Data da Classe: " + dataClasse);
-        } else {
-            System.out.println("A data da classe é null");
-        }
-
-        if (dataClasse != null) {
-            LocalDate localDataClasse = dataClasse.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            long prazoDevolucaoDias = ChronoUnit.DAYS.between(dataLocacao, localDataClasse);
-            this.dataDevolucaoPrevista = dataLocacao.plusDays(prazoDevolucaoDias);
-        } else {
-            this.dataDevolucaoPrevista = LocalDate.now().plusDays(7); // Exemplo: 7 dias de prazo
-        }
-    }
 
     // Getters e Setters
     public Long getId() {
@@ -87,19 +63,19 @@ public class LocacaoDomain {
         this.titulo = titulo;
     }
 
-    public LocalDate getDataLocacao() {
+    public Date getDataLocacao() {
         return dataLocacao;
     }
 
-    public void setDataLocacao(LocalDate dataLocacao) {
+    public void setDataLocacao(Date dataLocacao) {
         this.dataLocacao = dataLocacao;
     }
 
-    public LocalDate getDataDevolucaoPrevista() {
+    public Date getDataDevolucaoPrevista() {
         return dataDevolucaoPrevista;
     }
 
-    public void setDataDevolucaoPrevista(LocalDate dataDevolucaoPrevista) {
+    public void setDataDevolucaoPrevista(Date dataDevolucaoPrevista) {
         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
     }
 
@@ -118,4 +94,18 @@ public class LocacaoDomain {
     public void setPago(boolean pago) {
         this.pago = pago;
     }
+
+    @Override
+    public String toString() {
+        return "LocacaoDomain{" +
+                "id=" + id +
+                ", cliente=" + cliente +
+                ", titulo=" + titulo +
+                ", dataLocacao=" + dataLocacao +
+                ", dataDevolucaoPrevista=" + dataDevolucaoPrevista +
+                ", valor=" + valor +
+                ", pago=" + pago +
+                '}';
+    }
+
 }
