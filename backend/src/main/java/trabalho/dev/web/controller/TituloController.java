@@ -49,4 +49,20 @@ public class TituloController {
         List<TituloDomain> itens = apl.getTitulos();
         return ResponseEntity.ok(itens);
     }
+
+    @Operation(description = "Retorna uma Lista de Titulos por Ator")
+    @GetMapping("/Listar/Ator/{ator}")
+    public ResponseEntity<List<TituloDomain>> getTitulosbyAtor(@PathVariable String ator) {
+        List<TituloDomain> itens = apl.getTitulosByAtor(ator);
+        System.out.println(itens);
+        return ResponseEntity.ok(itens);
+    }
+
+    @Operation(description = "Retorna uma Lista de Titulos por Categoria")
+    @GetMapping("/Listar/Categoria/{categoria}")
+    public ResponseEntity<List<TituloDomain>> getTitulosbyCategoria(@PathVariable String categoria) {
+        List<TituloDomain> itens = apl.getTituloByCategoria(categoria);
+        System.out.println(itens);
+        return ResponseEntity.ok(itens);
+    }
 }

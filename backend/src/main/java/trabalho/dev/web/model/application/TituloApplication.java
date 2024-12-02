@@ -39,4 +39,12 @@ public class TituloApplication {
     public List<TituloDomain> getTitulos() {
         return dao.getTitulos();
     }
+
+    public  List<TituloDomain> getTituloByCategoria(String categoria) {
+        return dao.getTitulosByCategoria(categoria);
+    }
+
+    public List<TituloDomain> getTitulosByAtor(String ator) {
+        return dao.getTitulosByAtor(ator);
+    }
 }

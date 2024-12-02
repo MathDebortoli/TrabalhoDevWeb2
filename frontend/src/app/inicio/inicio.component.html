@@ -1,1 +1,109 @@
+<div class="container">
+  <div class="campos">
+    <div>
+      <h1>Consulta por Títulos</h1>
+    </div>
 
+    <div class="titulo">
+      <p>Especificações da Busca</p>
+    </div>
+
+    <div class="item">
+      <mat-form-field class="example-full-width" id="item">
+        <mat-label>Selecione o Tipo de Busca</mat-label>
+        <mat-select [(ngModel)]="tipoSelecionado">
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo">
+            {{ tipo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Digite o Valor" [(ngModel)]="valor" />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="accent" (click)="buscar()">
+        Buscar
+      </button>
+    </div>
+
+    <div>
+      <h1>Lista de Titulos</h1>
+    </div>
+
+    <div>
+      <table mat-table [dataSource]="titulos" class="mat-elevation-z8">
+        <!-- Coluna ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="atores">
+          <th mat-header-cell *matHeaderCellDef>Atores</th>
+          <td mat-cell *matCellDef="let titulo">
+            {{ getAtoresNomes(titulo.atores) }}
+          </td>
+        </ng-container>
+
+        <!-- Coluna Nome -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.nome }}</td>
+        </ng-container>
+
+        <!-- Coluna Ano -->
+        <ng-container matColumnDef="ano">
+          <th mat-header-cell *matHeaderCellDef>Ano</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.ano }}</td>
+        </ng-container>
+
+        <!-- Coluna Diretor -->
+        <ng-container matColumnDef="diretor">
+          <th mat-header-cell *matHeaderCellDef>Diretor</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.diretor?.nome }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef>Categoria</th>
+          <td mat-cell *matCellDef="let titulo">
+            {{ getCategoriaNome(titulo.categoria) }}
+          </td>
+        </ng-container>
+
+        <!-- Coluna Classe -->
+        <ng-container matColumnDef="classe">
+          <th mat-header-cell *matHeaderCellDef>Classe</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.classe?.nome }}</td>
+        </ng-container>
+
+        <!-- Coluna Sinopse -->
+        <ng-container matColumnDef="sinopse">
+          <th mat-header-cell *matHeaderCellDef>Sinopse</th>
+          <td mat-cell *matCellDef="let titulo">{{ titulo.sinopse }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="p">
+    <div class="filtro">
+      <mat-form-field class="">
+        <input
+          matInput
+          placeholder="Filtro por Nome"
+          [(ngModel)]="nomefiltro"
+          (input)="ngOnInput($event)"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+</div>

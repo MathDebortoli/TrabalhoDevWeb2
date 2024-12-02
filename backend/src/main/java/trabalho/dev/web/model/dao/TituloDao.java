@@ -73,4 +73,35 @@ public class TituloDao {
             return null;
         }
     }
+
+    @Transactional
+    public List<TituloDomain> getTitulosByCategoria(String categoria) {
+        System.out.println("Categoria: " + categoria);
+        try {
+            return entityManager.createQuery(
+                            "SELECT t FROM Titulo t WHERE LOWER(t.categoria) LIKE LOWER(:categoria)", TituloDomain.class)
+                    .setParameter("categoria", categoria.toLowerCase() + "%")
+                    .getResultList();
+        } catch (Exception e) {
+            System.err.println("Erro ao buscar títulos por categoria: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Transactional
+    public List<TituloDomain> getTitulosByAtor(String atorNome) {
+        System.out.println("Ator: " + atorNome);
+        try {
+            return entityManager.createQuery(
+                            "SELECT t FROM Titulo t JOIN t.atores a WHERE LOWER(a.nome) LIKE LOWER(:atorNome)", TituloDomain.class)
+                    .setParameter("atorNome", atorNome.toLowerCase() + "%")
+                    .getResultList();
+        } catch (Exception e) {
+            System.err.println("Erro ao buscar títulos por ator: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
